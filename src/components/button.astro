@@ -1,0 +1,9 @@
+---
+const { buttonText } = Astro.props;
+const { buttonId } = Astro.props;
+const { secondButtonId } = Astro.props;
+const { onClickValue } = Astro.props;
+---
+<button id={secondButtonId} class='h-12 flex-shrink-0 cursor-pointer select-none flex-wrap align-center justify-center text-center pl-4 pr-4 active:border-[var(--border-color)] active:border-2 active:rounded-md' >
+    <div id={buttonId} class="text-xl">{buttonText}</div>
+</button>

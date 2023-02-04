@@ -1,0 +1,40 @@
+---
+import Modal from '../components/modal';
+import Button from '../components/button.astro';
+import Header from '../components/header.astro';
+import '../styles/globals.css';
+---
+<body>
+	<Header />
+	<h1 class="get-started-text">Ruby</h1>
+	<Button buttonId="get-started" secondButtonId="get-started-button" buttonText="Get Started" />
+	<Modal client:only="react" />
+</body>
+
+<style is:global>
+	.get-started-text {
+		font-size: 3rem;
+		text-align: center;
+		margin-top: 2rem;
+		position: absolute;
+		top: 30%;
+		left: 50%;
+		transform: translate(-50%, -30%);
+		-moz-transform: translate(-50%, -30%);
+		-webkit-transform: translate(-50%, -30%);
+		-ms-transform: translate(-50%, -30%);
+		-o-transform: translate(-50%, -30%);
+		color: var(--text-color);
+	}
+	#get-started-button {
+    	margin: 0;
+      	position: absolute;
+     	top: 50%;
+      	left: 50%;
+      	-ms-transform: translate(-50%, -50%);
+      	transform: translate(-50%, -50%);
+    	background: var(--bg-color);
+    	border-radius: 5%;
+    	filter: var(--brightness-filter);
+	}
+</style>

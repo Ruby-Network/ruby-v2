@@ -30,13 +30,13 @@ export default function Modal() {
                     <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ duration: 0.5 }} exit={{ opacity: 0}} className="modal w-52" id="modal">
                         <div className="modal-content text-right p-2" id="content">
                             <ul className="modal-list">
-                                <li className="modal-list-item px-4 text-xl font-semibold rounded-sm hover:bg-[var(--bg-color)] hover:brightness-200 py-2">
+                                <li className="modal-list-item text-xl pr-4 font-semibold rounded-sm hover:bg-[var(--bg-color)] hover:brightness-200 py-2">
                                     <a href="/" className="modal-list-item-link block">Home</a>
                                 </li>
-                                <li className="modal-list-item px-4 text-xl font-semibold rounded-sm hover:bg-[var(--bg-color)] hover:brightness-200 py-2">
+                                <li className="modal-list-item text-xl pr-4 font-semibold rounded-sm hover:bg-[var(--bg-color)] hover:brightness-200 py-2">
                                     <a href="/proxy" className="modal-list-item-link block">Proxy</a>
                                 </li>
-                                <li className="modal-list-item px-4 text-xl font-semibold rounded-sm hover:bg-[var(--bg-color)] hover:brightness-200 py-2">
+                                <li className="modal-list-item pr-4 text-xl font-semibold rounded-sm hover:bg-[var(--bg-color)] hover:brightness-200 py-2">
                                     <a href="https://auttaja.io/ruby" className="modal-list-item-link block">Discord</a>
                                 </li>
                             </ul>

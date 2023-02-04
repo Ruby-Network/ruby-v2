@@ -22,8 +22,8 @@ import '../styles/globals.css';
             placeholder="Privately Search the web..."
           />
         </div>
+        <Button secondButtonId="search" buttonText="Search" buttonType="submit" />
       </form>
-      <Button buttonText="Search" />
 </body>
 <style>
     .get-started-text {
@@ -60,4 +60,20 @@ import '../styles/globals.css';
         -ms-transform: translate(-50%, -50%);
         -o-transform: translate(-50%, -50%);
     }
+</style>
+<style is:global>
+  #search {
+    position: absolute;
+    top: 51.5%;
+    left: 72%;
+    transform: translate(-51.5%, -72%);
+    -moz-transform: translate(-51.5%, -72%);
+    -webkit-transform: translate(-51.5%, -72%);
+    -ms-transform: translate(-51.5%, -72%);
+    -o-transform: translate(-51.5%, -72%);
+    background: var(--text-bg-color);
+    color: var(--text-color);
+    height: 2.5rem;
+    /* filter: var(--brightness-filter); */
+  }
 </style>

@@ -1,10 +1,11 @@
 :root {
-    --bg-color: #4A0F0F;
+    --bg-color: #4a0f0f;
     --text-color: #ffff;
-    --border-color: #E3784D;
+    --border-color: #e3784d;
     --text-bg-color: rgb(37, 0, 0);
-    --input-bg-color: hsl(209 50% 90%);
+    --input-bg-color: rgb(37, 0, 0);
     --brightness-filter: brightness(80%);
+    --font: 'Exo 2', sans-serif;
 }
 .pink {
     --bg-color: hsl(310 50% 90%);
@@ -99,7 +100,8 @@
     --input-bg-color: #2f2f2f;
 }
 .space {
-    --bg-color: linear-gradient(100deg, #2e2a5d, #2b2659, #2e2a5d) no-repeat center center fixed;
+    --bg-color: linear-gradient(100deg, #2e2a5d, #2b2659, #2e2a5d) no-repeat
+        center center fixed;
     --text-color: #f5f5f5;
     --border-color: #f5f5f5;
     --text-bg-color: #2e2a5d;
@@ -119,7 +121,8 @@
     --input-bg-color: #006072;
 }
 .pinkish-purple {
-    --bg-color: linear-gradient(90deg,#665fd2,#9824d3) no-repeat center center fixed;
+    --bg-color: linear-gradient(90deg, #665fd2, #9824d3) no-repeat center center
+        fixed;
     --text-color: #f5f5f5;
     --border-color: #f5f5f5;
     --text-bg-color: #2f2c5e;
@@ -140,9 +143,9 @@
 }
 .earth {
     --bg-color: #285430;
-    --text-color: #E5D9B6;
-    --border-color: #E5D9B6;
-    --text-bg-color: #5F8D4E;
+    --text-color: #e5d9b6;
+    --border-color: #e5d9b6;
+    --text-bg-color: #5f8d4e;
     /* --scroll-bar-track-color: #285430;
     --scroll-bar-thumb-color: #E5D9B6;
     --scroll-bar-thumb-hover-color: #E5D9B6; */
@@ -170,7 +173,20 @@
     --font: 'terminal';
 }
 .rainbow {
-    --bg-color: linear-gradient(90deg,rgba(255, 0, 0, 1) 0%,rgba(255, 154, 0, 1) 10%,rgba(208, 222, 33, 1) 20%,rgba(79, 220, 74, 1) 30%,rgba(63, 218, 216, 1) 40%,rgba(47, 201, 226, 1) 50%,rgba(28, 127, 238, 1) 60%,rgba(95, 21, 242, 1) 70%,rgba(186, 12, 248, 1) 80%,rgba(251, 7, 217, 1) 90%,rgba(255, 0, 0, 1) 100%);
+    --bg-color: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 154, 0, 1) 10%,
+        rgba(208, 222, 33, 1) 20%,
+        rgba(79, 220, 74, 1) 30%,
+        rgba(63, 218, 216, 1) 40%,
+        rgba(47, 201, 226, 1) 50%,
+        rgba(28, 127, 238, 1) 60%,
+        rgba(95, 21, 242, 1) 70%,
+        rgba(186, 12, 248, 1) 80%,
+        rgba(251, 7, 217, 1) 90%,
+        rgba(255, 0, 0, 1) 100%
+    );
     --text-color: rgba(255, 255, 255, 1);
     --border-color: rgba(255, 255, 255, 1);
     --text-bg-color: rgba(0, 0, 0, 1);
@@ -228,8 +244,23 @@ header {
     width: 50%;
     justify-content: flex-end;
 }
-:where(header>*) {
+:where(header > *) {
     display: flex;
     align-items: center;
     flex-direction: row;
+}
+@font-face {
+    font-family: terminal;
+    src: url('/fonts/terminal.ttf');
+}
+@font-face {
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/Exo2-VariableFont_wght.ttf') format('truetype');
+}
+.dnone {
+    display: none;
+    visibility: hidden;
 }

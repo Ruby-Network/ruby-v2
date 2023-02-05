@@ -1,29 +1,111 @@
 ---
-import '../styles/globals.css'
+import '../styles/globals.css';
 import Header from '../components/header.astro';
 import Modal from '../components/modal';
 ---
+
+<head>
+    <script src="/js/settings.js" defer></script>
+    <link id="favicon" rel="icon" href="/favicon.ico" />
+    <script src="/js/lib/particles/particles.min.js" defer></script>
+    <script src="/js/particles.js" defer></script>
+</head>
 <body>
     <Header />
     <Modal client:only="react" />
     <h1 class="get-started-text">Settings</h1>
-    <div class="divider o1">Proxy Select</div>
+    <div class="divider mt-60">Title</div>
+    <div id="pjs" class="dnone particles"></div>
+    <input
+        class="input"
+        id="title"
+        type="text"
+        placeholder="Ruby"
+        onchange="changeTitle(this.value)"
+    />
+    <div class="divider mt-20">Favicon</div>
+    <input
+        class="input"
+        id="faviconval"
+        type="text"
+        placeholder="https://example.com/favicon.ico"
+        onchange="changeFavicon(this.value)"
+    />
+    <div class="divider mt-20">Proxy Select</div>
+    <select class="dropdown" id="proxy" onchange="changeProxy(this.value)">
+        <option value="Ultraviolet">Ultraviolet</option>
+        <option value="DIP">Dynamic Interception Proxy (DIP)</option>
+        <option value="Osana">Osana</option>
+    </select>
+    <div class="divider mt-20">Search Engine Select</div>
+    <select
+        class="dropdown"
+        id="engine"
+        onchange="changeSearchEngine(this.value)"
+    >
+        <option value="Google">Google</option>
+        <option value="Duckduckgo">DuckDuckGo</option>
+        <option value="Bing">Bing</option>
+        <option value="Yahoo">Yahoo</option>
+        <option value="Brave">Brave</option>
+        <option value="Qwant">Qwant</option>
+    </select>
+    <div class="divider mt-20">Theme Select</div>
+    <select class="dropdown" id="theme" onchange="changeTheme(this.value)">
+        <option value="default">Default</option>
+        <option value="pink">Pink</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
+        <option value="dark">Dark</option>
+        <option value="purple">Purple</option>
+        <option value="red">Red</option>
+        <option value="orange">Orange</option>
+        <option value="midnight">Midnight</option>
+        <option value="space">Space</option>
+        <option value="marsh">Marsh</option>
+        <option value="pinkish-purple">Pinkish Purple</option>
+        <option value="nord">Nord</option>
+        <option value="earth">Earth</option>
+        <option value="connected">Connected</option>
+        <option value="terminal">Terminal</option>
+        <option value="rainbow">Rainbow</option>
+    </select>
+    <div class="divider mt-20">Background Effect</div>
+    <select
+        class="dropdown"
+        id="bg-effect"
+        onchange="changeBgeffect(this.value, manual = true)"
+    >
+        <option value="none">None</option>
+        <option value="multicolor">Multicolor</option>
+        <option value="space">Space</option>
+        <option value="terminal">Hacker</option>
+        <option value="blocks">Blocks</option>
+        <option value="triangles-and-circles">Triangles and Circles</option>
+    </select>
+    <div class="divider mt-20">About:Blank Cloaking</div>
+    <button class="button" id="cloak" onclick="aboutBlank()">Enable</button>
+    <div class="divider mt-20">Reset All Settings</div>
+    <button class="button" id="cloak" onclick="resetAll()">Reset All</button>
+    <div class="divider mt-20"></div>
 </body>
 <style>
     .get-started-text {
-		font-size: 3rem;
-		text-align: center;
-		margin-top: 2rem;
-		position: absolute;
-		top: 30%;
-		left: 50%;
-		transform: translate(-50%, -30%);
-		-moz-transform: translate(-50%, -30%);
-		-webkit-transform: translate(-50%, -30%);
-		-ms-transform: translate(-50%, -30%);
-		-o-transform: translate(-50%, -30%);
-		color: var(--text-color);
-	}
+        font-size: 3rem;
+        text-align: center;
+        margin-top: 2rem;
+        position: absolute;
+        top: 13rem;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        -moz-transform: translate(-50%, -30%);
+        -webkit-transform: translate(-50%, -30%);
+        -ms-transform: translate(-50%, -30%);
+        -o-transform: translate(-50%, -30%);
+        color: var(--text-color);
+        font-family: var(--font);
+    }
     .divider {
         display: flex;
         flex-direction: row;
@@ -33,21 +115,96 @@ import Modal from '../components/modal';
         margin-bottom: 1rem;
         height: 1rem;
         white-space: nowrap;
+        font-family: var(--font);
     }
     .divider:not(:empty) {
         gap: 1rem;
     }
-    .divider:after, .divider:before {
-        background: var(--bg-color);
-        filter: var(--brightness-filter);
+    .divider:after,
+    .divider:before {
+        background: var(--text-color);
+        /* filter: var(--brightness-filter); */
+        filter: opacity(0.2);
     }
-    .divider:after, .divider:before {
-        content: "";
+    .divider:after,
+    .divider:before {
+        content: '';
         flex-grow: 1;
-        height: .125rem;
+        height: 0.125rem;
         width: 100%;
     }
-    .o1 {
-        margin-top: 20%;
+    .dropdown {
+        background: var(--text-bg-color);
+        /* filter: var(--brightness-filter); */
+        border: var(--border-color) 1px solid;
+        border-radius: 5px;
+        padding: 0.5rem;
+        color: var(--text-color);
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        outline: none;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        -moz-transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+        -o-transform: translate(-50%, 0);
+        width: 8rem;
+        height: 2.5rem;
+        text-align: center;
+        font-family: var(--font);
+    }
+    .button {
+        background: var(--text-bg-color);
+        /* filter: var(--brightness-filter); */
+        border: var(--border-color) 1px solid;
+        border-radius: 5px;
+        padding: 0.5rem;
+        color: var(--text-color);
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        outline: none;
+        /* transition: all 0.2s ease-in-out; */
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        -moz-transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+        -o-transform: translate(-50%, 0);
+        width: 8rem;
+        height: 2.5rem;
+        text-align: center;
+        font-family: var(--font);
+    }
+    .button:hover {
+        border: var(--border-color) 3px solid;
+    }
+    .input {
+        background: var(--text-bg-color);
+        /* filter: var(--brightness-filter); */
+        border: var(--border-color) 1px solid;
+        border-radius: 5px;
+        padding: 0.5rem;
+        color: var(--text-color);
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        outline: none;
+        /* transition: all 0.2s ease-in-out; */
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        -moz-transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+        -o-transform: translate(-50%, 0);
+        width: 8rem;
+        height: 2.5rem;
+        text-align: center;
+        font-family: var(--font);
     }
 </style>

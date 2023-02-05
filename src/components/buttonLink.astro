@@ -1,8 +1,10 @@
 ---
-const { buttonText } = Astro.props
-const { buttonLink } = Astro.props
+const { buttonText } = Astro.props;
+const { buttonLink } = Astro.props;
 ---
 
-<button class="h-12 flex-shrink-0 cursor-pointer select-none flex-wrap align-center justify-center text-center pl-4 pr-4 active:border-[var(--border-color)] active:border-2 active:rounded-md" >
-    <a class="text-xl block" href={buttonLink}> {buttonText} </a>
+<button
+    class="h-12 flex-shrink-0 cursor-pointer select-none flex-wrap align-center justify-center text-center pl-4 pr-4 active:border-[var(--border-color)] active:border-2 active:rounded-md"
+>
+    <a class="text-xl block" href={buttonLink}> {buttonText}</a>
 </button>

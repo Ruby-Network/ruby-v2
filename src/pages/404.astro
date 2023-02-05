@@ -4,12 +4,21 @@ import Button from '../components/button.astro';
 import Header from '../components/header.astro';
 import '../styles/globals.css';
 ---
+
+<head>
+    <script src="/js/settings.js" defer></script>
+    <link id="favicon" rel="icon" href="/favicon.ico" />
+    <script src="/js/lib/particles/particles.min.js" defer></script>
+    <script src="/js/particles.js" defer></script>
+</head>
 <body>
     <Header />
     <Modal client:only="react" />
     <h1 class="large-text">404 Error</h1>
-    <h1 class="medium-text"> Sorry the page you are looking for does not exist</h1>
-
+    <h1 class="medium-text">
+        Sorry the page you are looking for does not exist
+    </h1>
+    <div id="pjs" class="dnone particles"></div>
 </body>
 <style>
     .large-text {
@@ -25,10 +34,11 @@ import '../styles/globals.css';
         -ms-transform: translate(-50%, -30%);
         -o-transform: translate(-50%, -30%);
         color: var(--text-color);
+        font-family: var(--font);
     }
     .medium-text {
-       font-size: 1.6rem;
-       text-align: center;
+        font-size: 1.6rem;
+        text-align: center;
         margin-top: 10rem;
         position: absolute;
         top: 30%;
@@ -39,5 +49,6 @@ import '../styles/globals.css';
         -ms-transform: translate(-50%, -30%);
         -o-transform: translate(-50%, -30%);
         color: var(--text-color);
-}
+        font-family: var(--font);
+    }
 </style>

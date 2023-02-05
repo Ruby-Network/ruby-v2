@@ -5,7 +5,12 @@ const { secondButtonId } = Astro.props;
 const { buttonType } = Astro.props;
 const { onClickValue } = Astro.props;
 ---
-<button id={secondButtonId} class='h-12 flex-shrink-0 cursor-pointer select-none flex-wrap align-center justify-center text-center pl-4 pr-4 active:border-[var(--border-color)] active:border-2 active:rounded-md' type={buttonType} >
+
+<button
+    id={secondButtonId}
+    class="h-12 flex-shrink-0 cursor-pointer select-none flex-wrap align-center justify-center text-center pl-4 pr-4 active:border-[var(--border-color)] active:border-2 active:rounded-md"
+    type={buttonType}
+>
     <ul>
         <li class="text-xl">
             <a id={buttonId} class="block">

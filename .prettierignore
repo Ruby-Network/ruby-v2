@@ -21,3 +21,4 @@ pnpm-debug.log*
 /public/dip/
 /public/osana/
 /public/js/lib/
+.vscode/

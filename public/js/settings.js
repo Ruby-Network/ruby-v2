@@ -117,8 +117,18 @@ if (!autoChanged) {
     localStorage.setItem('autoChanged', 'null');
 }
 let none;
+function reloadPage() {
+  let reloadedonce = localStorage.getItem('reloadedonce');
+    if (!reloadedonce) {
+      localStorage.setItem('reloadedonce', 'true');
+      location.reload();
+    }
+    else {
+      localStorage.removeItem('reloadedonce')
+    }
+}
 //!THEME CHANGER
-function changeTheme(value) {
+function changeThemeSettings(value, manual) {
     localStorage.setItem('theme', value);
     document.documentElement.className = value;
     if (
@@ -127,69 +137,41 @@ function changeTheme(value) {
         (none === 'none' && localStorage.getItem('manualChanged') !== 'true')
     ) {
         if (value === 'space' || value === 'midnight') {
-            changeBgeffect('space');
+            changeBgeffectSettings('space');
             localStorage.setItem('reload', 'true');
             localStorage.setItem('autoChanged', 'true');
-            if (!localStorage.getItem('reloadedonce')) {
-                localStorage.setItem('reloadedonce', 'true');
-                window.location.reload();
-            } else {
-                localStorage.removeItem('reloadedonce');
-            }
         } else if (value === 'dark') {
-            changeBgeffect('multicolor');
+            changeBgeffectSettings('multicolor');
             localStorage.setItem('autoChanged', 'true');
             localStorage.setItem('reload', 'true');
-            if (!localStorage.getItem('reloadedonce')) {
-                localStorage.setItem('reloadedonce', 'true');
-                window.location.reload();
-            } else {
-                localStorage.removeItem('reloadedonce');
-            }
         } else if (value === 'terminal') {
-            changeBgeffect('terminal');
+            changeBgeffectSettings('terminal');
             localStorage.setItem('autoChanged', 'true');
             localStorage.setItem('reload', 'true');
-            if (!localStorage.getItem('reloadedonce')) {
-                localStorage.setItem('reloadedonce', 'true');
-                window.location.reload();
-            } else {
-                localStorage.removeItem('reloadedonce');
-            }
         } else if (value === 'nord') {
-            changeBgeffect('blocks');
+            changeBgeffectSettings('blocks');
             localStorage.setItem('autoChanged', 'true');
             localStorage.setItem('reload', 'true');
-            if (!localStorage.getItem('reloadedonce')) {
-                localStorage.setItem('reloadedonce', 'true');
-                window.location.reload();
-            } else {
-                localStorage.removeItem('reloadedonce');
-            }
         } else if (value === 'earth') {
-            changeBgeffect('triangles-and-circles');
+            changeBgeffectSettings('triangles-and-circles');
             localStorage.setItem('autoChanged', 'true');
             localStorage.setItem('reload', 'true');
-            if (!localStorage.getItem('reloadedonce')) {
-                localStorage.setItem('reloadedonce', 'true');
-                window.location.reload();
-            } else {
-                localStorage.removeItem('reloadedonce');
-            }
+            window.location.reload();
         } else {
-            changeBgeffect('none');
-            if (localStorage.getItem('reload') === 'true') {
+            let reload = localStorage.getItem('reload');
+            if (reload === 'true') {
                 localStorage.setItem('reload', 'false');
-                if (!localStorage.getItem('reloadedonce')) {
-                    localStorage.setItem('reloadedonce', 'true');
-                    localStorage.removeItem('reloadedonce');
-                    window.location.reload();
-                } else {
-                    localStorage.removeItem('reloadedonce');
-                }
+                changeBgeffectSettings('none');
+            }
+            else {
+                changeBgeffectSettings('none', false, true);
             }
         }
     }
+}
+function changeTheme(value) {
+    localStorage.setItem('theme', value);
+    document.documentElement.className = value; 
 }
 function setTheme() {
     let theme = localStorage.getItem('theme');
@@ -212,13 +194,18 @@ function setThemeElsewhere() {
 }
 //!END THEME CHANGER
 //!BGEFFECT CHANGER
-function changeBgeffect(value, manual) {
+function changeBgeffectSettings(value, manual, auto) {
     localStorage.setItem('bgeffect', value);
-    if (manual === true) {
-        localStorage.setItem('autoChanged', 'false');
-        localStorage.setItem('manualChanged', 'true');
+    if (auto !== true) {
         window.location.reload();
     }
+    if (manual === true) {
+        localStorage.setItem('manualChanged', 'true');
+        localStorage.setItem('autoChanged', 'false');
+    }
+}
+function changeBgeffect(value) {
+    localStorage.setItem('bgeffect', value);
 }
 function setBgeffect() {
     let bgeffect = localStorage.getItem('bgeffect');
@@ -242,18 +229,7 @@ function setBgEffectElsewhere() {
 //!END BGEFFECT CHANGER
 //!A:BC
 function aboutBlank() {
-    window.location.replace('https://google.com');
-    const win = window.open();
-    win.document.body.style.margin = '0';
-    win.document.body.style.height = '100vh';
-    const iframe = win.document.createElement('iframe');
-    iframe.style.border = 'none';
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.margin = '0';
-    const url = window.location.href;
-    iframe.src = url;
-    win.document.body.appendChild(iframe);
+  window.location.replace('https://google.com'); const win = window.open(); win.document.body.style.margin = '0'; win.document.body.style.height = '100vh'; const iframe = win.document.createElement('iframe'); iframe.style.border = 'none'; iframe.style.width = '100%'; iframe.style.height = '100%'; iframe.style.margin = '0'; const url = window.location.href; iframe.src = url; win.document.body.appendChild(iframe);
 }
 //!END A:BC
 //!RESET ALL SETTINGS
@@ -276,7 +252,7 @@ if (
         localStorage.setItem('autoChanged', 'null');
         localStorage.setItem('manualChanged', 'false');
         none = 'none';
-    }
+    } 
 } else if (
     window.location.pathname == '/proxy' ||
     window.location.pathname == '/proxy/'

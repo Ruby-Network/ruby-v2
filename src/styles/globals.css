@@ -264,3 +264,12 @@ header {
     display: none;
     visibility: hidden;
 }
+.copy {
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 0.5rem 0;
+    bottom: 0;
+    right: 0.5%;
+    position: absolute;
+    color: var(--text-color);
+}

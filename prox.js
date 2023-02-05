@@ -22,10 +22,10 @@ app.use(ssrHandler);
 app.use("/uv/", express.static(uvPath));
 
 // Error for everything else
-app.use((req, res) => {
-  res.status(404);
-  res.sendFile(join(__dirname, "404.html"));
-});
+// app.use((req, res) => {
+//   res.status(404);
+//   res.sendFile(join(__dirname, "error.html"));
+// });
 
 const server = createServer();
 

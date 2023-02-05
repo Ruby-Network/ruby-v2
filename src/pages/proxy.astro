@@ -4,6 +4,17 @@ import Button from '../components/button.astro';
 import Header from '../components/header.astro';
 import '../styles/globals.css';
 ---
+<head>
+  <script src="/uv/uv.bundle.js" defer></script>
+  <script src="/uv/uv.config.js" defer></script>
+  <script src="/dip/dip.config.js" defer></script>
+  <script src="/dip/dip.page.js" defer></script>
+  <script src="/js/index.js" defer></script>
+  <script src="/uv/uv-sw.js" defer></script>
+  <script src="/uv/search.js" defer></script>
+  <script src="/osana/osana.bundle.js" defer></script>
+  <script src="/osana/osana.config.js" defer></script>
+</head>
 <body>
     <Header />
     <Modal client:only="react" />
@@ -24,6 +35,7 @@ import '../styles/globals.css';
         </div>
         <Button secondButtonId="search" buttonText="Search" buttonType="submit" />
       </form>
+      <iframe class="dnone" id="uv-iframe" style="height: 100%;width: 100%;border: none;position: fixed;top: 0;right: 0;left: 0;bottom: 0;border: none; background: var(--bg-color);"></iframe> 
 </body>
 <style>
     .get-started-text {
@@ -63,9 +75,9 @@ import '../styles/globals.css';
 </style>
 <style is:global>
   #search {
+    position: absolute;
     border-radius: 2.5rem;
     border: 1px solid var(--border-color);
-    position: absolute;
     top: 51.5%;
     left: 72%;
     transform: translate(-51.5%, -72%);
@@ -77,5 +89,9 @@ import '../styles/globals.css';
     color: var(--text-color);
     height: 2.5rem;
     /* filter: var(--brightness-filter); */
+  }
+  .dnone {
+    display: none;
+    visibility: none;
   }
 </style>

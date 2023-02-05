@@ -6,5 +6,11 @@ const { buttonType } = Astro.props;
 const { onClickValue } = Astro.props;
 ---
 <button id={secondButtonId} class='h-12 flex-shrink-0 cursor-pointer select-none flex-wrap align-center justify-center text-center pl-4 pr-4 active:border-[var(--border-color)] active:border-2 active:rounded-md' type={buttonType} >
-    <div id={buttonId} class="text-xl">{buttonText}</div>
+    <ul>
+        <li class="text-xl">
+            <a id={buttonId} class="block">
+                {buttonText}
+            </a>
+        </li>
+    </ul>
 </button>

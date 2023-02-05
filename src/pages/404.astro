@@ -1,0 +1,43 @@
+---
+import Modal from '../components/modal';
+import Button from '../components/button.astro';
+import Header from '../components/header.astro';
+import '../styles/globals.css';
+---
+<body>
+    <Header />
+    <Modal client:only="react" />
+    <h1 class="large-text">404 Error</h1>
+    <h1 class="medium-text"> Sorry the page you are looking for does not exist</h1>
+
+</body>
+<style>
+    .large-text {
+        font-size: 3rem;
+        text-align: center;
+        margin-top: 4rem;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        -moz-transform: translate(-50%, -30%);
+        -webkit-transform: translate(-50%, -30%);
+        -ms-transform: translate(-50%, -30%);
+        -o-transform: translate(-50%, -30%);
+        color: var(--text-color);
+    }
+    .medium-text {
+       font-size: 1.6rem;
+       text-align: center;
+        margin-top: 10rem;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        -moz-transform: translate(-50%, -30%);
+        -webkit-transform: translate(-50%, -30%);
+        -ms-transform: translate(-50%, -30%);
+        -o-transform: translate(-50%, -30%);
+        color: var(--text-color);
+}
+</style>

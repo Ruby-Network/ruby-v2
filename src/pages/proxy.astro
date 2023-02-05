@@ -7,7 +7,7 @@ import '../styles/globals.css';
 <body>
     <Header />
     <Modal client:only="react" />
-	<h1 class="get-started-text">Search</h1>
+	<h1 class="get-started-text">Ruby</h1>
     <form class="dipform" action="submit" id="uv-form">
         <div class="search">
           <input
@@ -44,7 +44,7 @@ import '../styles/globals.css';
         width: 35%;
         height: 2.5rem;
         border: 1px solid var(--border-color);
-        border-radius: 0.5rem;
+        border-radius: 2.5rem;
         padding: 0.5rem;
         font-size: 1.2rem;
         color: var(--text-color);
@@ -63,6 +63,8 @@ import '../styles/globals.css';
 </style>
 <style is:global>
   #search {
+    border-radius: 2.5rem;
+    border: 1px solid var(--border-color);
     position: absolute;
     top: 51.5%;
     left: 72%;

@@ -217,11 +217,15 @@ body {
 .modal {
     position: fixed;
     background: var(--bg-color);
-    top: 4.5rem;
-    right: 0.5rem;
-    border: var(--border-color) 1px solid;
+    top: 4rem;
+    right: 0rem;
+    /* border only on the left side */
+    border-left: var(--border-color) 2px solid;
+    /* border: var(--border-color) 1px solid; */
     filter: var(--brightness-filter);
     border-radius: 0.5%;
+    height: 100%;
+    z-index: 20;
 }
 header {
     display: flex;

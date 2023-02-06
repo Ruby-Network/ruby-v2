@@ -8,6 +8,7 @@ import { hostname } from 'node:os';
 import { handler as ssrHandler } from './dist/server/entry.mjs';
 import path from 'node:path';
 const __dirname = path.resolve();
+import dotenv from 'dotenv';
 
 const bare = createBareServer('/bare/');
 const app = express();
@@ -44,6 +45,8 @@ server.on('upgrade', (req, socket, head) => {
         socket.end();
     }
 });
+//initalize dotenv
+dotenv.config();
 
 let port = parseInt(process.env.PORT || '');
 

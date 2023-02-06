@@ -10,3 +10,13 @@ if ('function' === typeof importScripts) {
             event.respondWith(Osana.fetch(event));
     });
 }
+assets = [
+    '/',
+    '/404',
+    '/error',
+    '/index',
+    '/proxy',
+    '/settings',
+    '/favicon.ico',
+    '/manifest.json',
+];

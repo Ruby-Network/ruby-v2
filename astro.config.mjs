@@ -1,23 +1,15 @@
 import { defineConfig } from 'astro/config';
-
-// https://astro.build/config
 import prefetch from '@astrojs/prefetch';
-
-// https://astro.build/config
 import node from '@astrojs/node';
-
-// https://astro.build/config
 import tailwind from '@astrojs/tailwind';
-
-// https://astro.build/config
 import react from '@astrojs/react';
-
-// https://astro.build/config
 import robotsTxt from 'astro-robots-txt';
-
-// https://astro.build/config
+import partytown from '@astrojs/partytown';
+import dotenv from 'dotenv';
+dotenv.config();
 export default defineConfig({
-    integrations: [prefetch(), tailwind(), react(), robotsTxt()],
+    integrations: [prefetch(), tailwind(), react(), robotsTxt(), partytown()],
+    site: process.env.URL,
     output: 'server',
     adapter: node({
         mode: 'middleware',

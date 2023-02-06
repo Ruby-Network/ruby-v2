@@ -3,14 +3,10 @@ import Modal from '../components/modal';
 import Button from '../components/button.astro';
 import Header from '../components/header.astro';
 import '../styles/globals.css';
+import Head from '../layouts/allpages.astro';
 ---
 
-<head>
-    <script src="/js/settings.js" defer></script>
-    <link id="favicon" rel="icon" href="/favicon.ico" />
-    <script src="/js/lib/particles/particles.min.js" defer></script>
-    <script src="/js/particles.js" defer></script>
-</head>
+<Head />
 <body>
     <Header />
     <Modal client:only="react" />

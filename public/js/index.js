@@ -200,7 +200,7 @@ if (proxytype === 'DIP') {
             });
         });
     async function worker() {
-        var a = await navigator.serviceWorker.register('/other-sw.js', {
+        var a = await navigator.serviceWorker.register('/sw.js', {
             scope: '/service',
         });
         return a;
@@ -260,7 +260,7 @@ if (proxytype === 'Osana') {
             });
         });
     async function worker() {
-        var a = await navigator.serviceWorker.register('/other-sw.js', {
+        var a = await navigator.serviceWorker.register('/sw.js', {
             scope: '/service/',
         });
         return a;

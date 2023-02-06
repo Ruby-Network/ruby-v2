@@ -132,14 +132,9 @@ if (proxytype === 'Ultraviolet') {
                 //urlBar.value = url;
                 iframe.classList.remove('dnone');
                 iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+                document.getElementById('control').classList.remove('dnone');
                 //get the url from the iframe
                 // if you change pages in the iframe bring back the loader
-                iframe.addEventListener('load', function () {
-                    //set urlBar div to the url
-                    //loader.classList.add("dnone");
-                    //   urlBar.value = iframe.contentWindow.location.href;
-                    //   urlBar.value = decoded(urlBar.value.split(__uv$config.prefix).slice(1).join(__uv$config.prefix))
-                });
             }
         });
 }

@@ -336,7 +336,10 @@ if (type === 'blocks') {
     document.getElementById('pjs').classList.remove('dnone');
     particlesJS('pjs', {
         particles: {
-            number: { value: 147, density: { enable: true, value_area: 800 } },
+            number: {
+                value: 147,
+                density: { enable: true, value_area: 800 },
+            },
             color: { value: '#00ff00' },
             shape: {
                 type: 'edge',

@@ -19,4 +19,5 @@ function fullscreenIframe() {
 }
 function exitIframe() {
     window.location.reload();
+    localStorage.setItem('reloaded', 'true');
 }

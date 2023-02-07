@@ -1,0 +1,120 @@
+---
+import Modal from '../components/modal';
+import Button from '../components/button.astro';
+import Header from '../components/header.astro';
+import '../styles/globals.css';
+import Head from '../layouts/allpages.astro';
+---
+
+<Head />
+<body>
+    <Header />
+    <Modal client:only="react" />
+    <h1 class="get-started-text">Apps</h1>
+    <div class="apps">
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#discord')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li class="fa-brands fa-discord"></li>
+            </ol>
+            <p>Discord</p>
+        </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#youtube')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>       
+                <li class="fa-brands fa-youtube"></li>
+            </ol>
+            <p>Youtube</p>
+        </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#twitter')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li class="fa-brands fa-twitter"></li>
+            </ol>
+            <p>Twitter</p>
+        </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#google')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li class="fa-brands fa-google"></li>
+            </ol>
+            <p>Google</p>
+        </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#twitch')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li class="fa-brands fa-twitch"></li>
+            </ol>
+            <p>Twitch</p>
+        </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#reddit')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li class="fa-brands fa-reddit"></li>
+            </ol>
+            <p>Reddit</p>
+        </button>
+    </div>
+</body>
+<style>
+    .get-started-text {
+        font-size: 3rem;
+        text-align: center;
+        margin-top: 2rem;
+        position: absolute;
+        top: 12rem;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        -moz-transform: translate(-50%, -30%);
+        -webkit-transform: translate(-50%, -30%);
+        -ms-transform: translate(-50%, -30%);
+        -o-transform: translate(-50%, -30%);
+        color: var(--text-color);
+        font-family: var(--font);
+    }
+    .apps {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        position: absolute;
+        top: 20rem;
+        left: 50%;
+        transform: translate(-50%);
+        -moz-transform: translate(-50%);
+        -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+        -o-transform: translate(-50%);
+        gap: 1rem;
+    }
+    .app-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        width: 10rem;
+        height: 6rem;
+        gap: 0.5rem;
+        color: var(--text-color);
+        font-family: var(--font);
+        font-size: 1.5rem;
+        background-color: var(--text-bg-color);
+        border-color: none;
+        border-radius: 0.75rem;
+    }
+</style>

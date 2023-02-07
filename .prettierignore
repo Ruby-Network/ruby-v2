@@ -24,3 +24,5 @@ pnpm-debug.log*
 .vscode/
 .github/
 /public/assets/fontawesome/
+docker-compose.yml
+*.yml

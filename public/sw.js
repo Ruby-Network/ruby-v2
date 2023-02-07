@@ -15,7 +15,7 @@ assets = [
     '/404',
     '/error',
     '/index',
-    '/proxy',
+    '/search',
     '/settings',
     '/favicon.ico',
     '/manifest.json',

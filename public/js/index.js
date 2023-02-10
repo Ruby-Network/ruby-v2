@@ -50,17 +50,22 @@ if (proxytype === 'DIP') {
 
             worker().then((event) => {
                 let search = document.querySelector('.dipinput');
-                let searchURL = document.getElementById('uv-search-engine').value;
+                let searchURL =
+                    document.getElementById('uv-search-engine').value;
                 searchURL = searchURL.replace('%s', '');
                 let location;
                 //if search.value is a url then set location to that url without using .includes
-                if (search.value.includes('https://') || search.value.includes('http://')) {
+                if (
+                    search.value.includes('https://') ||
+                    search.value.includes('http://')
+                ) {
                     location = search.value;
                 } else {
                     location = searchURL + encodeURIComponent(search.value);
                 }
                 iframe.classList.remove('dnone');
-                iframe.src = window.__DIP.config.prefix + window.__DIP.encodeURL(val);
+                iframe.src =
+                    window.__DIP.config.prefix + window.__DIP.encodeURL(val);
                 document.getElementById('control').classList.remove('dnone');
             });
         });
@@ -78,19 +83,25 @@ if (proxytype === 'Osana') {
             event.preventDefault();
             worker().then((event) => {
                 let search = document.querySelector('.dipinput');
-                let searchURL = document.getElementById('uv-search-engine').value;
+                let searchURL =
+                    document.getElementById('uv-search-engine').value;
                 searchURL = searchURL.replace('%s', '');
                 let location;
                 //if search.value is a url then set location to that url without using .includes
-                if (search.value.includes('https://') || search.value.includes('http://')) {
+                if (
+                    search.value.includes('https://') ||
+                    search.value.includes('http://')
+                ) {
                     location = search.value;
                 } else {
-                    console.log(search.value)
+                    console.log(search.value);
                     location = searchURL + encodeURIComponent(search.value);
                 }
                 iframe.classList.remove('dnone');
-                iframe.src = `${__osana$config.prefix}${__osana$config.codec.encode(location)}`
-                console.log(__osana$config.codec.encode(location))
+                iframe.src = `${
+                    __osana$config.prefix
+                }${__osana$config.codec.encode(location)}`;
+                console.log(__osana$config.codec.encode(location));
                 document.getElementById('control').classList.remove('dnone');
             });
         });

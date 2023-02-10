@@ -12,8 +12,7 @@ export default function Password() {
             setPassword(false);
         } else if (pass !== null) {
             setPassword(true);
-        }
-        else {
+        } else {
             setPassword(false);
         }
     }, []);
@@ -27,27 +26,33 @@ export default function Password() {
     };
     return (
         <>
-           {password && (
+            {password && (
                 <>
-                    <div className="password w-full h-full absolute top-0 left-0 right-0 bottom-0 z-40 bg-transparent backdrop-blur-sm">
-                    </div>
-                    <form onSubmit={(e) => {
-                        e.preventDefault();
-                        //@ts-ignore
-                        const password = document.getElementById('password').value; 
-                        let pass = localStorage.getItem('password'); 
-                        if (pass === password) {
-                            setPassword(false);
-                            localStorage.setItem('unlocked', 'true');
-                        }
-                        else {
-                            setPassword(true);
-                        }
-                        }}>
-                        <input id="password" placeholder="Password" type="password" className="text-center password h-10 bg-[var(--input-bg-color)] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-50 rounded-xl"/>
+                    <div className="password w-full h-full absolute top-0 left-0 right-0 bottom-0 z-40 bg-transparent backdrop-blur-sm"></div>
+                    <form
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            //@ts-ignore
+                            const password =
+                                document.getElementById('password').value;
+                            let pass = localStorage.getItem('password');
+                            if (pass === password) {
+                                setPassword(false);
+                                localStorage.setItem('unlocked', 'true');
+                            } else {
+                                setPassword(true);
+                            }
+                        }}
+                    >
+                        <input
+                            id="password"
+                            placeholder="Password"
+                            type="password"
+                            className="text-center password h-10 bg-[var(--input-bg-color)] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-50 rounded-xl"
+                        />
                     </form>
                 </>
-        )}
+            )}
         </>
-    )
+    );
 }

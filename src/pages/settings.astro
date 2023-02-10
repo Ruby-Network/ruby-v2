@@ -21,23 +21,26 @@ import Modal from '../components/modal';
     <meta name="author" content="Ruby" />
     <meta name="title" content="Ruby" />
     <meta name="description" content="Ruby" />
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rubytest.motortruck1221.tech/">
-    <meta property="og:title" content="Ruby">
-    <meta property="og:description" content="Ruby BETA">
-    <meta property="og:image" content="">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://rubytest.motortruck1221.tech/">
-    <meta property="twitter:title" content="Ruby">
-    <meta property="twitter:description" content="Ruby BETA">
-    <meta property="twitter:image" content="">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rubytest.motortruck1221.tech/" />
+    <meta property="og:title" content="Ruby" />
+    <meta property="og:description" content="Ruby BETA" />
+    <meta property="og:image" content="" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+        property="twitter:url"
+        content="https://rubytest.motortruck1221.tech/"
+    />
+    <meta property="twitter:title" content="Ruby" />
+    <meta property="twitter:description" content="Ruby BETA" />
+    <meta property="twitter:image" content="" />
     <!-- END METADATA -->
 </head>
 <body>
     <Header />
     <Modal client:only="react" />
     <h1 class="get-started-text">Settings</h1>
-    <div class="divider mt-60">Title</div>
+    <div class="divider mt-[17rem]">Title</div>
     <div id="pjs" class="dnone particles"></div>
     <input
         class="input"
@@ -111,6 +114,14 @@ import Modal from '../components/modal';
         <option value="blocks">Blocks</option>
         <option value="triangles-and-circles">Triangles and Circles</option>
     </select>
+    <div class="divider mt-20">Password</div>
+    <input
+        class="input"
+        id="password"
+        type="password"
+        placeholder="Password"
+        onchange="setPassword(this.value)"
+    />
     <div class="divider mt-20">About:Blank Cloaking</div>
     <button class="button" id="cloak" onclick="aboutBlank()">Enable</button>
     <div class="divider mt-20">Reset All Settings</div>
@@ -143,6 +154,14 @@ import Modal from '../components/modal';
         height: 1rem;
         white-space: nowrap;
         font-family: var(--font);
+        width: 22rem;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        -moz-transform: translate(-50%, -30%);
+        -webkit-transform: translate(-50%, -30%);
+        -ms-transform: translate(-50%, -30%);
+        -o-transform: translate(-50%, -30%);
     }
     .divider:not(:empty) {
         gap: 1rem;
@@ -182,6 +201,7 @@ import Modal from '../components/modal';
         height: 2.5rem;
         text-align: center;
         font-family: var(--font);
+        width: 15.5rem;
     }
     .button {
         background: var(--text-bg-color);
@@ -206,6 +226,7 @@ import Modal from '../components/modal';
         height: 2.5rem;
         text-align: center;
         font-family: var(--font);
+        width: 15.5rem;
     }
     .button:hover {
         border: var(--border-color) 3px solid;
@@ -233,5 +254,6 @@ import Modal from '../components/modal';
         height: 2.5rem;
         text-align: center;
         font-family: var(--font);
+        width: 15.5rem;
     }
 </style>

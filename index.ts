@@ -19,7 +19,9 @@ app.use(ssrHandler);
 app.use('/uv/', express.static(uvPath));
 //env vars for the unlock feature
 let key = process.env.KEY || '';
-if(!key || key === undefined || key === null || key === '') { key = 'unlock' };
+if (!key || key === undefined || key === null || key === '') {
+    key = 'unlock';
+}
 
 // Error for everything else
 // app.use((req, res) => {
@@ -31,28 +33,32 @@ server.on('request', (req, res) => {
     //@ts-ignore
     const url = new URL(req.url, `http://${req.headers.host}`);
     //Get the url search parameters and check if it matches the key from the environment variable
-    if (url.search === `?${key}` && req.headers.cookie !== `key=${key}`) {
+    //@ts-ignore
+    if (url.search === `?${key}` && !req.headers.cookie?.includes(key)) {
         res.writeHead(302, {
             Location: '/',
             'Set-Cookie': `key=${key}; Path=/`,
         });
         res.end();
         return;
-      } else if (bare.shouldRoute(req)) {
-          bare.routeRequest(req, res);
-        } else if (req.headers.cookie === `key=${key}`) {
-          app(req, res);
-        }
-        else {
-          //get the contents of index.html via fs
-          fs.readFile(join(__dirname, 'education/index.html'), 'utf8', function (err, data) {
-            if (err) {
-              return res.end('Error loading index.html');
+    } else if (bare.shouldRoute(req)) {
+        bare.routeRequest(req, res);
+    } else if (req.headers.cookie?.includes(key)) {
+        app(req, res);
+    } else {
+        //get the contents of index.html via fs
+        fs.readFile(
+            join(__dirname, 'education/index.html'),
+            'utf8',
+            function (err, data) {
+                if (err) {
+                    return res.end('Error loading index.html');
+                }
+                res.end(data);
+                return;
             }
-            res.end(data);
-            return;
-          });
-      };
+        );
+    }
 });
 
 server.on('upgrade', (req, socket, head) => {

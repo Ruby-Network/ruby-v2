@@ -4,11 +4,13 @@ import Button from '../components/button.astro';
 import Header from '../components/header.astro';
 import '../styles/globals.css';
 import Head from '../layouts/allpages.astro';
+import Password from '../components/password';
 ---
 
 <Head />
 <body>
     <Header />
+    <Password client:only="react"/>
     <h1 class="get-started-text">Ruby</h1>
     <Button
         buttonId="get-started"

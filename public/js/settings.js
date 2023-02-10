@@ -247,6 +247,16 @@ function resetAll() {
     window.location.reload();
 }
 //!END RESET ALL SETTINGS
+//!SET PASSWORD STUFF
+function setPassword(value) {
+    if (window.confirm('Are you sure you want to set a password?')) {
+        localStorage.setItem('password', value);
+    }
+    else {
+        alert('OK then, your password will not be set.')
+    }
+}
+//!END SET PASSWORD STUFF
 if (
     window.location.pathname == '/settings' ||
     window.location.pathname == '/settings/'

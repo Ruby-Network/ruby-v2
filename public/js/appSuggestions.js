@@ -37,15 +37,15 @@ window.onload = function () {
             form.dispatchEvent(new Event('submit'));
         }
     }
-    if (window.location.hash === "#spotify") {
-        if (localStorage.getItem('reloaded') !== 'true'){
+    if (window.location.hash === '#spotify') {
+        if (localStorage.getItem('reloaded') !== 'true') {
             adress.value = 'https://open.spotify.com/';
             form.dispatchEvent(new Event('submit'));
         }
     }
-    if (window.location.hash === "#geforce") {
-        if (localStorage.getItem('reloaded') !== 'true'){
-            adress.value = 'https://geforce.com/';
+    if (window.location.hash === '#geforce') {
+        if (localStorage.getItem('reloaded') !== 'true') {
+            adress.value = 'https://www.nvidia.com/en-us/geforce-now/';
             form.dispatchEvent(new Event('submit'));
         }
     }

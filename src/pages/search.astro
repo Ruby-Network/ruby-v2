@@ -3,6 +3,7 @@ import Modal from '../components/modal';
 import Button from '../components/button.astro';
 import Header from '../components/header.astro';
 import '../styles/globals.css';
+import Password from '../components/password';
 ---
 
 <head>
@@ -51,6 +52,7 @@ import '../styles/globals.css';
 </head>
 <body>
     <Header />
+    <Password client:only="react" />
     <Modal client:only="react" />
     <h1 class="get-started-text">Search</h1>
     <form class="dipform" action="submit" id="uv-form">

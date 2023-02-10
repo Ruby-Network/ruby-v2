@@ -4,12 +4,14 @@ import Button from '../components/button.astro';
 import Header from '../components/header.astro';
 import '../styles/globals.css';
 import Head from '../layouts/allpages.astro';
+import Password from '../components/password';
 ---
 
 <Head />
 <body>
     <Header />
     <Modal client:only="react" />
+    <Password client:only="react" />
     <h1 class="large-text">404 Error</h1>
     <h1 class="medium-text">
         Sorry the page you are looking for does not exist

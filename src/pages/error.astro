@@ -1,9 +1,11 @@
 ---
 import '../styles/globals.css';
 import Head from '../layouts/allpages.astro';
+import Password from '../components/password';
 ---
 
 <Head />
+<Password client:only="react" />
 <body>
     <h1 class="get-started-text">
         Uh Oh! Looks Like there has been an error!<br />Please try again by

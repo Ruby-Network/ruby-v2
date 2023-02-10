@@ -37,4 +37,16 @@ window.onload = function () {
             form.dispatchEvent(new Event('submit'));
         }
     }
+    if (window.location.hash === "#spotify") {
+        if (localStorage.getItem('reloaded') !== 'true'){
+            adress.value = 'https://open.spotify.com/';
+            form.dispatchEvent(new Event('submit'));
+        }
+    }
+    if (window.location.hash === "#geforce") {
+        if (localStorage.getItem('reloaded') !== 'true'){
+            adress.value = 'https://geforce.com/';
+            form.dispatchEvent(new Event('submit'));
+        }
+    }
 };

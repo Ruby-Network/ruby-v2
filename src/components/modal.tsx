@@ -16,14 +16,16 @@ export default function Modal() {
     useEffect(() => {
         const modal = document.getElementById('modal');
         const modalContent = document.getElementById('content');
-        const btn = document.getElementById('get-started');
+        const btn = document.getElementById('get-started-button');
+        let btn2 = document.getElementById('get-started');
         const ham = document.getElementsByClassName('hamburger-react')[0];
+        const ham2 = document.getElementById('hamburger');
         const span = document.getElementsByClassName('close')[0];
         //detect click outside modal
         window.onclick = function (event) {
-            if (event.target === btn) {
+            if (event.target === btn || event.target === btn2) {
                 setModal(true);
-            } else if (event.target === ham) {
+            } else if (event.target === ham || event.target === ham2) {
                 console.log('');
             } else {
                 setModal(false);

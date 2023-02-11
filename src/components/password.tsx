@@ -21,6 +21,7 @@ export default function Password() {
         if (e.altKey && e.key === 'l') {
             if (localStorage.getItem('password') !== null) {
                 setPassword(true);
+                localStorage.setItem('unlocked', 'false');
             }
         }
     };
@@ -33,14 +34,14 @@ export default function Password() {
                         onSubmit={(e) => {
                             e.preventDefault();
                             //@ts-ignore
-                            const password =
-                                document.getElementById('password').value;
+                            const password = document.getElementById('password').value;
                             let pass = localStorage.getItem('password');
                             if (pass === password) {
                                 setPassword(false);
                                 localStorage.setItem('unlocked', 'true');
                             } else {
                                 setPassword(true);
+                                localStorage.setItem('unlocked', 'false');
                             }
                         }}
                     >

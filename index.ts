@@ -22,12 +22,6 @@ let key = process.env.KEY || '';
 if (!key || key === undefined || key === null || key === '') {
     key = 'unlock';
 }
-
-// Error for everything else
-// app.use((req, res) => {
-//   res.status(404);
-//   res.sendFile(join(__dirname, "error.html"));
-// });
 const server = createServer();
 server.on('request', (req, res) => {
     //@ts-ignore
@@ -42,7 +36,17 @@ server.on('request', (req, res) => {
         res.end();
         return;
     } else if (bare.shouldRoute(req)) {
-        bare.routeRequest(req, res);
+        try {
+            bare.routeRequest(req, res);
+        }
+        catch (e) {
+            console.error(e);
+            res.writeHead(302, {
+                Location: '/error',
+            });
+            res.end();
+            return;
+        }
     } else if (req.headers.cookie?.includes(key)) {
         app(req, res);
     } else {
@@ -68,7 +72,33 @@ server.on('upgrade', (req, socket, head) => {
         socket.end();
     }
 });
-
+//!CUSTOM ENDPOINTS
+app.get("/suggest", (req, res) => {
+    // Get the search query from the query string
+    const query = req.query.q;
+  
+    // Make a request to the Brave API
+    //@ts-ignore
+    fetch(`https://search.brave.com/api/suggest?q=${encodeURIComponent(query)}&format=json`)
+      .then((response) => response.json())
+      .then((data) => {
+        // Send the response data back to the browser
+        res.json(data);
+      })
+      .catch((error) => {
+        // Handle the error
+        console.error(error);
+        res.sendStatus(500);
+      });
+  });
+  app.use((req, res) => {
+  res.writeHead(302, {
+    Location: '/404',
+  });
+    res.end();
+    return
+});
+//!CUSTOM ENDPOINTS END
 let port = parseInt(process.env.PORT || '');
 
 if (isNaN(port)) port = 8080;

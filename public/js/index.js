@@ -65,7 +65,8 @@ if (proxytype === 'DIP') {
                 }
                 iframe.classList.remove('dnone');
                 iframe.src =
-                    window.__DIP.config.prefix + window.__DIP.encodeURL(val);
+                    window.__DIP.config.prefix +
+                    window.__DIP.encodeURL(location);
                 document.getElementById('control').classList.remove('dnone');
             });
         });

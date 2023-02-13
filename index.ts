@@ -38,8 +38,7 @@ server.on('request', (req, res) => {
     } else if (bare.shouldRoute(req)) {
         try {
             bare.routeRequest(req, res);
-        }
-        catch (e) {
+        } catch (e) {
             console.error(e);
             res.writeHead(302, {
                 Location: '/error',
@@ -49,6 +48,14 @@ server.on('request', (req, res) => {
         }
     } else if (req.headers.cookie?.includes(key)) {
         app(req, res);
+    } else if (url.pathname === '/manifest.json') {
+        res.setHeader('Content-Type', 'application/json');
+    } else if (url.pathname === '/robots.txt') {
+        res.setHeader('Content-Type', 'text/plain');
+    } else if (url.pathname === '/favicon.ico') {
+        res.setHeader('Content-Type', 'image/x-icon');
+    } else if (url.pathname === '/sitemap.xml') {
+        res.setHeader('Content-Type', 'application/xml');
     } else {
         //get the contents of index.html via fs
         fs.readFile(
@@ -73,30 +80,34 @@ server.on('upgrade', (req, socket, head) => {
     }
 });
 //!CUSTOM ENDPOINTS
-app.get("/suggest", (req, res) => {
+app.get('/suggest', (req, res) => {
     // Get the search query from the query string
     const query = req.query.q;
-  
+
     // Make a request to the Brave API
-    //@ts-ignore
-    fetch(`https://search.brave.com/api/suggest?q=${encodeURIComponent(query)}&format=json`)
-      .then((response) => response.json())
-      .then((data) => {
-        // Send the response data back to the browser
-        res.json(data);
-      })
-      .catch((error) => {
-        // Handle the error
-        console.error(error);
-        res.sendStatus(500);
-      });
-  });
-  app.use((req, res) => {
-  res.writeHead(302, {
-    Location: '/404',
-  });
+    fetch(
+        `https://search.brave.com/api/suggest?q=${encodeURIComponent(
+            //@ts-ignore
+            query
+        )}&format=json`
+    )
+        .then((response) => response.json())
+        .then((data) => {
+            // Send the response data back to the browser
+            res.json(data);
+        })
+        .catch((error) => {
+            // Handle the error
+            console.error(error);
+            res.sendStatus(500);
+        });
+});
+app.use((req, res) => {
+    res.writeHead(302, {
+        Location: '/404',
+    });
     res.end();
-    return
+    return;
 });
 //!CUSTOM ENDPOINTS END
 let port = parseInt(process.env.PORT || '');

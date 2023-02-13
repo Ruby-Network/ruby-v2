@@ -34,7 +34,8 @@ export default function Password() {
                         onSubmit={(e) => {
                             e.preventDefault();
                             //@ts-ignore
-                            const password = document.getElementById('password').value;
+                            const password =
+                                document.getElementById('password').value;
                             let pass = localStorage.getItem('password');
                             if (pass === password) {
                                 setPassword(false);

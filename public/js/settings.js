@@ -128,46 +128,85 @@ function reloadPage() {
 }
 //!THEME CHANGER
 function changeThemeSettings(value, manual) {
-    localStorage.setItem('theme', value);
-    document.documentElement.className = value;
-    if (
-        autoChanged === 'null' ||
-        autoChanged === 'true' ||
-        (none === 'none' && localStorage.getItem('manualChanged') !== 'true')
-    ) {
-        if (value === 'space' || value === 'midnight') {
-            changeBgeffectSettings('space');
-            localStorage.setItem('reload', 'true');
-            localStorage.setItem('autoChanged', 'true');
-        } else if (value === 'dark') {
-            changeBgeffectSettings('multicolor');
-            localStorage.setItem('autoChanged', 'true');
-            localStorage.setItem('reload', 'true');
-        } else if (value === 'terminal') {
-            changeBgeffectSettings('terminal');
-            localStorage.setItem('autoChanged', 'true');
-            localStorage.setItem('reload', 'true');
-        } else if (value === 'nord') {
-            changeBgeffectSettings('blocks');
-            localStorage.setItem('autoChanged', 'true');
-            localStorage.setItem('reload', 'true');
-        } else if (value === 'earth') {
-            changeBgeffectSettings('triangles-and-circles');
-            localStorage.setItem('autoChanged', 'true');
-            localStorage.setItem('reload', 'true');
-            window.location.reload();
+    if (value === 'custom') {
+        if (localStorage.getItem('customTheme')) {
+            if (window.confirm('You already have a custom theme, do you want to overwrite it? Click Cancel to set the theme you already have.')) {
+                setCustomTheme()
+                localStorage.setItem('manualChanged', 'true');
+            }
+            else {
+                let customTheme = localStorage.getItem('customTheme');
+                let customThemeObj = JSON.parse(customTheme);
+                //set the styles
+                let root = document.documentElement;
+                console.error('Custom Theme: ', customThemeObj.bg);
+                root.style.setProperty('--bg-color', customThemeObj.bg);
+                root.style.setProperty('--text-color', customThemeObj.text);
+                root.style.setProperty('--border-color', customThemeObj.border);
+                root.style.setProperty('--text-bg-color', customThemeObj.textBg);
+                root.style.setProperty('--input-bg-color', customThemeObj.bg);
+                localStorage.setItem('theme', 'custom');
+            }
         } else {
-            let reload = localStorage.getItem('reload');
-            if (reload === 'true') {
-                localStorage.setItem('reload', 'false');
-                changeBgeffectSettings('none');
+            setCustomTheme();
+            localStorage.setItem('manualChanged', 'true');
+        }
+    } else {
+        localStorage.setItem('theme', value);
+        document.documentElement.className = value;
+        if (
+            autoChanged === 'null' ||
+            autoChanged === 'true' ||
+            (none === 'none' && localStorage.getItem('manualChanged') !== 'true')
+        ) {
+            if (value === 'space' || value === 'midnight') {
+                changeBgeffectSettings('space');
+                localStorage.setItem('reload', 'true');
+                localStorage.setItem('autoChanged', 'true');
+            } else if (value === 'dark') {
+                changeBgeffectSettings('multicolor');
+                localStorage.setItem('autoChanged', 'true');
+                localStorage.setItem('reload', 'true');
+            } else if (value === 'terminal') {
+                changeBgeffectSettings('terminal');
+                localStorage.setItem('autoChanged', 'true');
+                localStorage.setItem('reload', 'true');
+            } else if (value === 'nord') {
+                changeBgeffectSettings('blocks');
+                localStorage.setItem('autoChanged', 'true');
+                localStorage.setItem('reload', 'true');
+            } else if (value === 'earth') {
+                changeBgeffectSettings('triangles-and-circles');
+                localStorage.setItem('autoChanged', 'true');
+                localStorage.setItem('reload', 'true');
+                window.location.reload();
             } else {
-                changeBgeffectSettings('none', false, true);
+                let reload = localStorage.getItem('reload');
+                if (reload === 'true') {
+                    localStorage.setItem('reload', 'false');
+                    changeBgeffectSettings('none');
+                } else {
+                    changeBgeffectSettings('none', false, true);
+                }
             }
         }
     }
 }
 function changeTheme(value) {
+    if (value === 'custom') {
+        let customTheme = localStorage.getItem('customTheme');
+        let customThemeObj = JSON.parse(customTheme);
+        //set the styles
+        let root = document.documentElement;
+        console.error('Custom Theme: ', customThemeObj.bg);
+        root.style.setProperty('--bg-color', customThemeObj.bg);
+        root.style.setProperty('--text-color', customThemeObj.text);
+        root.style.setProperty('--border-color', customThemeObj.border);
+        root.style.setProperty('--text-bg-color', customThemeObj.textBg);
+        root.style.setProperty('--input-bg-color', customThemeObj.bg);
+        localStorage.setItem('theme', 'custom');
+        localStorage.setItem('manualChanged', 'true');
+    } 
     localStorage.setItem('theme', value);
     document.documentElement.className = value;
 }
@@ -177,7 +216,8 @@ function setTheme() {
     if (theme) {
         themeInput.value = theme;
         changeTheme(theme);
-    } else {
+    }
+    else {
         themeInput.value = 'default';
         changeTheme('default');
     }
@@ -191,6 +231,22 @@ function setThemeElsewhere() {
     }
 }
 //!END THEME CHANGER
+//!Custom Theme Changer
+function setCustomTheme() {
+    let bg = window.prompt('Paste the hex, hsl or RGB code for the background color');
+    let text = window.prompt('Paste the hex, hsl or RGB code for the text color');
+    let border = window.prompt('Paste the hex, hsl or RGB code for the border color');
+    let textBg = window.prompt('Paste the hex, hsl or RGB code for the text background color');
+    let customTheme = {
+        bg: bg,
+        text: text,
+        border: border,
+        textBg: textBg,
+        name: 'Custom Theme',
+    };
+    localStorage.setItem('customTheme', JSON.stringify(customTheme));
+}
+//!END Custom Theme Changer
 //!BGEFFECT CHANGER
 function changeBgeffectSettings(value, manual, auto) {
     localStorage.setItem('bgeffect', value);

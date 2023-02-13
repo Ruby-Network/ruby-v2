@@ -22,6 +22,7 @@ export default function Password() {
             if (localStorage.getItem('password') !== null) {
                 setPassword(true);
                 localStorage.setItem('unlocked', 'false');
+                document.body.classList.add('overflow-hidden');
             }
         }
     };
@@ -29,7 +30,7 @@ export default function Password() {
         <>
             {password && (
                 <>
-                    <div className="password w-full h-full absolute top-0 left-0 right-0 bottom-0 z-40 bg-transparent backdrop-blur-sm"></div>
+                    <div className="password absolute top-0 left-0 right-0 bottom-0 z-40 bg-transparent backdrop-blur-sm overflow-hidden"></div>
                     <form
                         onSubmit={(e) => {
                             e.preventDefault();
@@ -40,6 +41,7 @@ export default function Password() {
                             if (pass === password) {
                                 setPassword(false);
                                 localStorage.setItem('unlocked', 'true');
+                                document.body.classList.remove('overflow-hidden');
                             } else {
                                 setPassword(true);
                                 localStorage.setItem('unlocked', 'false');

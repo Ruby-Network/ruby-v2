@@ -3,50 +3,53 @@
 ## This is our second edition of [Ruby](https://github.com/ruby-network/ruby)
 
 ### This edition focuses on speed and more features.
+
 ---
 
 ## Features
 
-- Tons of themes (you can even make your own)
+-   Tons of themes (you can even make your own)
 
-- We preload everything so you don't have to wait for the page to load
+-   We preload everything so you don't have to wait for the page to load
 
-- Multiple Proxy Backends:
-    - [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
-    - [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
-    - [Osana](https://github.com/nebulaservices/osana)
+-   Multiple Proxy Backends:
+
+    -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
+    -   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
+    -   [Osana](https://github.com/nebulaservices/osana)
 
     Soon to be added:
-    - [Aero](https://github.com/proxyhaven/aero)
 
-- 45+ Games in our games page
+    -   [Aero](https://github.com/proxyhaven/aero)
 
-- Password protection for the website (you can set a password in the settings page)
+-   45+ Games in our games page
 
-- Customizable apps and games
+-   Password protection for the website (you can set a password in the settings page)
 
-- Almost 100% mobile friendly (only a few pages are not mobile friendly)
+-   Customizable apps and games
 
-- about:blank cloaking
+-   Almost 100% mobile friendly (only a few pages are not mobile friendly)
 
-- Easy to use clean UI/UX
+-   about:blank cloaking
 
-- Easy to self host
+-   Easy to use clean UI/UX
 
-- And more!
+-   Easy to self host
+
+-   And more!
 
 ---
+
 ## Tech Stack
 
-- [Astro](https://astro.build/) (Server Side Rendered)
-- [React](https://reactjs.org/)
-- [TailwindCSS](https://tailwindcss.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Particles.js](https://vincentgarreau.com/particles.js/)
-- [Express](https://expressjs.com/)
-- [Bare Server Node](https://github.com/tomphttp/bare-server-node)
-- [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
-- [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
-- [Osana](https://github.com/nebulaservices/osana)
-- HTML, CSS, and JavaScript
-
+-   [Astro](https://astro.build/) (Server Side Rendered)
+-   [React](https://reactjs.org/)
+-   [TailwindCSS](https://tailwindcss.com/)
+-   [TypeScript](https://www.typescriptlang.org/)
+-   [Particles.js](https://vincentgarreau.com/particles.js/)
+-   [Express](https://expressjs.com/)
+-   [Bare Server Node](https://github.com/tomphttp/bare-server-node)
+-   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
+-   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
+-   [Osana](https://github.com/nebulaservices/osana)
+-   HTML, CSS, and JavaScript

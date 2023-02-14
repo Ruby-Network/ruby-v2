@@ -5,7 +5,7 @@ services:
           image: 'ghcr.io/ruby-network/ruby-v2:main'
           ports:
                #IMPORTANT: DO NOT CHANGE THE 8080 PART ONLY CHANGE THE <your port here> PART
-               - <your port here>:8080
+               - 8080:8080
           #ADVANCED ITEMS BELOW
 #networks:
 #  default:

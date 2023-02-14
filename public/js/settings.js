@@ -130,11 +130,14 @@ function reloadPage() {
 function changeThemeSettings(value, manual) {
     if (value === 'custom') {
         if (localStorage.getItem('customTheme')) {
-            if (window.confirm('You already have a custom theme, do you want to overwrite it? Click Cancel to set the theme you already have.')) {
-                setCustomTheme()
+            if (
+                window.confirm(
+                    'You already have a custom theme, do you want to overwrite it? Click Cancel to set the theme you already have.'
+                )
+            ) {
+                setCustomTheme();
                 localStorage.setItem('manualChanged', 'true');
-            }
-            else {
+            } else {
                 let customTheme = localStorage.getItem('customTheme');
                 let customThemeObj = JSON.parse(customTheme);
                 //set the styles
@@ -143,7 +146,10 @@ function changeThemeSettings(value, manual) {
                 root.style.setProperty('--bg-color', customThemeObj.bg);
                 root.style.setProperty('--text-color', customThemeObj.text);
                 root.style.setProperty('--border-color', customThemeObj.border);
-                root.style.setProperty('--text-bg-color', customThemeObj.textBg);
+                root.style.setProperty(
+                    '--text-bg-color',
+                    customThemeObj.textBg
+                );
                 root.style.setProperty('--input-bg-color', customThemeObj.bg);
                 localStorage.setItem('theme', 'custom');
             }
@@ -157,7 +163,8 @@ function changeThemeSettings(value, manual) {
         if (
             autoChanged === 'null' ||
             autoChanged === 'true' ||
-            (none === 'none' && localStorage.getItem('manualChanged') !== 'true')
+            (none === 'none' &&
+                localStorage.getItem('manualChanged') !== 'true')
         ) {
             if (value === 'space' || value === 'midnight') {
                 changeBgeffectSettings('space');
@@ -206,7 +213,7 @@ function changeTheme(value) {
         root.style.setProperty('--input-bg-color', customThemeObj.bg);
         localStorage.setItem('theme', 'custom');
         localStorage.setItem('manualChanged', 'true');
-    } 
+    }
     localStorage.setItem('theme', value);
     document.documentElement.className = value;
 }
@@ -216,8 +223,7 @@ function setTheme() {
     if (theme) {
         themeInput.value = theme;
         changeTheme(theme);
-    }
-    else {
+    } else {
         themeInput.value = 'default';
         changeTheme('default');
     }
@@ -233,10 +239,18 @@ function setThemeElsewhere() {
 //!END THEME CHANGER
 //!Custom Theme Changer
 function setCustomTheme() {
-    let bg = window.prompt('Paste the hex, hsl or RGB code for the background color');
-    let text = window.prompt('Paste the hex, hsl or RGB code for the text color');
-    let border = window.prompt('Paste the hex, hsl or RGB code for the border color');
-    let textBg = window.prompt('Paste the hex, hsl or RGB code for the text background color');
+    let bg = window.prompt(
+        'Paste the hex, hsl or RGB code for the background color'
+    );
+    let text = window.prompt(
+        'Paste the hex, hsl or RGB code for the text color'
+    );
+    let border = window.prompt(
+        'Paste the hex, hsl or RGB code for the border color'
+    );
+    let textBg = window.prompt(
+        'Paste the hex, hsl or RGB code for the text background color'
+    );
     let customTheme = {
         bg: bg,
         text: text,

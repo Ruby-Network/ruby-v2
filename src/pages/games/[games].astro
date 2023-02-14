@@ -1,0 +1,171 @@
+---
+import Modal from '../../components/modal';
+import Button from '../../components/button.astro';
+import Header from '../../components/header.astro';
+import '../../styles/globals.css';
+import Head from '../../layouts/allpages.astro';
+import Password from '../../components/password';
+const { games } = Astro.params;
+---
+
+<Head />
+<body>
+    <Header />
+    <Password client:only="react" />
+    <Modal client:only="react" />
+    <div id="pjs" class="dnone particles"></div>
+    <h1 class="get-started-text">{games}</h1>
+    <div class="apps">
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#discord')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li class="fa-brands fa-discord"></li>
+            </ol>
+            <p>Discord</p>
+        </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#youtube')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li class="fa-brands fa-youtube"></li>
+            </ol>
+            <p>Youtube</p>
+        </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#twitter')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li class="fa-brands fa-twitter"></li>
+            </ol>
+            <p>Twitter</p>
+        </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#google')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li class="fa-brands fa-google"></li>
+            </ol>
+            <p>Google</p>
+        </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#twitch')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li class="fa-brands fa-twitch"></li>
+            </ol>
+            <p>Twitch</p>
+        </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#reddit')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li class="fa-brands fa-reddit"></li>
+            </ol>
+            <p>Reddit</p>
+        </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#spotify')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li class="fa-brands fa-spotify"></li>
+            </ol>
+            <p>Spotify</p>
+        </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#geforce')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li>
+                    <svg
+                        role="img"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        id="IconChangeColor"
+                        height="1.5rem"
+                        width="1.5rem"
+                        ><path
+                            d="M8.948 8.798v-1.43a6.7 6.7 0 0 1 .424-.018c3.922-.124 6.493 3.374 6.493 3.374s-2.774 3.851-5.75 3.851c-.398 0-.787-.062-1.158-.185v-4.346c1.528.185 1.837.857 2.747 2.385l2.04-1.714s-1.492-1.952-4-1.952a6.016 6.016 0 0 0-.796.035m0-4.735v2.138l.424-.027c5.45-.185 9.01 4.47 9.01 4.47s-4.08 4.964-8.33 4.964c-.37 0-.733-.035-1.095-.097v1.325c.3.035.61.062.91.062 3.957 0 6.82-2.023 9.593-4.408.459.371 2.34 1.263 2.73 1.652-2.633 2.208-8.772 3.984-12.253 3.984-.335 0-.653-.018-.971-.053v1.864H24V4.063zm0 10.326v1.131c-3.657-.654-4.673-4.46-4.673-4.46s1.758-1.944 4.673-2.262v1.237H8.94c-1.528-.186-2.73 1.245-2.73 1.245s.68 2.412 2.739 3.11M2.456 10.9s2.164-3.197 6.5-3.533V6.201C4.153 6.59 0 10.653 0 10.653s2.35 6.802 8.948 7.42v-1.237c-4.84-.6-6.492-5.936-6.492-5.936z"
+                            id="mainIconPathAttribute"
+                            fill="var(--text-color)"></path></svg
+                    >
+                </li>
+            </ol>
+            <p>Geforce</p>
+        </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#haikei')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <!-- <ol>
+            <li class="fa-brands fa-hacker-news"></li>
+        </ol> -->
+            <p>Haikei</p>
+        </button>
+    </div>
+</body>
+<style>
+    .get-started-text {
+        font-size: 3rem;
+        text-align: center;
+        margin-top: 2rem;
+        position: absolute;
+        top: 12rem;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        -moz-transform: translate(-50%, -30%);
+        -webkit-transform: translate(-50%, -30%);
+        -ms-transform: translate(-50%, -30%);
+        -o-transform: translate(-50%, -30%);
+        color: var(--text-color);
+        font-family: var(--font);
+    }
+    .apps {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        position: absolute;
+        top: 20rem;
+        left: 50%;
+        transform: translate(-50%);
+        -moz-transform: translate(-50%);
+        -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+        -o-transform: translate(-50%);
+        gap: 1rem;
+        padding-bottom: 1rem;
+        width: 40rem;
+    }
+    @media (max-width: 768px) {
+        .apps {
+            width: 20rem;
+        }
+    }
+    .app-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        width: 10rem;
+        height: 6rem;
+        gap: 0.5rem;
+        color: var(--text-color);
+        font-family: var(--font);
+        font-size: 1.5rem;
+        background-color: var(--text-bg-color);
+        border-color: none;
+        border-radius: 0.75rem;
+    }
+</style>

@@ -41,7 +41,9 @@ export default function Password() {
                             if (pass === password) {
                                 setPassword(false);
                                 localStorage.setItem('unlocked', 'true');
-                                document.body.classList.remove('overflow-hidden');
+                                document.body.classList.remove(
+                                    'overflow-hidden'
+                                );
                             } else {
                                 setPassword(true);
                                 localStorage.setItem('unlocked', 'false');

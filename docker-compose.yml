@@ -4,9 +4,12 @@ services:
           restart: unless-stopped
           image: 'ghcr.io/ruby-network/ruby-v2:main'
           ports:
-               #IMPORTANT: DO NOT CHANGE THE 8080 PART ONLY CHANGE THE <your port here> PART
-               - 8080:8080
+               - ${PORT}:8080
+          env_file:
+               - .env.docker     
           #ADVANCED ITEMS BELOW
+          #environment:
+          #     - URL=${URL}
 #networks:
 #  default:
 #    external:

@@ -49,4 +49,10 @@ window.onload = function () {
             form.dispatchEvent(new Event('submit'));
         }
     }
+    if (window.location.hash === '#haikei') {
+        if (localStorage.getItem('reloaded') !== 'true') {
+            adress.value = 'https://haikei.xyz';
+            form.dispatchEvent(new Event('submit'));
+        }
+    }
 };

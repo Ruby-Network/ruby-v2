@@ -32,6 +32,10 @@ export default function Modal() {
             }
         };
     }, []);
+    //onscroll
+    window.onscroll = function () {
+        setModal(false);
+    };
     return (
         <div>
             <AnimatePresence>

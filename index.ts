@@ -19,12 +19,14 @@ if (cluster.isPrimary) {
     console.log(`Primary ${process.pid} is running`);
 
     for (let i = 0; i < numCPUs; i++) {
-        cluster.fork();
-        console.log(`Worker ${i} started`);
+        cluster.fork().on('online', () => {
+		    console.log(`Worker ${i + 1} is online`);
+	});
     }
-
     cluster.on('exit', (worker, code, signal) => {
-        console.log(`Worker ${worker.process.pid} died`);
+        console.log(`Worker ${worker.process.pid} died with code: ${code} and signal: ${signal}`);
+	console.log(`Starting new worker in it's place`)
+	cluster.fork()
     });
 } else {
     const bare = createBareServer('/bare/');
@@ -43,7 +45,7 @@ if (cluster.isPrimary) {
         //@ts-ignore
         const url = new URL(req.url, `http://${req.headers.host}`);
         //Get the url search parameters and check if it matches the key from the environment variable
-        //@ts-ignore
+        //only block /,/404,/apps,/error,/search,/settings and /index if the key or cookie is not present
         if (url.search === `?${key}` && !req.headers.cookie?.includes(key)) {
             res.writeHead(302, {
                 Location: '/',
@@ -51,65 +53,28 @@ if (cluster.isPrimary) {
             });
             res.end();
             return;
-        } else if (bare.shouldRoute(req)) {
-            try {
-                bare.routeRequest(req, res);
-            } catch (e) {
-                console.error(e);
-                res.writeHead(302, {
-                    Location: '/error',
-                });
-                res.end();
-                return;
-            }
-        } else if (req.headers.cookie?.includes(key)) {
-            app(req, res);
-        } else if (url.pathname.includes('.js')) {
-            //set the content type to javascript
-            res.setHeader('Content-Type', 'text/javascript');
-        } else if (url.pathname.includes('.css')) {
-            //set the content type to css
-            res.setHeader('Content-Type', 'text/css');
-        } else if (url.pathname.includes('.png')) {
-            //set the content type to png
-            res.setHeader('Content-Type', 'image/png');
-        } else if (url.pathname.includes('.jpg')) {
-            //set the content type to jpg
-            res.setHeader('Content-Type', 'image/jpg');
-        } else if (url.pathname.includes('.jpeg')) {
-            //set the content type to jpeg
-            res.setHeader('Content-Type', 'image/jpeg');
-        } else if (url.pathname.includes('.svg')) {
-            //set the content type to svg
-            res.setHeader('Content-Type', 'image/svg+xml');
-        } else if (url.pathname.includes('.ico')) {
-            //set the content type to ico
-            res.setHeader('Content-Type', 'image/x-icon');
-        } else if (url.pathname.includes('.webp')) {
-            //set the content type to webp
-            res.setHeader('Content-Type', 'image/webp');
-        } else if (url.pathname.includes('.json')) {
-            //set the content type to json
-            res.setHeader('Content-Type', 'application/json');
-        } else if (url.pathname.includes('.txt')) {
-            //set the content type to text
-            res.setHeader('Content-Type', 'text/plain');
-        } else if (url.pathname.includes('.xml')) {
-            //set the content type to xml
-            res.setHeader('Content-Type', 'text/xml');
-        } else {
-            //get the contents of index.html via fs
-            fs.readFile(
-                join(__dirname, 'education/index.html'),
-                'utf8',
-                function (err, data) {
-                    if (err) {
-                        return res.end('Error loading index.html');
-                    }
-                    res.end(data);
+        }
+        else if (req.headers.cookie?.includes(key)) {
+                app(req, res);
+        }
+        else if (bare.shouldRoute(req)) {
+            bare.routeRequest(req, res);
+        }
+        else if (!req.headers.cookie?.includes(key) && url.pathname === '/' || url.pathname === '/404' || url.pathname === '/apps' || url.pathname === '/error' || url.pathname === '/search' || url.pathname === '/settings' || url.pathname === '/index') {
+            fs.readFile(join(__dirname, 'education/index.html'), (err, data) => {
+                if (err) {
+                    res.writeHead(302, {
+                        Location: '/error',
+                    });
+                    res.end();
                     return;
                 }
-            );
+                res.end(data);
+                return;
+            });
+        }
+        else {
+            app(req, res)
         }
     });
 

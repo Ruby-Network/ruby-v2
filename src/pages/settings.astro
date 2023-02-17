@@ -125,6 +125,15 @@ import Password from '../components/password';
         placeholder="Password"
         onchange="setPassword(this.value)"
     />
+    <div class="divider mt-20">Fullscreen Behavior</div>
+    <select
+        class="dropdown"
+        id="fullscreen"
+        onchange="changeFullscreen(this.value)"
+    >
+        <option value="true">Fullscreen the content</option>
+        <option value="false">Remove the nav bar</option>
+    </select>
     <div class="divider mt-20">About:Blank Cloaking</div>
     <button class="button" id="cloak" onclick="aboutBlank()">Enable</button>
     <div class="divider mt-20">Reset All Settings</div>

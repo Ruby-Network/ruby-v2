@@ -121,6 +121,22 @@ if (cluster.isPrimary) {
     app.get('/pid', (req, res) => {
         res.end(`Process id: ${process.pid}`);
     });
+    app.get('/load' , (req, res) => {
+        res.end(`Load average: ${os.loadavg()}`);
+    });
+    app.get('/loading', (req, res) => {
+        fs.readFile(join(__dirname, 'education/load.html'), (err, data) => {
+            if (err) {
+                res.writeHead(302, {
+                    Location: '/error',
+                });
+                res.end();
+                return;
+            }
+            res.end(data);
+            return;
+        });
+    });
     app.use((req, res) => {
         res.writeHead(302, {
             Location: '/404',

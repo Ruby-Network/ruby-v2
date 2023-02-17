@@ -81,18 +81,25 @@ import Password from '../components/password';
     </div>
     <iframe
         class="dnone"
+        id="load-iframe"
+        style="height: calc(100% - 4rem);width: 100%;border: none;position: fixed;top: 4rem;right: 0;left: 0;bottom: 0;border: none; background: var(--bg-color);"
+    >
+    </iframe>
+    <iframe
+        class="dnone"
         id="uv-iframe"
         style="height: calc(100% - 4rem);width: 100%;border: none;position: fixed;top: 4rem;right: 0;left: 0;bottom: 0;border: none; background: var(--bg-color);"
-    ></iframe>
+    >
+    </iframe>
     <div id="pjs" class="dnone particles"></div>
     <div class="dnone" id="control">
         <i
             class="fas fa-arrows-rotate hover:brightness-200"
             onclick="refreshIframe()"></i>
-        <i class="fas fa-arrow-left" onclick="backIframe()"></i>
-        <i class="fas fa-arrow-right" onclick="forwardIframe()"></i>
-        <i class="fas fa-expand" onclick="fullscreenIframe()"></i>
-        <i class="fas fa-times" onclick="exitIframe()"></i>
+        <i class="fas fa-arrow-left hover:brightness-200" onclick="backIframe()"></i>
+        <i class="fas fa-arrow-right hover:brightness-200" onclick="forwardIframe()"></i>
+        <i class="fas fa-expand hover:brightness-200" onclick="fullscreenIframe()"></i>
+        <i class="fas fa-times hover:brightness-200" onclick="exitIframe()"></i>
     </div>
 </body>
 <style>

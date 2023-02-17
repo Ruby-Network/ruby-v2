@@ -11,6 +11,7 @@ const error = document.getElementById('uv-error');
  */
 const errorCode = document.getElementById('uv-error-code');
 const iframe = document.getElementById('uv-iframe');
+const loadingIframe = document.getElementById('load-iframe');
 let proxytype = localStorage.getItem('proxy');
 let currenturl = window.location.href;
 let controlCenter = document.getElementById('iframe-control');
@@ -37,9 +38,15 @@ if (proxytype === 'Ultraviolet') {
             const url = search(address.value, searchEngine.value);
             const addr = address.value;
             const toup = url.toUpperCase();
-            iframe.classList.remove('dnone');
+            let textcolor = getComputedStyle(document.body).getPropertyValue('--text-color');
+            loadingIframe.classList.remove('dnone');
+            loadingIframe.src = `/loading#${textcolor}`;
             iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-            document.getElementById('control').classList.remove('dnone');
+            iframe.addEventListener('load', function () {
+                loadingIframe.classList.add('dnone');
+                document.getElementById('control').classList.remove('dnone');
+                iframe.classList.remove('dnone');
+            });
         });
 }
 if (proxytype === 'DIP') {
@@ -63,11 +70,17 @@ if (proxytype === 'DIP') {
                 } else {
                     location = searchURL + encodeURIComponent(search.value);
                 }
-                iframe.classList.remove('dnone');
+                loadingIframe.classList.remove('dnone');
+                let textcolor = getComputedStyle(document.body).getPropertyValue('--text-color');
+                loadingIframe.src = `/loading#${textcolor}`;
                 iframe.src =
                     window.__DIP.config.prefix +
                     window.__DIP.encodeURL(location);
-                document.getElementById('control').classList.remove('dnone');
+                iframe.addEventListener('load', function () {
+                    loadingIframe.classList.add('dnone');
+                    document.getElementById('control').classList.remove('dnone');
+                    iframe.classList.remove('dnone');
+                });
             });
         });
     async function worker() {
@@ -98,12 +111,17 @@ if (proxytype === 'Osana') {
                     console.log(search.value);
                     location = searchURL + encodeURIComponent(search.value);
                 }
-                iframe.classList.remove('dnone');
+                loadingIframe.classList.remove('dnone');
+                let textcolor = getComputedStyle(document.body).getPropertyValue('--text-color');
+                loadingIframe.src = `/loading#${textcolor}`;
                 iframe.src = `${
                     __osana$config.prefix
                 }${__osana$config.codec.encode(location)}`;
-                console.log(__osana$config.codec.encode(location));
-                document.getElementById('control').classList.remove('dnone');
+                iframe.addEventListener('load', function () {
+                    loadingIframe.classList.add('dnone');
+                    document.getElementById('control').classList.remove('dnone');
+                    iframe.classList.remove('dnone');
+                });
             });
         });
     async function worker() {

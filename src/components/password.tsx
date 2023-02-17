@@ -10,10 +10,13 @@ export default function Password() {
         const pass = localStorage.getItem('password');
         if (localStorage.getItem('unlocked') === 'true') {
             setPassword(false);
+            document.body.classList.remove('overflow-hidden');
         } else if (pass !== null) {
             setPassword(true);
+            document.body.classList.add('overflow-hidden');
         } else {
             setPassword(false);
+            document.body.classList.remove('overflow-hidden');
         }
     }, []);
     //listen for alt+l
@@ -30,12 +33,12 @@ export default function Password() {
         <>
             {password && (
                 <>
-                    <div className="password absolute top-0 left-0 right-0 bottom-0 z-40 bg-transparent backdrop-blur-sm overflow-hidden"></div>
+                    <div className="password h-full w-full fixed top-0 left-0 right-0 bottom-0 z-40 bg-transparent backdrop-blur-sm overflow-hidden"></div>
                     <form
                         onSubmit={(e) => {
                             e.preventDefault();
-                            //@ts-ignore
                             const password =
+                                //@ts-ignore
                                 document.getElementById('password').value;
                             let pass = localStorage.getItem('password');
                             if (pass === password) {
@@ -47,6 +50,7 @@ export default function Password() {
                             } else {
                                 setPassword(true);
                                 localStorage.setItem('unlocked', 'false');
+                                document.body.classList.add('overflow-hidden');
                             }
                         }}
                     >
@@ -54,7 +58,7 @@ export default function Password() {
                             id="password"
                             placeholder="Password"
                             type="password"
-                            className="text-center password h-10 bg-[var(--input-bg-color)] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-50 rounded-xl"
+                            className="text-center password h-10 bg-[var(--input-bg-color)] fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-50 rounded-xl"
                         />
                     </form>
                 </>

@@ -326,6 +326,29 @@ function setPassword(value) {
     }
 }
 //!END SET PASSWORD STUFF
+//!Fullscreen behavior
+function changeFullscreen(value) {
+    localStorage.setItem('fullscreenBehavior', value);
+}
+function setFullscreen() {
+    let fullscreenBehavior = localStorage.getItem('fullscreenBehavior');
+    let fullscreenBehaviorInput = document.getElementById("fullscreen");
+    if (fullscreenBehavior) {
+        fullscreenBehaviorInput.value = fullscreenBehavior;
+        changeFullscreen(fullscreenBehavior);
+    } else {
+        fullscreenBehaviorInput.value = "true";
+        changeFullscreen("true");
+    }
+}
+function setFullScreenElsewhere() {
+    let fullscreenBehavior = localStorage.getItem('fullscreenBehavior');
+    if (fullscreenBehavior) {
+        changeFullscreen(fullscreenBehavior);
+    } else {
+        changeFullscreen("true");
+    }
+}
 if (
     window.location.pathname == '/settings' ||
     window.location.pathname == '/settings/'
@@ -336,6 +359,7 @@ if (
     setSearchEngine();
     setTheme();
     setBgeffect();
+    setFullscreen();
     if (document.getElementById('bg-effect').value === 'none') {
         localStorage.setItem('autoChanged', 'null');
         localStorage.setItem('manualChanged', 'false');
@@ -357,4 +381,5 @@ if (
     setProxyElsewhere();
     setThemeElsewhere();
     setBgEffectElsewhere();
+    setFullScreenElsewhere();
 }

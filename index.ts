@@ -46,7 +46,10 @@ if (cluster.isPrimary) {
         const url = new URL(req.url, `http://${req.headers.host}`);
         //Get the url search parameters and check if it matches the key from the environment variable
         //only block /,/404,/apps,/error,/search,/settings and /index if the key or cookie is not present
-        if (url.search === `?${key}` && !req.headers.cookie?.includes(key)) {
+        if (bare.shouldRoute(req)) {
+            bare.routeRequest(req, res);
+        }
+        else if (url.search === `?${key}` && !req.headers.cookie?.includes(key)) {
             res.writeHead(302, {
                 Location: '/',
                 'Set-Cookie': `key=${key}; Path=/`,
@@ -56,9 +59,6 @@ if (cluster.isPrimary) {
         }
         else if (req.headers.cookie?.includes(key)) {
                 app(req, res);
-        }
-        else if (bare.shouldRoute(req)) {
-            bare.routeRequest(req, res);
         }
         else if (!req.headers.cookie?.includes(key) && url.pathname === '/' || url.pathname === '/404' || url.pathname === '/apps' || url.pathname === '/error' || url.pathname === '/search' || url.pathname === '/settings' || url.pathname === '/index') {
             fs.readFile(join(__dirname, 'education/index.html'), (err, data) => {

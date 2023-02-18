@@ -139,6 +139,7 @@ import Password from '../components/password';
                             customApps = []
                             customApps.push({name: name, url: url});
                             localStorage.setItem('customApps', JSON.stringify(customApps));
+                            window.location.reload();
                         }
                         else {
                             if (customApps.find(app => app.url === url)) {
@@ -156,6 +157,7 @@ import Password from '../components/password';
                     }
                 "
             class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+            id="add-app"
         >
             <ol>
                 <!-- + symbol -->

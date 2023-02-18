@@ -41,14 +41,14 @@ if (proxytype === 'Ultraviolet') {
             let textcolor = getComputedStyle(document.body).getPropertyValue(
                 '--text-color'
             );
-            loadingIframe.classList.remove('dnone');
-            loadingIframe.src = `/loading#${textcolor}`;
+            //loadingIframe.classList.remove('dnone');
+            //loadingIframe.src = `/loading#${textcolor}`;
             iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-            iframe.addEventListener('load', function () {
-                loadingIframe.classList.add('dnone');
+            //iframe.addEventListener('load', function () {
+                //loadingIframe.classList.add('dnone');
                 document.getElementById('control').classList.remove('dnone');
                 iframe.classList.remove('dnone');
-            });
+            //});
         });
 }
 if (proxytype === 'DIP') {
@@ -72,21 +72,21 @@ if (proxytype === 'DIP') {
                 } else {
                     location = searchURL + encodeURIComponent(search.value);
                 }
-                loadingIframe.classList.remove('dnone');
+                //loadingIframe.classList.remove('dnone');
                 let textcolor = getComputedStyle(
                     document.body
                 ).getPropertyValue('--text-color');
-                loadingIframe.src = `/loading#${textcolor}`;
+                //loadingIframe.src = `/loading#${textcolor}`;
                 iframe.src =
                     window.__DIP.config.prefix +
                     window.__DIP.encodeURL(location);
-                iframe.addEventListener('load', function () {
-                    loadingIframe.classList.add('dnone');
+                //iframe.addEventListener('load', function () {
+                    //loadingIframe.classList.add('dnone');
                     document
                         .getElementById('control')
                         .classList.remove('dnone');
                     iframe.classList.remove('dnone');
-                });
+                //});
             });
         });
     async function worker() {
@@ -117,21 +117,21 @@ if (proxytype === 'Osana') {
                     console.log(search.value);
                     location = searchURL + encodeURIComponent(search.value);
                 }
-                loadingIframe.classList.remove('dnone');
+                //loadingIframe.classList.remove('dnone');
                 let textcolor = getComputedStyle(
                     document.body
                 ).getPropertyValue('--text-color');
-                loadingIframe.src = `/loading#${textcolor}`;
+                //loadingIframe.src = `/loading#${textcolor}`;
                 iframe.src = `${
                     __osana$config.prefix
                 }${__osana$config.codec.encode(location)}`;
-                iframe.addEventListener('load', function () {
-                    loadingIframe.classList.add('dnone');
+                //iframe.addEventListener('load', function () {
+                    //loadingIframe.classList.add('dnone');
                     document
                         .getElementById('control')
                         .classList.remove('dnone');
                     iframe.classList.remove('dnone');
-                });
+                //});
             });
         });
     async function worker() {

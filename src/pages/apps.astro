@@ -10,11 +10,12 @@ import Password from '../components/password';
 <Head />
 <body>
     <Header />
+    <script src='/js/customApps.js' defer></script>
     <Password client:only="react" />
     <Modal client:only="react" />
     <div id="pjs" class="dnone particles"></div>
     <h1 class="get-started-text">Apps</h1>
-    <div class="apps">
+    <div class="apps" id="apps">
         <button
             onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#discord')"
             class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
@@ -109,9 +110,62 @@ import Password from '../components/password';
         </ol> -->
             <p>Haikei</p>
         </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#pinterest')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li class="fa-brands fa-pinterest"></li>
+            </ol>
+            <p>Pinterest</p>
+        </button>
+        <button
+            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#github')"
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <li class="fa-brands fa-github"></li>
+            </ol>
+            <p>Github</p>
+        </button>
+        <button
+                onclick="
+                    let url = window.prompt('Enter the URL of the website you want to add');
+                    let name = window.prompt('Enter the name of the website you want to add');
+                    if (url) {
+                        localStorage.setItem('reloaded', 'false');
+                        let customApps = JSON.parse(localStorage.getItem('customApps'));
+                        if (!customApps) {
+                            customApps = []
+                            customApps.push({name: name, url: url});
+                            localStorage.setItem('customApps', JSON.stringify(customApps));
+                        }
+                        else {
+                            if (customApps.find(app => app.url === url)) {
+                                window.alert('This app already exists');
+                            }
+                            else {
+                                customApps.push({name: name, url: url});
+                                localStorage.setItem('customApps', JSON.stringify(customApps));
+                                window.location.reload();
+                            }
+                        }
+                    }
+                    else {
+                        window.alert('Please enter a valid URL');
+                    }
+                "
+            class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
+        >
+            <ol>
+                <!-- + symbol -->
+                <li class="fa-solid fa-plus"></li>
+            </ol>
+            <p>Add</p>
+        </button>
     </div>
 </body>
-<style>
+<style is:global>
     .get-started-text {
         font-size: 3rem;
         text-align: center;
@@ -166,5 +220,16 @@ import Password from '../components/password';
         background-color: var(--text-bg-color);
         border-color: none;
         border-radius: 0.75rem;
+    }
+    .add {
+        width: 40rem;
+        background: var(--text-bg-color);
+        color: var(--text-color);
+        font-family: var(--font);
+        font-size: 1.5rem;
+        border-color: none;
+        border-radius: 0.75rem;
+        position: relative;
+        top: 30rem;
     }
 </style>

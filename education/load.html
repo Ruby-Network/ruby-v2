@@ -7,6 +7,14 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            /* center in the middle of the page */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* center in the middle of the page */
+            height: 100%;
+            width: 100%;
         }
         .info {
             color: var(--text-color);
@@ -45,8 +53,8 @@
         <div class="lds-dual-ring"></div>
         <p class="info">
             Please wait while we process your request.
-            Our service maybe under high load causing some slowness on our servers. Your request will eventually be
-            responded to.
+            If you have been waiting for some time, this may mean that our servers are currently experiencing high load.
+            It will eventually be processed, but it may take a while.
         </p>
     </div>
     <script>

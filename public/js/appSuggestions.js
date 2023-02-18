@@ -55,4 +55,24 @@ window.onload = function () {
             form.dispatchEvent(new Event('submit'));
         }
     }
+    if (window.location.hash === '#pinterest') {
+        if (localStorage.getItem('reloaded') !== 'true') {
+            adress.value = 'https://pinterest.com/';
+            form.dispatchEvent(new Event('submit'));
+        }
+    }
+    if (window.location.hash === '#github') {
+        if (localStorage.getItem('reloaded') !== 'true') {
+            adress.value = 'https://github.com/'
+            form.dispatchEvent(new Event('submit'));
+        }
+    }
+    if (window.location.hash.includes('#custom')) {
+        // Get the custom URL after the = sign
+        let customURL = window.location.hash.split('=')[1];
+        if (localStorage.getItem('reloaded') !== 'true') {
+            adress.value = customURL;
+            form.dispatchEvent(new Event('submit'));
+        }
+    }
 };

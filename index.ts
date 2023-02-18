@@ -107,12 +107,12 @@ if (cluster.isPrimary) {
             socket.end();
         }
     });
-//!AUTHENTICATION
-const basic = auth.basic({
-    realm: 'Restricted Access',
-    file: __dirname + '/users.htpasswd'
-  });
-//!END AUTHENTICATION
+    //!AUTHENTICATION
+    const basic = auth.basic({
+        realm: 'Restricted Access',
+        file: __dirname + '/users.htpasswd',
+    });
+    //!END AUTHENTICATION
 
     //!CUSTOM ENDPOINTS
     app.get('/suggest', (req, res) => {
@@ -138,13 +138,17 @@ const basic = auth.basic({
             });
     });
     //@ts-ignore
-    app.get('/pid', basic.check((req, res) => {
-        res.end(`Process id: ${process.pid}`);
-    })
+    app.get(
+        '/pid',
+        basic.check((req, res) => {
+            res.end(`Process id: ${process.pid}`);
+        })
     );
-    app.get('/load', basic.check((req, res) => {
-        res.end(`Load average: ${os.loadavg()}`);
-    })
+    app.get(
+        '/load',
+        basic.check((req, res) => {
+            res.end(`Load average: ${os.loadavg()}`);
+        })
     );
     app.get('/loading', (req, res) => {
         fs.readFile(join(__dirname, 'education/load.html'), (err, data) => {

@@ -63,7 +63,7 @@ window.onload = function () {
     }
     if (window.location.hash === '#github') {
         if (localStorage.getItem('reloaded') !== 'true') {
-            adress.value = 'https://github.com/'
+            adress.value = 'https://github.com/';
             form.dispatchEvent(new Event('submit'));
         }
     }

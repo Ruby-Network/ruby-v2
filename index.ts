@@ -20,13 +20,15 @@ if (cluster.isPrimary) {
 
     for (let i = 0; i < numCPUs; i++) {
         cluster.fork().on('online', () => {
-		    console.log(`Worker ${i + 1} is online`);
-	});
+            console.log(`Worker ${i + 1} is online`);
+        });
     }
     cluster.on('exit', (worker, code, signal) => {
-        console.log(`Worker ${worker.process.pid} died with code: ${code} and signal: ${signal}`);
-	console.log(`Starting new worker in it's place`)
-	cluster.fork()
+        console.log(
+            `Worker ${worker.process.pid} died with code: ${code} and signal: ${signal}`
+        );
+        console.log(`Starting new worker in it's place`);
+        cluster.fork();
     });
 } else {
     const bare = createBareServer('/bare/');
@@ -49,8 +51,7 @@ if (cluster.isPrimary) {
         if (bare.shouldRoute(req)) {
             try {
                 bare.routeRequest(req, res);
-            }
-            catch (error) {
+            } catch (error) {
                 console.error(error);
                 res.writeHead(302, {
                     Location: '/error',
@@ -58,33 +59,43 @@ if (cluster.isPrimary) {
                 res.end();
                 return;
             }
-        }
-        else if (url.search === `?${key}` && !req.headers.cookie?.includes(key)) {
+        } else if (
+            url.search === `?${key}` &&
+            !req.headers.cookie?.includes(key)
+        ) {
             res.writeHead(302, {
                 Location: '/',
                 'Set-Cookie': `key=${key}; Path=/`,
             });
             res.end();
             return;
-        }
-        else if (req.headers.cookie?.includes(key)) {
-                app(req, res);
-        }
-        else if (!req.headers.cookie?.includes(key) && url.pathname === '/' || url.pathname === '/404' || url.pathname === '/apps' || url.pathname === '/error' || url.pathname === '/search' || url.pathname === '/settings' || url.pathname === '/index') {
-            fs.readFile(join(__dirname, 'education/index.html'), (err, data) => {
-                if (err) {
-                    res.writeHead(302, {
-                        Location: '/error',
-                    });
-                    res.end();
+        } else if (req.headers.cookie?.includes(key)) {
+            app(req, res);
+        } else if (
+            (!req.headers.cookie?.includes(key) && url.pathname === '/') ||
+            url.pathname === '/404' ||
+            url.pathname === '/apps' ||
+            url.pathname === '/error' ||
+            url.pathname === '/search' ||
+            url.pathname === '/settings' ||
+            url.pathname === '/index'
+        ) {
+            fs.readFile(
+                join(__dirname, 'education/index.html'),
+                (err, data) => {
+                    if (err) {
+                        res.writeHead(302, {
+                            Location: '/error',
+                        });
+                        res.end();
+                        return;
+                    }
+                    res.end(data);
                     return;
                 }
-                res.end(data);
-                return;
-            });
-        }
-        else {
-            app(req, res)
+            );
+        } else {
+            app(req, res);
         }
     });
 
@@ -121,7 +132,7 @@ if (cluster.isPrimary) {
     app.get('/pid', (req, res) => {
         res.end(`Process id: ${process.pid}`);
     });
-    app.get('/load' , (req, res) => {
+    app.get('/load', (req, res) => {
         res.end(`Load average: ${os.loadavg()}`);
     });
     app.get('/loading', (req, res) => {
@@ -154,8 +165,8 @@ if (cluster.isPrimary) {
 
         // by default we are listening on 0.0.0.0 (every interface)
         // we just need to list a few
-	// LIST PID
-	console.log(`Process id: ${process.pid}`)
+        // LIST PID
+        console.log(`Process id: ${process.pid}`);
         console.log('Listening on:');
         //@ts-ignore
         console.log(`\thttp://localhost:${address.port}`);
@@ -165,10 +176,10 @@ if (cluster.isPrimary) {
             `\thttp://${
                 //@ts-ignore
                 address.family === 'IPv6'
-				//@ts-ignore
-                    ? `[${address.address}]`
-					//@ts-ignore
-                    : address.address
+                    ? //@ts-ignore
+                      `[${address.address}]`
+                    : //@ts-ignore
+                      address.address
                 //@ts-ignore
             }:${address.port}`
         );

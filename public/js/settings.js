@@ -332,13 +332,13 @@ function changeFullscreen(value) {
 }
 function setFullscreen() {
     let fullscreenBehavior = localStorage.getItem('fullscreenBehavior');
-    let fullscreenBehaviorInput = document.getElementById("fullscreen");
+    let fullscreenBehaviorInput = document.getElementById('fullscreen');
     if (fullscreenBehavior) {
         fullscreenBehaviorInput.value = fullscreenBehavior;
         changeFullscreen(fullscreenBehavior);
     } else {
-        fullscreenBehaviorInput.value = "true";
-        changeFullscreen("true");
+        fullscreenBehaviorInput.value = 'true';
+        changeFullscreen('true');
     }
 }
 function setFullScreenElsewhere() {
@@ -346,7 +346,7 @@ function setFullScreenElsewhere() {
     if (fullscreenBehavior) {
         changeFullscreen(fullscreenBehavior);
     } else {
-        changeFullscreen("true");
+        changeFullscreen('true');
     }
 }
 if (

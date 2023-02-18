@@ -38,7 +38,9 @@ if (proxytype === 'Ultraviolet') {
             const url = search(address.value, searchEngine.value);
             const addr = address.value;
             const toup = url.toUpperCase();
-            let textcolor = getComputedStyle(document.body).getPropertyValue('--text-color');
+            let textcolor = getComputedStyle(document.body).getPropertyValue(
+                '--text-color'
+            );
             loadingIframe.classList.remove('dnone');
             loadingIframe.src = `/loading#${textcolor}`;
             iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
@@ -71,14 +73,18 @@ if (proxytype === 'DIP') {
                     location = searchURL + encodeURIComponent(search.value);
                 }
                 loadingIframe.classList.remove('dnone');
-                let textcolor = getComputedStyle(document.body).getPropertyValue('--text-color');
+                let textcolor = getComputedStyle(
+                    document.body
+                ).getPropertyValue('--text-color');
                 loadingIframe.src = `/loading#${textcolor}`;
                 iframe.src =
                     window.__DIP.config.prefix +
                     window.__DIP.encodeURL(location);
                 iframe.addEventListener('load', function () {
                     loadingIframe.classList.add('dnone');
-                    document.getElementById('control').classList.remove('dnone');
+                    document
+                        .getElementById('control')
+                        .classList.remove('dnone');
                     iframe.classList.remove('dnone');
                 });
             });
@@ -112,14 +118,18 @@ if (proxytype === 'Osana') {
                     location = searchURL + encodeURIComponent(search.value);
                 }
                 loadingIframe.classList.remove('dnone');
-                let textcolor = getComputedStyle(document.body).getPropertyValue('--text-color');
+                let textcolor = getComputedStyle(
+                    document.body
+                ).getPropertyValue('--text-color');
                 loadingIframe.src = `/loading#${textcolor}`;
                 iframe.src = `${
                     __osana$config.prefix
                 }${__osana$config.codec.encode(location)}`;
                 iframe.addEventListener('load', function () {
                     loadingIframe.classList.add('dnone');
-                    document.getElementById('control').classList.remove('dnone');
+                    document
+                        .getElementById('control')
+                        .classList.remove('dnone');
                     iframe.classList.remove('dnone');
                 });
             });

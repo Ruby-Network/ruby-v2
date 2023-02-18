@@ -10,7 +10,7 @@ import Password from '../components/password';
 <Head />
 <body>
     <Header />
-    <script src='/js/customApps.js' defer></script>
+    <script src="/js/customApps.js" defer></script>
     <Password client:only="react" />
     <Modal client:only="react" />
     <div id="pjs" class="dnone particles"></div>
@@ -129,7 +129,7 @@ import Password from '../components/password';
             <p>Github</p>
         </button>
         <button
-                onclick="
+            onclick="
                     let url = window.prompt('Enter the URL of the website you want to add');
                     let name = window.prompt('Enter the name of the website you want to add');
                     if (url) {

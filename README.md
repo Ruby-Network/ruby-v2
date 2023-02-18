@@ -22,9 +22,7 @@
 
     -   [Aero](https://github.com/proxyhaven/aero)
 
--   45+ Games in our games page
-
--   Password protection for the website (you can set a password in the settings page)
+-   Basic Password protection for the website (you can set a password in the settings page)
 
 -   Customizable apps and games
 

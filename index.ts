@@ -1,5 +1,5 @@
 import createBareServer from '@tomphttp/bare-server-node';
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import { createServer } from 'node:http';
 import { uvPath } from '@titaniumnetwork-dev/ultraviolet';
 import { join } from 'node:path';
@@ -12,6 +12,7 @@ import path from 'node:path';
 const __dirname = path.resolve();
 import dotenv from 'dotenv';
 import fs from 'fs';
+import auth from 'http-auth';
 dotenv.config();
 const numCPUs = os.cpus().length;
 
@@ -106,6 +107,13 @@ if (cluster.isPrimary) {
             socket.end();
         }
     });
+//!AUTHENTICATION
+const basic = auth.basic({
+    realm: 'Restricted Access',
+    file: __dirname + '/users.htpasswd'
+  });
+//!END AUTHENTICATION
+
     //!CUSTOM ENDPOINTS
     app.get('/suggest', (req, res) => {
         // Get the search query from the query string
@@ -129,12 +137,15 @@ if (cluster.isPrimary) {
                 res.sendStatus(500);
             });
     });
-    app.get('/pid', (req, res) => {
+    //@ts-ignore
+    app.get('/pid', basic.check((req, res) => {
         res.end(`Process id: ${process.pid}`);
-    });
-    app.get('/load', (req, res) => {
+    })
+    );
+    app.get('/load', basic.check((req, res) => {
         res.end(`Load average: ${os.loadavg()}`);
-    });
+    })
+    );
     app.get('/loading', (req, res) => {
         fs.readFile(join(__dirname, 'education/load.html'), (err, data) => {
             if (err) {

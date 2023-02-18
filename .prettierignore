@@ -26,3 +26,5 @@ pnpm-debug.log*
 /public/assets/fontawesome/
 docker-compose.yml
 *.yml
+
+*.htpasswd

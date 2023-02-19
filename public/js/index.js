@@ -18,7 +18,12 @@ let controlCenter = document.getElementById('iframe-control');
 let urlBar = document.getElementById('url-bar');
 //let loader = document.getElementById("loader");
 // import { proxyApi, prefix } from "/aero/config.js";
-
+function loading(textcolor) {
+    iframe.src = `/loading#${textcolor}`;
+}
+window.addEventListener('load', () => {
+    loading(getComputedStyle(document.body).getPropertyValue('--text-color'));
+});
 // // import ProxyManager from "./sdk/ProxyManager.js";
 if (proxytype === 'Ultraviolet') {
     document
@@ -38,11 +43,9 @@ if (proxytype === 'Ultraviolet') {
             const url = search(address.value, searchEngine.value);
             const addr = address.value;
             const toup = url.toUpperCase();
-            let textcolor = getComputedStyle(document.body).getPropertyValue(
-                '--text-color'
-            );
             //loadingIframe.classList.remove('dnone');
             //loadingIframe.src = `/loading#${textcolor}`;
+            // blob = __uv$config.prefix + __uv$config.encodeUrl(url);
             iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
             //iframe.addEventListener('load', function () {
             //loadingIframe.classList.add('dnone');

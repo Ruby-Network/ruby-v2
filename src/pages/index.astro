@@ -11,12 +11,14 @@ import Password from '../components/password';
 <body>
     <Header />
     <Password client:only="react" />
-    <h1 class="get-started-text">Ruby</h1>
-    <Button
-        buttonId="get-started"
-        secondButtonId="get-started-button"
-        buttonText="Get Started"
-    />
+    <div class="get-started-div">
+        <h1 class="get-started-text">Ruby</h1>
+        <Button
+            buttonId="get-started"
+            secondButtonId="get-started-button"
+            buttonText="Get Started"
+        />
+    </div>
     <Modal client:only="react" />
     <div id="pjs" class="dnone particles"></div>
     <p class="copy">&copy; Copyright 2023 Ruby Network, All Rights Reserved</p>
@@ -39,16 +41,22 @@ import Password from '../components/password';
         font-family: var(--font);
     }
     #get-started-button {
-        margin: 0;
-        position: absolute;
-        top: 19rem;
+        font-size: 3rem;
+        text-align: center;
+        margin-top: 2rem;
+        position: relative;
+        top: 13rem;
         left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -30%);
+        -moz-transform: translate(-50%, -30%);
+        -webkit-transform: translate(-50%, -30%);
+        -ms-transform: translate(-50%, -30%);
+        -o-transform: translate(-50%, -30%);
+        color: var(--text-color);
+        font-family: var(--font);
         background: var(--bg-color);
         border-radius: 5%;
         filter: var(--brightness-filter);
-        font-family: var(--font);
         border-radius: 0.75rem;
     }
 </style>

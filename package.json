@@ -8,10 +8,11 @@
         "build": "astro build",
         "preview": "astro preview",
         "postinstall": "htpasswd -c users.htpasswd admin",
+        "format:check": "prettier --check .",
         "astro": "astro",
         "format": "prettier --write .",
         "start": "ts-node --esm index.ts",
-        "prod": "yarn build && yarn start"
+        "prod": "yarn build && yarn start "
     },
     "dependencies": {
         "@astrojs/node": "^5.0.3",

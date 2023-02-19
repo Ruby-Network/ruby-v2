@@ -15,6 +15,15 @@ import fs from 'fs';
 import auth from 'http-auth';
 dotenv.config();
 const numCPUs = os.cpus().length;
+const blacklisted: string[] = [];
+fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    const lines = data.toString().split('\n');
+    for (let i in lines) blacklisted.push(lines[i]);
+});
 
 if (cluster.isPrimary) {
     console.log(`Primary ${process.pid} is running`);
@@ -51,6 +60,9 @@ if (cluster.isPrimary) {
         //only block /,/404,/apps,/error,/search,/settings and /index if the key or cookie is not present
         if (bare.shouldRoute(req)) {
             try {
+                for (let i in blacklisted)
+                    if (req.headers['x-bare-host']?.includes(blacklisted[i]))
+                        return res.end('Denied');
                 bare.routeRequest(req, res);
             } catch (error) {
                 console.error(error);

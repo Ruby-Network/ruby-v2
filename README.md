@@ -4,6 +4,7 @@
 
 ### This edition focuses on speed and more features.
 
+[![Ruby Network Discord](https://invidget.switchblade.xyz/hzCjSFQeeZ?theme=dark)](https://discord.gg/hzCjSFQeeZ)[![Ruby Network Discord](https://invidget.switchblade.xyz/hzCjSFQeeZ?theme=light)](https://discord.gg/hzCjSFQeeZ)
 ---
 
 ## Features

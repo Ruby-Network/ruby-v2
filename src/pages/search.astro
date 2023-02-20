@@ -106,6 +106,9 @@ import Password from '../components/password';
             onclick="fullscreenIframe()"></i>
         <i class="fas fa-times hover:brightness-200" onclick="exitIframe()"></i>
     </div>
+    <div id="exit-iframe" class="dnone exit border-2 rounded-full w-10 h-10 text-center align-middle bg-[var(--text-bg-color)] absolute hover:brightness-110 border-[var(--border-color)]">
+        <i class="fas fa-times"></i>
+    </div>
 </body>
 <style>
     #control {
@@ -216,5 +219,18 @@ import Password from '../components/password';
     .dnone {
         display: none;
         visibility: none;
+    }
+    .exit {
+        left: 50%;
+        top: 10%;
+        transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        color: var(--text-color);  
+        font-size: 1.5rem;
+        cursor: pointer;
+        font-family: var(--font);
     }
 </style>

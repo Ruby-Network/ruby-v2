@@ -366,8 +366,8 @@ if (
         none = 'none';
     }
 } else if (
-    window.location.pathname == '/proxy' ||
-    window.location.pathname == '/proxy/'
+    window.location.pathname == '/search' ||
+    window.location.pathname == '/search/'
 ) {
     setSearchEngineOnPage();
     setTitleElsewhere();

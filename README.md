@@ -53,4 +53,3 @@
 -   HTML, CSS, and JavaScript
 ---
 ## Commit Activity
-![Alt](https://repobeats.axiom.co/api/embed/cb9f30f479ea962536e2507e469a04718173bf3c.svg "Repobeats analytics image")

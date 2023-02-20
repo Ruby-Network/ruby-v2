@@ -154,17 +154,21 @@ if (proxytype === 'STOMP') {
     }
     const boot = new StompBoot(config);
 
-    const search = new StompBoot.SearchBuilder(document.getElementById('uv-search-engine').value);
+    const search = new StompBoot.SearchBuilder(
+        document.getElementById('uv-search-engine').value
+    );
 
     document
         .getElementById('uv-form')
         .addEventListener('submit', async (event) => {
             event.preventDefault();
             boot.ready.then(() => {
-		document.getElementById('control').classList.remove('dnone');
+                document.getElementById('control').classList.remove('dnone');
                 iframe.classList.remove('dnone');
-                iframe.src = boot.html(search.query(document.querySelector('.dipinput').value));
-            })
+                iframe.src = boot.html(
+                    search.query(document.querySelector('.dipinput').value)
+                );
+            });
         });
 }
 function decoded(str) {

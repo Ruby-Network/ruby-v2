@@ -4,8 +4,7 @@
 
 ### This edition focuses on speed and more features.
 
-[![Ruby Network Discord](https://invidget.switchblade.xyz/hzCjSFQeeZ?theme=dark)](https://discord.gg/hzCjSFQeeZ)
----
+## [![Ruby Network Discord](https://invidget.switchblade.xyz/hzCjSFQeeZ?theme=dark)](https://discord.gg/hzCjSFQeeZ)
 
 ## Features
 
@@ -19,7 +18,7 @@
     -   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
     -   [Osana](https://github.com/nebulaservices/osana)
     -   [STOMP](https://github.com/sysce/STOMP)
-    
+
     Soon to be added:
 
     -   [Aero](https://github.com/proxyhaven/aero)
@@ -53,5 +52,7 @@
 -   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
 -   [Osana](https://github.com/nebulaservices/osana)
 -   HTML, CSS, and JavaScript
+
 ---
+
 ## Commit Activity

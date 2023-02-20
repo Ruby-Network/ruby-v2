@@ -24,7 +24,6 @@
         "@fortawesome/free-brands-svg-icons": "^6.2.1",
         "@fortawesome/free-solid-svg-icons": "^6.2.1",
         "@fortawesome/react-fontawesome": "^0.2.0",
-        "@sysce/stomp": "^1.0.3",
         "@titaniumnetwork-dev/ultraviolet": "^1.0.8",
         "@tomphttp/bare-server-node": "^1.2.5",
         "@types/express": "^4.17.17",

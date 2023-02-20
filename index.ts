@@ -2,7 +2,6 @@ import createBareServer from '@tomphttp/bare-server-node';
 import express, { Request, Response, NextFunction } from 'express';
 import { createServer } from 'node:http';
 import { uvPath } from '@titaniumnetwork-dev/ultraviolet';
-import { stompPath } from '@sysce/stomp';
 import { join } from 'node:path';
 import { hostname } from 'node:os';
 import cluster from 'cluster';
@@ -48,7 +47,6 @@ if (cluster.isPrimary) {
     //Server side render middleware for astro
     app.use(ssrHandler);
     app.use('/uv/', express.static(uvPath));
-    app.use('/stomp/', express.static(stompPath));
     //env vars for the unlock feature
     let key = process.env.KEY || '';
     if (!key || key === undefined || key === null || key === '') {

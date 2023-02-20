@@ -140,37 +140,6 @@ if (proxytype === 'Osana') {
         return a;
     }
 }
-if (proxytype === 'STOMP') {
-    const config = {
-        bare_server: '/bare/',
-        directory: '/stomp/',
-    };
-    if (location.protocol === 'http:') {
-        config.loglevel = StompBoot.LOG_TRACE;
-        config.codec = StompBoot.CODEC_PLAIN;
-    } else {
-        config.loglevel = StompBoot.LOG_ERROR;
-        config.codec = StompBoot.CODEC_XOR;
-    }
-    const boot = new StompBoot(config);
-
-    const search = new StompBoot.SearchBuilder(
-        document.getElementById('uv-search-engine').value
-    );
-
-    document
-        .getElementById('uv-form')
-        .addEventListener('submit', async (event) => {
-            event.preventDefault();
-            boot.ready.then(() => {
-                document.getElementById('control').classList.remove('dnone');
-                iframe.classList.remove('dnone');
-                iframe.src = boot.html(
-                    search.query(document.querySelector('.dipinput').value)
-                );
-            });
-        });
-}
 function decoded(str) {
     if (str.charAt(str.length - 1) == '/') str = str.slice(0, -1);
     return decodeURIComponent(str)

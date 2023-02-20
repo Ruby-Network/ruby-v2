@@ -4,8 +4,9 @@ services:
           restart: unless-stopped
           image: 'ghcr.io/ruby-network/ruby-v2:main'
           ports:
-               - 8080:8080   
+               - <your port here>:8080   
           #ADVANCED ITEMS BELOW
+          #     - ${PORT}:8080
           #env_file:
           #     - .env.docker  
           #environment:

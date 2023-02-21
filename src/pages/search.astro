@@ -4,6 +4,7 @@ import Button from '../components/button.astro';
 import Header from '../components/header.astro';
 import '../styles/globals.css';
 import Password from '../components/password';
+import Search from '../components/search';
 ---
 
 <head>
@@ -54,6 +55,7 @@ import Password from '../components/password';
 <body>
     <Header />
     <Password client:only="react" />
+    <Search client:only="react" />
     <Modal client:only="react" />
     <h1 class="get-started-text">Search</h1>
     <form class="dipform" action="submit" id="uv-form">
@@ -105,6 +107,7 @@ import Password from '../components/password';
             class="fas fa-expand hover:brightness-200"
             onclick="fullscreenIframe()"></i>
         <i class="fas fa-times hover:brightness-200" onclick="exitIframe()"></i>
+        <i id="search-button" class="fas fa-search hover:brightness-200"></i>
     </div>
     <div
         id="nav-toggle"

@@ -47,6 +47,23 @@ if (cluster.isPrimary) {
     //Server side render middleware for astro
     app.use(ssrHandler);
     app.use('/uv/', express.static(uvPath));
+    const analyticsData = {
+        '/': {
+          pageviews: 1000,
+          uniqueVisitors: 500,
+          timeOnPage: 30
+        },
+        '/about': {
+          pageviews: 500,
+          uniqueVisitors: 250,
+          timeOnPage: 60
+        },
+        '/contact': {
+          pageviews: 250,
+          uniqueVisitors: 100,
+          timeOnPage: 45
+        }
+      };
     //env vars for the unlock feature
     let key = process.env.KEY || '';
     if (!key || key === undefined || key === null || key === '') {
@@ -155,7 +172,7 @@ if (cluster.isPrimary) {
         basic.check((req, res) => {
             res.end(`Process id: ${process.pid}`);
         })
-    );
+    );        
     app.get(
         '/load',
         basic.check((req, res) => {

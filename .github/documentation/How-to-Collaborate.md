@@ -63,7 +63,7 @@
 - [ ] Make a new branch for your changes
 - [ ] Make your changes
 - [ ] Commit and push your changes to your fork
-- [ ] Make a pull request to the ruby-v2 repository
+- [ ] Make a pull request to the ruby repository
 - [ ] Remember to follow contribution guidelines and code of conduct
 
 The developers section has some information for contributors as well, but it is not necessary to follow it if you are not a developer.

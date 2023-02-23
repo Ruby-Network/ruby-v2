@@ -8,7 +8,7 @@
 ## Installation
 - Clone the repository
 ```bash
-$ git clone https://github.com/ruby-network/ruby-v2.git
+$ git clone https://github.com/ruby-network/ruby.git
 ```
 - Install the dependencies
 ```bash
@@ -35,9 +35,9 @@ $ yarn prod
 ```yaml
 version: '2'
 services:
-     ruby-v2:
+     ruby:
           restart: unless-stopped
-          image: 'ghcr.io/ruby-network/ruby-v2:main'
+          image: 'ghcr.io/ruby-network/ruby:main'
           ports:
                - 8080:8080   
           #ADVANCED ITEMS BELOW
@@ -52,7 +52,7 @@ services:
 ```
  - You can also just simply curl the docker-compose.yml file from github
  ```bash
-$ curl https://raw.githubusercontent.com/Ruby-Network/ruby-v2/main/docker-compose.yml > docker-compose.yml
+$ curl https://raw.githubusercontent.com/Ruby-Network/ruby/main/docker-compose.yml > docker-compose.yml
 ```
 - Change `<your port here>` to the port you want to use removing the `<>` around it.
 - Run the docker-compose file
@@ -62,7 +62,7 @@ $ docker-compose up -d
 #### Docker Only Installation
 - Run the following command
 ```bash
-$ docker run -d -p <your port here>:8080 --restart unless-stopped --name ruby ghcr.io/ruby-network/ruby-v2
+$ docker run -d -p <your port here>:8080 --restart unless-stopped --name ruby ghcr.io/ruby-network/ruby
 ```
 - Change `<your port here>` to the port you want to use removing the `<>` around it.
 ---
@@ -80,9 +80,9 @@ URL=http://localhost:8080
 ```yaml
 version: '2'
 services:
-     ruby-v2:
+     ruby:
           restart: unless-stopped
-          image: 'ghcr.io/ruby-network/ruby-v2:main'
+          image: 'ghcr.io/ruby-network/ruby:main'
           ports:
           #    - <your port here>:8080   
           #ADVANCED ITEMS BELOW

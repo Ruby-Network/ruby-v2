@@ -1,6 +1,10 @@
 name: Docker Build And Push
 
-on: [push, workflow_dispatch]
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io

@@ -42,7 +42,7 @@
 ---
 ## Self Hosting
 
-Visit our [wiki](https://ruby-network/ruby/wiki) for information on self hosting
+Visit our [wiki](https://github.com/ruby-network/ruby/wiki) for information on self hosting
 ---
 
 ## Tech Stack

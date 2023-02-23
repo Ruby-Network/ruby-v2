@@ -72,9 +72,12 @@ if (cluster.isPrimary) {
                 res.end();
                 return;
             }
-        } else if (
+        } else if (req.header.host === 'rubynetwork.tech') {
+		app(req, res)
+	} 
+	else if (
             url.search === `?${key}` &&
-            !req.headers.cookie?.includes(key) || req.headers.host === 'rubynetwork.tech'
+            !req.headers.cookie?.includes(key)
         ) {
             res.writeHead(302, {
                 Location: '/',

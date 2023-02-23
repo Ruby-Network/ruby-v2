@@ -56,3 +56,5 @@
 ---
 
 ## Commit Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/ebe65662fb02989a2be94c965f41301cd8306047.svg "Repobeats analytics image")

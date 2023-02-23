@@ -2,7 +2,7 @@
 
 # Ruby V2
 
-## This is our second edition of [Ruby](https://github.com/ruby-network/ruby)
+## This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1)
 
 ### This edition focuses on speed and more features.
 

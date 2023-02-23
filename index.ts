@@ -72,7 +72,7 @@ if (cluster.isPrimary) {
                 res.end();
                 return;
             }
-        } else if (req.header.host === 'rubynetwork.tech') {
+        } else if (req.headers.host === 'rubynetwork.tech') {
 		app(req, res)
 	} 
 	else if (

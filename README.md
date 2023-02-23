@@ -1,6 +1,8 @@
 ![ruby](https://socialify.git.ci/ruby-network/ruby/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Dark)
-
-# Ruby V2
+![build](https://img.shields.io/github/actions/workflow/status/ruby-network/ruby/docker-build.yml?style=for-the-badge)
+![repo-size](https://img.shields.io/github/repo-size/ruby-network/ruby?style=for-the-badge)
+![webiste-status](https://img.shields.io/website?down_color=red&down_message=down&style=for-the-badge&up_color=green&up_message=Online&url=https%3A%2F%2Frubynetwork.tech)
+---
 
 ## This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1)
 

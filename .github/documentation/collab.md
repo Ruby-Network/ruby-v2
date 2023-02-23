@@ -18,11 +18,11 @@
  #### For developers
 - [ ] Clone the repository using
     ```bash
-        git clone https://github.com/ruby-network/ruby-v2
+        git clone https://github.com/ruby-network/ruby
     ```
 - [ ] Change directory to the cloned repository
     ```bash
-        cd ruby-v2
+        cd ruby
     ```
 - [ ] Install yarn using
     ```bash

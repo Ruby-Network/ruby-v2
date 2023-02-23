@@ -1,8 +1,8 @@
 version: '2'
 services:
-     ruby-v2:
+     ruby:
           restart: unless-stopped
-          image: 'ghcr.io/ruby-network/ruby-v2:main'
+          image: 'ghcr.io/ruby-network/ruby:main'
           ports:
                - <your port here>:8080   
           #ADVANCED ITEMS BELOW

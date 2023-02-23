@@ -40,6 +40,10 @@
 -   And more!
 
 ---
+## Self Hosting
+
+Visit our [wiki](https://ruby-network/ruby/wiki) for information on self hosting
+---
 
 ## Tech Stack
 

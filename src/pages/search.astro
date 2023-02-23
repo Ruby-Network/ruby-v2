@@ -57,36 +57,32 @@ import Search from '../components/search';
     <Password client:only="react" />
     <Search client:only="react" />
     <Modal client:only="react" />
-    <h1 class="get-started-text">Search</h1>
-    <form class="dipform" action="submit" id="uv-form">
-        <div class="search">
-            <input
-                id="uv-search-engine"
-                value="https://www.google.com/search?q=%s"
-                type="hidden"
+    <div class="get-started-div">
+        <h1 class="get-started-text">Search</h1>
+        <form class="dipform" action="submit" id="uv-form">
+            <div class="search">
+                <input
+                    id="uv-search-engine"
+                    value="https://www.google.com/search?q=%s"
+                    type="hidden"
+                />
+                <input
+                    id="uv-address"
+                    type="text"
+                    class="dipinput"
+                    placeholder="Privately Search the web..."
+                />
+            </div>
+            <Button
+                secondButtonId="search"
+                buttonText="Search"
+                buttonType="submit"
             />
-            <input
-                id="uv-address"
-                type="text"
-                class="dipinput"
-                placeholder="Privately Search the web..."
-            />
+        </form>
+        <div id="suggestions" class="dnone">
+            <ul id="suggestions-data"></ul>
         </div>
-        <Button
-            secondButtonId="search"
-            buttonText="Search"
-            buttonType="submit"
-        />
-    </form>
-    <div id="suggestions" class="dnone">
-        <ul id="suggestions-data"></ul>
     </div>
-    <iframe
-        class="dnone"
-        id="load-iframe"
-        style="height: calc(100% - 4rem);width: 100%;border: none;position: fixed;top: 4rem;right: 0;left: 0;bottom: 0;border: none; background: var(--bg-color);"
-    >
-    </iframe>
     <iframe
         class="dnone"
         id="uv-iframe"
@@ -132,24 +128,26 @@ import Search from '../components/search';
         outline: none;
         font-family: var(--font);
     }
+    .get-started-div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+    }
 
     .get-started-text {
         font-size: 3rem;
         text-align: center;
         margin-top: 2rem;
-        position: absolute;
-        top: 12rem;
-        left: 50%;
-        transform: translate(-50%, -30%);
-        -moz-transform: translate(-50%, -30%);
-        -webkit-transform: translate(-50%, -30%);
-        -ms-transform: translate(-50%, -30%);
-        -o-transform: translate(-50%, -30%);
         color: var(--text-color);
         font-family: var(--font);
     }
     #uv-address {
-        width: 35%;
+        width: 20rem;
         height: 2.5rem;
         border: 1px solid var(--border-color);
         border-radius: 0.75rem;
@@ -159,18 +157,18 @@ import Search from '../components/search';
         background: var(--text-bg-color);
         outline: none;
         text-align: center;
-        position: absolute;
-        top: 19rem;
+        position: relative;
         left: 50%;
-        transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
+        top: 0.5rem;
+        transform: translate(-50%);
+        -moz-transform: translate(-50%);
+        -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+        -o-transform: translate(-50%);
         font-family: var(--font);
     }
     #suggestions {
-        width: 35%;
+        width: 20rem;
         height: 7rem;
         border-left: 1px solid var(--border-color);
         border-right: 1px solid var(--border-color);
@@ -182,17 +180,17 @@ import Search from '../components/search';
         background: var(--text-bg-color);
         outline: none;
         text-align: center;
-        position: absolute;
-        top: 23.75rem;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
         font-family: var(--font);
         overflow-x: auto;
         cursor: pointer;
+        position: relative;
+        left: 50%;
+        top: -2rem;
+        transform: translate(-50%);
+        -moz-transform: translate(-50%);
+        -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+        -o-transform: translate(-50%);
     }
     li {
         list-style: none;
@@ -205,16 +203,16 @@ import Search from '../components/search';
 </style>
 <style is:global>
     #search {
-        position: absolute;
+        position: relative;
+        left: 119%;
+        top: -2rem;
+        transform: translate(-50%);
+        -moz-transform: translate(-50%);
+        -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+        -o-transform: translate(-50%);
         border-radius: 0.75rem;
         border: 1px solid var(--border-color);
-        top: 19.5rem;
-        left: 72.5%;
-        transform: translate(-51.5%, -72%);
-        -moz-transform: translate(-51.5%, -72%);
-        -webkit-transform: translate(-51.5%, -72%);
-        -ms-transform: translate(-51.5%, -72%);
-        -o-transform: translate(-51.5%, -72%);
         background: var(--text-bg-color);
         color: var(--text-color);
         height: 2.5rem;

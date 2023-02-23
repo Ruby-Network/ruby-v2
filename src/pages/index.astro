@@ -25,33 +25,27 @@ import Password from '../components/password';
 </body>
 
 <style is:global>
+    .get-started-div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+    }
     .get-started-text {
         font-size: 3rem;
         text-align: center;
         margin-top: 2rem;
-        position: absolute;
-        top: 12rem;
-        left: 50%;
-        transform: translate(-50%, -30%);
-        -moz-transform: translate(-50%, -30%);
-        -webkit-transform: translate(-50%, -30%);
-        -ms-transform: translate(-50%, -30%);
-        -o-transform: translate(-50%, -30%);
         color: var(--text-color);
         font-family: var(--font);
     }
     #get-started-button {
         font-size: 3rem;
         text-align: center;
-        margin-top: 2rem;
-        position: relative;
-        top: 13rem;
-        left: 50%;
-        transform: translate(-50%, -30%);
-        -moz-transform: translate(-50%, -30%);
-        -webkit-transform: translate(-50%, -30%);
-        -ms-transform: translate(-50%, -30%);
-        -o-transform: translate(-50%, -30%);
+        margin-top: 0.25rem;
         color: var(--text-color);
         font-family: var(--font);
         background: var(--bg-color);

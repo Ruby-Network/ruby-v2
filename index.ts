@@ -15,6 +15,7 @@ import fs from 'fs';
 import auth from 'http-auth';
 dotenv.config();
 const numCPUs = os.cpus().length;
+let educationWebsite = fs.readFileSync(join(__dirname, 'education/index.html'));
 const blacklisted: string[] = [];
 fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     if (err) {
@@ -89,27 +90,14 @@ if (cluster.isPrimary) {
             app(req, res);
         } else if (
             (!req.headers.cookie?.includes(key) && url.pathname === '/') ||
-            url.pathname === '/404' ||
-            url.pathname === '/apps' ||
-            url.pathname === '/error' ||
-            url.pathname === '/search' ||
-            url.pathname === '/settings' ||
-            url.pathname === '/index'
+            url.pathname.includes('/404') ||
+            url.pathname.includes('/apps') ||
+            url.pathname.includes('/error') ||
+            url.pathname.includes('/search') ||
+            url.pathname.includes('/settings') ||
+            url.pathname.includes('/index')
         ) {
-            fs.readFile(
-                join(__dirname, 'education/index.html'),
-                (err, data) => {
-                    if (err) {
-                        res.writeHead(302, {
-                            Location: '/error',
-                        });
-                        res.end();
-                        return;
-                    }
-                    res.end(data);
-                    return;
-                }
-            );
+            return res.end(educationWebsite);
         } else {
             app(req, res);
         }
@@ -166,17 +154,7 @@ if (cluster.isPrimary) {
         })
     );
     app.get('/loading', (req, res) => {
-        fs.readFile(join(__dirname, 'education/load.html'), (err, data) => {
-            if (err) {
-                res.writeHead(302, {
-                    Location: '/error',
-                });
-                res.end();
-                return;
-            }
-            res.end(data);
-            return;
-        });
+       return res.sendFile(join(__dirname, 'education/load.html'));
     });
     app.use((req, res) => {
         res.writeHead(302, {

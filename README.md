@@ -1,6 +1,6 @@
 <div align="center">
          
-<img src="https://socialify.git.ci/ruby-network/ruby/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light" alt="ruby" width="640" height="320" />
+<img src="https://socialify.git.ci/ruby-network/ruby/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Auto" alt="ruby" width="640" height="320" />
 
 <img alt="build" src="https://img.shields.io/github/actions/workflow/status/ruby-network/ruby/docker-build.yml?style=for-the-badge"></img>
 <img alt="repo size" src="https://img.shields.io/github/repo-size/ruby-network/ruby?style=for-the-badge"></img>

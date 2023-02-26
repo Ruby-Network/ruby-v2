@@ -1,14 +1,39 @@
-![ruby](https://socialify.git.ci/ruby-network/ruby/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Dark)
-![build](https://img.shields.io/github/actions/workflow/status/ruby-network/ruby/docker-build.yml?style=for-the-badge)
-![repo-size](https://img.shields.io/github/repo-size/ruby-network/ruby?style=for-the-badge)
-![webiste-status](https://img.shields.io/website?down_color=red&down_message=down&style=for-the-badge&up_color=green&up_message=Online&url=https%3A%2F%2Frubynetwork.tech)
+<div align="center">
+         
+<img src="https://socialify.git.ci/ruby-network/ruby/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light" alt="ruby" width="640" height="320" />
+
+<img alt="build" src="https://img.shields.io/github/actions/workflow/status/ruby-network/ruby/docker-build.yml?style=for-the-badge"></img>
+<img alt="repo size" src="https://img.shields.io/github/repo-size/ruby-network/ruby?style=for-the-badge"></img>
+<img alt="website status" src="https://img.shields.io/website?down_color=red&down_message=Offline&style=for-the-badge&up_color=green&up_message=Online&url=https%3A%2F%2Frubynetwork.tech"></img>
+</div>
+
+<div align="center">
+    <h2>Get Started</h2>
+    <a>To get started, press one of the buttons below to deploy Ruby</a>
+    <br>
+    <br>
+    <a href="https://render.com/deploy?repo=https://github.com/Ruby-Network/ruby"><img height="30px" src="https://img.shields.io/badge/render-4f65f1.svg?style=for-the-badge&logo=render&logoColor=46e3b7"></img></a>
+    <a href="https://example.com#TODO"><img height="30px" src="https://amethystnetwork-dev.github.io/assets/replit.svg"><img></a>
+    <a href="https://example.com#TODO"><img height="30px" src="https://img.shields.io/badge/Railway-%234f0599.svg?style=for-the-badge&logo=railway&logoColor=white"></img></a>
+    <br>
+    <br>
+    <a>Or</a>
+    <br>
+    <br>
+    <a href="https://github.com/Ruby-Network/ruby/wiki/selfhosting#self-hosting"><img src="https://img.shields.io/badge/terminal-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Terminal"></img></a>
+    <a href="https://github.com/Ruby-Network/ruby/wiki/selfhosting#docker-installation"><img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"></img></a>
+    <br>
+    <br>
+    <a href="https://alienhub.xyz/?utm_medium=amethystnetwork">
+      <img src="https://alienhub.xyz/alien1.gif" width="450" height="150"></img>
+    </a>
+</div>
+
 ---
 
-## This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1)
+This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). This edition focuses on speed and more features.
 
-### This edition focuses on speed and more features.
-
-## [![Ruby Network Discord](https://invidget.switchblade.xyz/hzCjSFQeeZ?theme=dark)](https://discord.gg/hzCjSFQeeZ)
+[![Ruby Network Discord](https://invidget.switchblade.xyz/hzCjSFQeeZ?theme=dark)](https://discord.gg/hzCjSFQeeZ)
 
 ## Features
 
@@ -40,10 +65,6 @@
 
 -   And more!
 
----
-## Self Hosting
-
-Visit our [wiki](https://github.com/ruby-network/ruby/wiki) for information on self hosting
 ---
 
 ## Tech Stack

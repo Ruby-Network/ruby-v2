@@ -2,5 +2,5 @@ services:
   - type: web
     name: ruby
     env: node
-    buildCommand: npm i -g
-    startCommand: npm run prod
+    buildCommand: yarn && yarn build
+    startCommand: yarn start

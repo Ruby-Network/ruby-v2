@@ -97,8 +97,7 @@ if (cluster.isPrimary) {
             url.pathname.includes('/index') ||
             url.pathname.includes('/ruby-assets') ||
             url.pathname.includes('/games')
-        )
-        {
+        ) {
             return res.end(educationWebsite);
         } else {
             app(req, res);

@@ -1,6 +1,6 @@
 services:
-  - type: web
-    name: ruby
-    env: node
-    buildCommand: yarn && yarn build
-    startCommand: yarn start
+    - type: web
+      name: ruby
+      env: node
+      buildCommand: yarn && yarn build
+      startCommand: yarn start

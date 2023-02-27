@@ -6,6 +6,7 @@
 <img alt="repo size" src="https://img.shields.io/github/repo-size/ruby-network/ruby?style=for-the-badge"></img>
 <img alt="website status" src="https://img.shields.io/website?down_color=red&down_message=Offline&style=for-the-badge&up_color=green&up_message=Online&url=https%3A%2F%2Frubynetwork.tech"></img>
 <img alt="commit a week" src="https://img.shields.io/github/commit-activity/w/ruby-network/ruby?style=for-the-badge"></img>
+
 </div>
 
 <div align="center">
@@ -70,7 +71,7 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
     -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
     -   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
     -   [Osana](https://github.com/nebulaservices/osana)
-    
+
         Soon to be added:
 
     -   [Aero](https://github.com/proxyhaven/aero)
@@ -109,4 +110,4 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
 
 ## Commit Activity
 
-![Alt](https://repobeats.axiom.co/api/embed/ebe65662fb02989a2be94c965f41301cd8306047.svg "Repobeats analytics image")
+![Alt](https://repobeats.axiom.co/api/embed/ebe65662fb02989a2be94c965f41301cd8306047.svg 'Repobeats analytics image')

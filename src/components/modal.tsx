@@ -9,7 +9,7 @@ import {
     faWindowMaximize,
     faGear,
     faCompass,
-    faGamepad
+    faGamepad,
 } from '@fortawesome/free-solid-svg-icons';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 export default function Modal() {

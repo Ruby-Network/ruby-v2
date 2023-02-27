@@ -9,20 +9,52 @@
 </div>
 
 <div align="center">
-    <h2>Get Started</h2>
-    <a>To get started, press one of the buttons below to deploy Ruby</a>
-    <br>
-    <br>
-    <a href="https://render.com/deploy?repo=https://github.com/Ruby-Network/ruby"><img height="30px" src="https://img.shields.io/badge/render-4f65f1.svg?style=for-the-badge&logo=render&logoColor=46e3b7"></img></a>
-    <a href="https://example.com#TODO"><img height="30px" src="https://amethystnetwork-dev.github.io/assets/replit.svg"><img></a>
-    <a href="https://example.com#TODO"><img height="30px" src="https://img.shields.io/badge/Railway-%234f0599.svg?style=for-the-badge&logo=railway&logoColor=white"></img></a>
-    <br>
-    <br>
+  <h2>Get Started</h2>
+  <a>To get started, press one of the buttons below to deploy Ruby</a>
+  <br />
+  <br />
+  <a href="https://render.com/deploy?repo=https://github.com/Ruby-Network/ruby">
+    <img
+      height="30px"
+      src="https://img.shields.io/badge/render-4f65f1.svg?style=for-the-badge&logo=render&logoColor=46e3b7"
+    />
+  </a>
+  <a href="https://heroku.com/deploy?template=https://github.com/Ruby-Network/ruby">
+  <img height="30px" src="https://raw.githubusercontent.com/amethystnetwork-dev/Tsunami/main/deploy/heroku.svg">
+  </img>
+  </a>
+<a href="https://repl.it/github/FogNetwork/Tsunami">
+<img height="30px" src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/replit.svg">
+<img>
+</a>
+  <a href="https://example.com#TODO">
+    <img
+      height="30px"
+      src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/railway.svg"
+    />
+  </a>
+  <a href="https://glitch.com/edit/#!/import/github/Ruby-Network/ruby">
+  <img height="30px" 
+  src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/glitch.svg">
+  </img>
+  </a>
+  <a href="https://app.koyeb.com/deploy?type=git&repository=github.com/Ruby-Network/ruby">
+  <img height="30px" src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/koyeb.svg">
+  </img>
+  </a>
+  <br />
+  <br />
     <a>Or</a>
     <br>
     <br>
-    <a href="https://github.com/Ruby-Network/ruby/wiki/selfhosting#self-hosting"><img src="https://img.shields.io/badge/terminal-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Terminal"></img></a>
-    <a href="https://github.com/Ruby-Network/ruby/wiki/selfhosting#docker-installation"><img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"></img></a>
+    <a href="https://github.com/Ruby-Network/ruby/wiki/selfhosting#self-hosting">
+    <img src="https://img.shields.io/badge/terminal-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Terminal">
+    </img>
+    </a>
+    <a href="https://github.com/Ruby-Network/ruby/wiki/selfhosting#docker-installation">
+    <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+    </img>
+    </a>
 </div>
 
 ---

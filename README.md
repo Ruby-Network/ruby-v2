@@ -23,11 +23,11 @@
   <img height="30px" src="https://raw.githubusercontent.com/amethystnetwork-dev/Tsunami/main/deploy/heroku.svg">
   </img>
   </a>
-<a href="https://repl.it/github/FogNetwork/Tsunami">
+<a href="https://repl.it/github/Ruby-Network/ruby">
 <img height="30px" src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/replit.svg">
 <img>
 </a>
-  <a href="https://example.com#TODO">
+  <a href="https://railway.app/new/template?template=https://github.com/Ruby-Network/ruby">
     <img
       height="30px"
       src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/railway.svg"

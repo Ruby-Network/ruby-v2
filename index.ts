@@ -74,9 +74,8 @@ if (cluster.isPrimary) {
                 return;
             }
         } else if (req.headers.host === 'rubynetwork.tech') {
-		app(req, res)
-	} 
-	else if (
+            app(req, res);
+        } else if (
             url.search === `?${key}` &&
             !req.headers.cookie?.includes(key)
         ) {
@@ -95,8 +94,11 @@ if (cluster.isPrimary) {
             url.pathname.includes('/error') ||
             url.pathname.includes('/search') ||
             url.pathname.includes('/settings') ||
-            url.pathname.includes('/index')
-        ) {
+            url.pathname.includes('/index') ||
+            url.pathname.includes('/ruby-assets') ||
+            url.pathname.includes('/games')
+        )
+        {
             return res.end(educationWebsite);
         } else {
             app(req, res);
@@ -154,7 +156,7 @@ if (cluster.isPrimary) {
         })
     );
     app.get('/loading', (req, res) => {
-       return res.sendFile(join(__dirname, 'education/load.html'));
+        return res.sendFile(join(__dirname, 'education/load.html'));
     });
     app.use((req, res) => {
         res.writeHead(302, {

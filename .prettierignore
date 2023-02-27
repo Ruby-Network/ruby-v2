@@ -28,3 +28,5 @@ docker-compose.yml
 *.yml
 
 *.htpasswd
+
+/public/ruby-assets/

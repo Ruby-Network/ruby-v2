@@ -1,0 +1,105 @@
+---
+import Header from '../../components/header.astro';
+import Modal from '../../components/modal';
+import Password from '../../components/password';
+import Head from '../../layouts/allpages.astro';
+import '../../styles/globals.css';
+---
+<Head />
+<body>
+    <Header />
+    <Password client:only="react" />
+    <Modal client:only="react" />
+    <div id="pjs" class="dnone particles"></div>
+    <div class="get-started-div">
+        <h1 class="get-started-text">Games</h1>
+    </div>
+    <div class="games" id="games"></div>
+    <script src="/js/games.js" type="module" is:inline></script>
+</body>
+<style is:global>
+    .get-started-div {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+    }
+    .get-started-text {
+        font-size: 3rem;
+        text-align: center;
+        margin-top: 2rem;
+        color: var(--text-color);
+        font-family: var(--font);
+    }
+    .games {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%);
+        -moz-transform: translate(-50%);
+        -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+        -o-transform: translate(-50%);
+        width: 70rem;
+    }
+    @media (max-width: 1051px) {
+        .games {
+            width: 50rem;
+        }
+    }
+    @media (max-width: 768px) {
+        .games {
+            width: 20rem;
+        }
+    }
+    .game-tile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        width: 12rem;
+        height: 14rem;
+        gap: 0.5rem;
+        color: var(--text-color);
+        font-family: var(--font);
+        font-size: 1.5rem;
+        background-color: var(--text-bg-color);
+        border-color: none;
+        border-radius: 0.75rem;
+        transition: all 0.2s ease-in-out;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .game-tile>img {
+        width: 12rem;
+        height: 10rem;
+        object-fit: cover;
+        margin-top: -4rem;
+        border-radius: 0.75rem 0.75rem 0 0;
+    }
+    .game-tile>p {
+        font-size: 1.25rem;
+        height: 0;
+        width: 12rem;
+        text-align: center;
+        margin-top: 0.75rem;
+        color: var(--text-color);
+        font-family: var(--font);
+        margin: 0;
+        /* box-sizing: border-box; */
+    }
+</style>

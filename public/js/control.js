@@ -80,6 +80,10 @@ function fullscreenIframe() {
     }
 }
 function exitIframe() {
+    if (window.location.href === '/games' || window.location.href === '/games/') {
+        localStorage.setItem('reloaded', 'true');
+        window.location.replace('/games');
+    }
     window.location.reload();
     localStorage.setItem('reloaded', 'true');
 }

@@ -1,0 +1,68 @@
+---
+import Header from '../../components/header.astro';
+import Modal from '../../components/modal';
+import Password from '../../components/password';
+import Head from '../../layouts/allpages.astro';
+import '../../styles/globals.css';
+// const { game } = Astro.params;
+---
+<Head />
+<body>
+    <Header />
+    <Password client:only="react" />
+    <Modal client:only="react" />
+    <div id="pjs" class="dnone particles"></div>
+    <iframe
+        id="uv-iframe"
+        style="height: calc(100% - 4rem);width: 100%;border: none;position: fixed;top: 4rem;right: 0;left: 0;bottom: 0;border: none; background: var(--bg-color);"
+    >
+    </iframe>
+    <div id="control">
+        <i
+            class="fas fa-times hover:brightness-200"
+            onclick="window.location.replace('/games')">
+        </i>
+        <i
+            class="fas fa-expand hover:brightness-200"
+            onclick="fullscreenIframe()"></i>
+    </div>
+    <div
+        id="nav-toggle"
+        class="dnone exit w-80 h-2 text-center align-middle bg-transparent absolute"
+    >
+    </div>
+    <script src="/js/control.js" is:inline></script>
+    <script src="/js/gameload.js" type="module" is:inline></script>
+</body>
+<style>
+    #control {
+        position: absolute;
+        top: 1.25rem;
+        left: 1rem;
+        display: flex;
+        flex-direction: row;
+        gap: 0.75rem;
+        border: none;
+        background: none;
+        filter: var(--brightness-filter);
+        color: var(--text-color);
+        font-size: 1.5rem;
+        cursor: pointer;
+        outline: none;
+        font-family: var(--font);
+    }
+    .exit {
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        color: var(--text-color);
+        font-size: 1.5rem;
+        font-family: var(--font);
+        z-index: 9999;
+        /* background: var(--text-bg-color); */
+    }
+</style>

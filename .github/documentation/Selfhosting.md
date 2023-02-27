@@ -102,6 +102,20 @@ $ docker-compose up -d
 ```
 Need to use a custom network? Uncomment the networks section and change the name to the name of your network 
 
+# GAMES
+- These are not included by default due to the size. To add them simply run the following command
+```bash
+$ git submodule update --init --recursive
+```
+- If you want to update the games to the latest version run the following command
+```bash
+$ git submodule update --recursive --remote
+```
+- If you want to remove the games run the following command
+```bash
+$ git submodule deinit -f .
+```
+
 ---
 For more support join Our Discord!
 

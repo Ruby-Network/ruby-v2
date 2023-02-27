@@ -1,0 +1,3 @@
+[submodule "public/ruby-assets"]
+	path = public/ruby-assets
+	url = https://github.com/ruby-network/ruby-assets

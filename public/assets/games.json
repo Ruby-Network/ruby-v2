@@ -1,0 +1,394 @@
+[
+    {
+        "img": "/assets/games-thumb/tanuki.jpg",
+        "baseFile": "index.html",
+        "name": "Tanuki Sunset",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/tunnel-rush.jpg",
+        "baseFile": "index.html",
+        "name": "Tunnel Rush",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/stuntcars2.png",
+        "baseFile": "index.html",
+        "name": "Madalin Stunt Cars 2",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/moke.png",
+        "baseFile": "index.html",
+        "name": "Spank The Monkey",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/slope.jpg",
+        "baseFile": "index.html",
+        "name": "Slope",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/run3.png",
+        "baseFile": "index.html",
+        "name": "Run 3",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/pacman.jpg",
+        "baseFile": "index.html",
+        "name": "Pacman",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/hexgl.jpg",
+        "baseFile": "index.html",
+        "name": "HexGL",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/snake.png",
+        "baseFile": "index.html",
+        "name": "Google Snake",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/gpacman.jpg",
+        "baseFile": "index.html",
+        "name": "Google Pacman",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/mario.webp",
+        "baseFile": "index.html",
+        "name": "Super Mario Bros.",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/ducklife.webp",
+        "baseFile": "index.html",
+        "name": "DuckLife",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/ducklife2.jpg",
+        "baseFile": "index.html",
+        "name": "DuckLife 2",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/ducklife3.jpg",
+        "baseFile": "index.html",
+        "name": "DuckLife 3",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/chromedino.png",
+        "baseFile": "index.html",
+        "name": "Google Dino Game",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/cookieclicker.jpg",
+        "baseFile": "index.html",
+        "name": "Cookie Clicker",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/retrobowl.jpg",
+        "baseFile": "index.html",
+        "name": "Retro Bowl",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/riddleschool.webp",
+        "baseFile": "index.html",
+        "name": "Riddle School",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/riddleschool2.webp",
+        "baseFile": "index.html",
+        "name": "Riddle School 2",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/riddleschool3.jpg",
+        "baseFile": "index.html",
+        "name": "Riddle School 3",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/riddleschool4.jpg",
+        "baseFile": "index.html",
+        "name": "Riddle School 4",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/riddleschool5.webp",
+        "baseFile": "index.html",
+        "name": "Riddle School 5",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/superhot.webp",
+        "baseFile": "index.html",
+        "name": "SuperHot",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/tanktrouble.webp",
+        "baseFile": "index.html",
+        "name": "Tank Trouble 2",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/templerun2.jpg",
+        "baseFile": "index.html",
+        "name": "Temple Run 2",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/flashtetris.png",
+        "baseFile": "index.html",
+        "name": "Flash Tetris",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/emulatorjs.png",
+        "baseFile": "index.html",
+        "name": "EmulatorJS",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/webretro.png",
+        "baseFile": "index.html",
+        "name": "WebRetro",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/bloons.webp",
+        "baseFile": "index.html",
+        "name": "Bloons",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/bloonstd.jpg",
+        "baseFile": "index.html",
+        "name": "Bloons TD",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/bloonstd2.png",
+        "baseFile": "index.html",
+        "name": "Bloons TD 2",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/2048.png",
+        "baseFile": "index.html",
+        "name": "2048",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/bloxors.png",
+        "baseFile": "index.html",
+        "name": "Bloxors",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/geometrydash.png",
+        "baseFile": "index.html",
+        "name": "Geometry Dash",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/sticmanhook.jpg",
+        "baseFile": "index.html",
+        "name": "Stickman Hook",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/vex3.png",
+        "baseFile": "index.html",
+        "name": "Vex 3",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/vex4.png",
+        "baseFile": "index.html",
+        "name": "Vex 4",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/vex5.jpeg",
+        "baseFile": "index.html",
+        "name": "Vex 5",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/vex6.jpeg",
+        "baseFile": "index.html",
+        "name": "Vex 6",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/vex7.png",
+        "baseFile": "index.html",
+        "name": "Vex 7",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/stuntcars3.jpg",
+        "baseFile": "index.html",
+        "name": "Madalin Stunt Cars 3",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/hardestgame.jpg",
+        "baseFile": "index.html",
+        "name": "Worlds Hardest Game",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/portaltheflashversion.jpg",
+        "baseFile": "index.html",
+        "name": "Portal Flash",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/crossy-road.png",
+        "baseFile": "index.html",
+        "name": "Crossy Road",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/subway-surfers.png",
+        "baseFile": "index.html",
+        "name": "Subway Surfers",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/dadish.png",
+        "baseFile": "index.html",
+        "name": "Dadish",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/dadish-2.png",
+        "baseFile": "index.html",
+        "name": "Dadish 2",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/doodle-jump.png",
+        "baseFile": "index.html",
+        "name": "Doodle Jump",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/fruit-ninja.png",
+        "baseFile": "index.html",
+        "name": "Fruit Ninja",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    }
+]

@@ -9,6 +9,7 @@ import {
     faWindowMaximize,
     faGear,
     faCompass,
+    faGamepad
 } from '@fortawesome/free-solid-svg-icons';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 export default function Modal() {
@@ -72,6 +73,16 @@ export default function Modal() {
                                             icon={faWindowMaximize}
                                         />{' '}
                                         Proxy
+                                    </a>
+                                </li>
+                                <li className="modal-list-item text-xl font-semibold rounded-xl hover:bg-[var(--bg-color)] hover:brightness-200 m-3">
+                                    <a
+                                        rel="prefetch"
+                                        href="/games"
+                                        className="modal-list-item-link block w-full p-2 border-[var(--border-color)] border-2 border-solid rounded-xl"
+                                    >
+                                        <FontAwesomeIcon icon={faGamepad} />{' '}
+                                        Games
                                     </a>
                                 </li>
                                 <li className="modal-list-item text-xl font-semibold rounded-xl hover:bg-[var(--bg-color)] hover:brightness-200 m-3">

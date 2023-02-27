@@ -1,6 +1,6 @@
 {
-    "name": "Tsunami",
-    "description": "An official Fog Network proxy site, made to access the blocked web",
+    "name": "Ruby",
+    "description": "Ruby (V2) is fast, sleek and customizable",
     "repository": "https://github.com/Ruby-Network/ruby",
     "logo":"https://user-images.githubusercontent.com/73721704/210157935-6aa8ec46-6fa4-4dd5-956f-6bfe351de42c.png",
     "keywords": ["javascript", "web", "ruby-network", "ruby-net", "education", "ruby"]

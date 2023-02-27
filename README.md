@@ -38,10 +38,6 @@
   src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/glitch.svg">
   </img>
   </a>
-  <a href="https://app.koyeb.com/deploy?type=git&repository=github.com/Ruby-Network/ruby">
-  <img height="30px" src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/koyeb.svg">
-  </img>
-  </a>
   <br />
   <br />
     <a>Or</a>

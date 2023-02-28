@@ -390,5 +390,29 @@
         "cdn": "false",
         "proxy": "false",
         "url": ""
+    },
+    {
+       "img": "/assets/games-thumb/basketball-stars.png",
+       "baseFile": "index.html",
+       "name": "Basketball Stars",
+       "cdn": "false",
+       "proxy": "false",
+       "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/slope-2.png",
+        "baseFile": "index.html",
+        "name": "Slope 2",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/stack.png",
+        "baseFile": "index.html",
+        "name": "Stack",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
     }
 ]

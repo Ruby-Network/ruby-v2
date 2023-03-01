@@ -84,6 +84,7 @@ import '../../styles/globals.css';
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        cursor: pointer;
     }
     .game-tile > img {
         width: 12rem;
@@ -102,5 +103,13 @@ import '../../styles/globals.css';
         font-family: var(--font);
         margin: 0;
         /* box-sizing: border-box; */
+    }
+    .game-tile:hover {
+        filter: drop-shadow(0 12px 12px var(--text-color));
+    }
+    .game-tile:active {
+        filter: drop-shadow(0 5px 5px var(--text-color));
+        width: 11.5rem;
+        height: 13.5rem;
     }
 </style>

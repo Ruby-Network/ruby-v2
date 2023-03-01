@@ -106,10 +106,10 @@
     postcss "^8.4.14"
     postcss-load-config "^4.0.1"
 
-"@astrojs/telemetry@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/telemetry/-/telemetry-2.0.0.tgz#025961cccca062fe010938441db7d1e607c2253a"
-  integrity sha512-RnWojVMIsql3GGWDP5pNWmhmBQVkCpxGNZ8yPr2cbmUqsUYGSvErhqfkLfro9j2/STi5UDmSpNgjPkQmXpgnKw==
+"@astrojs/telemetry@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/telemetry/-/telemetry-2.0.1.tgz#6c21b8697ce683a50124c55cbd4751bc883fe580"
+  integrity sha512-68BLBb9CcvQMkWHE6h6VTgm5g6agm3+xm8eb3cdkmX9nP1LSQ/fiD49Jb1qAgCtWcY8yQJiWQQXwcdyStD+VoA==
   dependencies:
     ci-info "^3.3.1"
     debug "^4.3.4"
@@ -117,15 +117,15 @@
     dset "^3.1.2"
     is-docker "^3.0.0"
     is-wsl "^2.2.0"
-    undici "^5.14.0"
+    undici "^5.20.0"
     which-pm-runs "^1.1.0"
 
-"@astrojs/webapi@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/webapi/-/webapi-2.0.1.tgz#b8459a2f3ad6d8d8fea0bb45bc41f7aa6436bcea"
-  integrity sha512-aOOHa86W5Ux77A3dS91YrVlSxtBSJsVK4UhvcXHY0gAl0ZrOStSKSBO45gZ6tFi2AiHu3bzpMtZjwrPHtl+cyg==
+"@astrojs/webapi@^2.0.1", "@astrojs/webapi@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@astrojs/webapi/-/webapi-2.0.2.tgz#24afaeed1ee44576c150ac83983a86ef31c6053e"
+  integrity sha512-uSNtxLuvCWOcwy/DdIy30ocIcIUedEZpyhn1MHW3XuZ3PZHg4PMej3EP38Ns6uKgDKqMyEdscca9bMLuf4cO/w==
   dependencies:
-    undici "5.18.0"
+    undici "5.20.0"
 
 "@babel/code-frame@^7.18.6":
   version "7.18.6"
@@ -641,9 +641,9 @@
     tsm "^2.1.4"
 
 "@titaniumnetwork-dev/ultraviolet@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@titaniumnetwork-dev/ultraviolet/-/ultraviolet-1.0.8.tgz#9241523c8caf3a259dd27a13ff3c79c9e2532045"
-  integrity sha512-YN4vIR2wu6IDdjEHTqJStEw1MyFQE1iW+x329CUrjyM6Mog2PHAMnLBsHYlh0WSv5eTQLOJOB1gZUU/jb81lHQ==
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/@titaniumnetwork-dev/ultraviolet/-/ultraviolet-1.0.10.tgz#515474b2be346574575fe155ad0f7ff82608b852"
+  integrity sha512-y5Hv92jQUvwmcEMIeFuImuD5CmI7b0MQGL7qkFcEZxETxlwy+jveLaHpF1UWgtGJS50GSnj9GCJWZWp/W6IwEQ==
   dependencies:
     "@tomphttp/bare-client" "^1.1.2-beta.3"
     css-tree "^2.0.4"
@@ -1037,15 +1037,15 @@ astro-robots-txt@^0.4.0:
     zod "^3.20.6"
 
 astro@^2.0.4:
-  version "2.0.15"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-2.0.15.tgz#fa4d356d9b3b152f68a9882b094fa487be2be752"
-  integrity sha512-CUJNrcdgcSjASValRNEesTgXSefgQ8Z9GHrZXckmTivatoBlVkYb8G8tmk7dgRt6JF+bwfOsA6cGdv7+G7hCbA==
+  version "2.0.16"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-2.0.16.tgz#ebc24390f6b73edd7e55f08d1ba2573028a7129e"
+  integrity sha512-noQL+bbBZaCLbh7wmpVON+e4kDxymDsIQkEUzzuMKLQodYynxr/Sp7RBA/JnEqXz4CRyd7IrgeQBN0cKOuBtzQ==
   dependencies:
     "@astrojs/compiler" "^1.1.0"
     "@astrojs/language-server" "^0.28.3"
     "@astrojs/markdown-remark" "^2.0.1"
-    "@astrojs/telemetry" "^2.0.0"
-    "@astrojs/webapi" "^2.0.1"
+    "@astrojs/telemetry" "^2.0.1"
+    "@astrojs/webapi" "^2.0.2"
     "@babel/core" "^7.18.2"
     "@babel/generator" "^7.18.2"
     "@babel/parser" "^7.18.4"
@@ -1564,9 +1564,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.284:
-  version "1.4.311"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.311.tgz#953bc9a4767f5ce8ec125f9a1ad8e00e8f67e479"
-  integrity sha512-RoDlZufvrtr2Nx3Yx5MB8jX3aHIxm8nRWPJm3yVvyHmyKaRvn90RjzB6hNnt0AkhS3IInJdyRfQb4mWhPvUjVw==
+  version "1.4.314"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.314.tgz#33e4ad7a2ca2ddbe2e113874cc0c0e2a00cb46bf"
+  integrity sha512-+3RmNVx9hZLlc0gW//4yep0K5SYKmIvB5DXg1Yg6varsuAHlHwTeqeygfS8DWwLCsNOWrgj+p9qgM5WYjw1lXQ==
 
 emmet@^2.3.0:
   version "2.3.6"
@@ -1953,9 +1953,9 @@ fraction.js@^4.2.0:
   integrity sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==
 
 framer-motion@^10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-10.0.0.tgz#56e4cefa2a15cb052576e525f445414bf1ddac56"
-  integrity sha512-qVmndcu4Z3q5ftqcbUCvVewHc5yiw4uIZyM0uvJ0/spj9lza/FnWywUUc8DNIZTG1my6nFsNLRPGDruP4o6eIw==
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-10.0.1.tgz#62cadfb9ed80599ac9b1c1699dc4e1164c3133c5"
+  integrity sha512-/N7gBA9gH8PkStyNQ67P/lx8UhL/7Y8z9Ku7FfgOF77sSG8wu8781kX7I5ZUgflRRtQXo8qH4Rev23004G1zcQ==
   dependencies:
     tslib "^2.4.0"
   optionalDependencies:
@@ -4024,14 +4024,7 @@ typescript@*:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
-undici@5.18.0:
-  version "5.18.0"
-  resolved "https://registry.yarnpkg.com/undici/-/undici-5.18.0.tgz#e88a77a74d991a30701e9a6751e4193a26fabda9"
-  integrity sha512-1iVwbhonhFytNdg0P4PqyIAXbdlVZVebtPDvuM36m66mRw4OGrCm2MYynJv/UENFLdP13J1nPVQzVE2zTs1OeA==
-  dependencies:
-    busboy "^1.6.0"
-
-undici@^5.14.0:
+undici@5.20.0, undici@^5.20.0:
   version "5.20.0"
   resolved "https://registry.yarnpkg.com/undici/-/undici-5.20.0.tgz#6327462f5ce1d3646bcdac99da7317f455bcc263"
   integrity sha512-J3j60dYzuo6Eevbawwp1sdg16k5Tf768bxYK4TUJRH7cBM4kFCbf3mOnM/0E3vQYXvpxITbbWmBafaDbxLDz3g==
@@ -4062,9 +4055,11 @@ unist-util-generated@^2.0.0:
   integrity sha512-qF72kLmPxAw0oN2fwpWIqbXAVyEqUzDHMsbtPvOudIlUzXYFIeQIuxXQCRCFh22B7cixvU0MG7m3MW8FTq/S+A==
 
 unist-util-is@^5.0.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/unist-util-is/-/unist-util-is-5.2.0.tgz#37eed0617b76c114fd34d44c201aa96fd928b309"
-  integrity sha512-Glt17jWwZeyqrFqOK0pF1Ded5U3yzJnFr8CG1GMjCWTp9zDo2p+cmD6pWbZU8AgM5WU3IzRv6+rBwhzsGh6hBQ==
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/unist-util-is/-/unist-util-is-5.2.1.tgz#b74960e145c18dcb6226bc57933597f5486deae9"
+  integrity sha512-u9njyyfEh43npf1M+yGKDGVPbY/JWEemg5nH05ncKPfi+kBbKBJoTdsogMu33uhytuLlv9y0O7GH7fEdwLdLQw==
+  dependencies:
+    "@types/unist" "^2.0.0"
 
 unist-util-modify-children@^3.0.0:
   version "3.1.1"

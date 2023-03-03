@@ -4,4 +4,4 @@ services:
       env: node
       plan: free
       buildCommand: yarn && yarn build 
-      startCommand: yarn run
+      startCommand: yarn start

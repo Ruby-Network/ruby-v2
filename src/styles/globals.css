@@ -123,6 +123,16 @@
     --scroll-bar-thumb-hover-color: #15fc95;
     --input-bg-color: #006072;
 }
+.basic {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --border-color: #ffffff;
+    --text-bg-color: #000000;
+    --scroll-bar-track-color: #000000;
+    --scroll-bar-thumb-color: #ffffff;
+    --scroll-bar-thumb-hover-color: #fff3bc;
+    --input-bg-color: #000000;
+}
 .pinkish-purple {
     --bg-color: linear-gradient(90deg, #665fd2, #9824d3) no-repeat center center
         fixed;
@@ -134,6 +144,16 @@
     --scroll-bar-thumb-hover-color: #2f2c5e;
     --input-bg-color: #4c4798;
 }
+.pink-and-gray {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --border-color: #ff3b5c;
+    --text-bg-color: #ff3b5c;
+    --scroll-bar-track-color: #121212;
+    --scroll-bar-thumb-color: #ff3b5c;
+    --scroll-bar-thumb-hover-color: #ffffff;
+    --input-bg-color: #ff3b5c;
+}
 .nord {
     --bg-color: #242933;
     --text-color: #ffffff;
@@ -143,6 +163,16 @@
     --scroll-bar-thumb-color: #ffffff;
     --scroll-bar-thumb-hover-color: #ffffff;
     --input-bg-color: #242933;
+}
+.scoria {
+    --bg-color: linear-gradient(180deg,#10001b,#1d0003) no-repeat center center fixed;
+    --text-color: #ffffff;
+    --border-color: #ff001f;
+    --text-bg-color: #ff001f;
+    --scroll-bar-track-color: #1d0003;
+    --scroll-bar-thumb-color: #ffffff;
+    --scroll-bar-thumb-hover-color: #ff001f;
+    --input-bg-color: #ff001f;
 }
 .earth {
     --bg-color: #285430;

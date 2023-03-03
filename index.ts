@@ -47,6 +47,10 @@ if (cluster.isPrimary) {
     app.use(express.static(join(__dirname, 'dist/client')));
     //Server side render middleware for astro
     app.use(ssrHandler);
+    //express middleware for body
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: false }));
+    //uv config
     app.use('/uv/', express.static(uvPath));
     //env vars for the unlock feature
     let key = process.env.KEY || '';
@@ -81,7 +85,7 @@ if (cluster.isPrimary) {
         ) {
             res.writeHead(302, {
                 Location: '/',
-                'Set-Cookie': `key=${key}; Path=/`,
+                'Set-Cookie': `key=${key}; Path=/; expires=Thu, 31 Dec 2099 23:59:59 GMT;`,
             });
             res.end();
             return;
@@ -157,6 +161,26 @@ if (cluster.isPrimary) {
     app.get('/loading', (req, res) => {
         return res.sendFile(join(__dirname, 'education/load.html'));
     });
+    app.post('/login-form', (req, res) => {
+        let body = req.body;
+        let user = process.env.USERNAME || 'ruby';
+        let pass = process.env.PASSWORD || 'ruby';
+        body = JSON.stringify(body);
+        body = JSON.parse(body);
+        if (body.username === user && body.password === pass) {
+            res.writeHead(302, {
+                location: '/',
+                'Set-Cookie': `key=${key}; Path=/; expires=Thu, 31 Dec 2099 23:59:59 GMT;`,
+            })
+            res.end();
+            return;
+        }
+        else {
+            res.writeHead(401)
+            res.end(educationWebsite);
+            return;
+        }
+    }) 
     app.use((req, res) => {
         res.writeHead(302, {
             Location: '/404',

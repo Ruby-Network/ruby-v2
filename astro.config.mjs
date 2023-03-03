@@ -10,10 +10,10 @@ dotenv.config();
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [prefetch(), tailwind(), react(), robotsTxt(), partytown()],
-  site: process.env.URL,
-  output: 'server',
-  adapter: node({
-    mode: 'middleware'
-  })
+    integrations: [prefetch(), tailwind(), react(), robotsTxt(), partytown()],
+    site: process.env.URL,
+    output: 'server',
+    adapter: node({
+        mode: 'middleware',
+    }),
 });

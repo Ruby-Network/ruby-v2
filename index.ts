@@ -160,7 +160,7 @@ if (cluster.isPrimary) {
         })
     );
     app.get('/loading', (req, res) => {
-        return res.end(loadingPage)
+        return res.end(loadingPage);
     });
     app.post('/login-form', (req, res) => {
         let body = req.body;
@@ -172,16 +172,15 @@ if (cluster.isPrimary) {
             res.writeHead(302, {
                 location: '/',
                 'Set-Cookie': `key=${key}; Path=/; expires=Thu, 31 Dec 2099 23:59:59 GMT;`,
-            })
+            });
             res.end();
             return;
-        }
-        else {
-            res.writeHead(401)
+        } else {
+            res.writeHead(401);
             res.end(educationWebsite);
             return;
         }
-    }) 
+    });
     app.use((req, res) => {
         res.writeHead(302, {
             Location: '/404',

@@ -1,5 +1,5 @@
 services:
-  - type: web
-    name: ruby
-    env: docker
-    plan: free
+    - type: web
+      name: ruby
+      env: docker
+      plan: free

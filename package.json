@@ -1,5 +1,5 @@
 {
-    "name": "@example/basics",
+    "name": "ruby",
     "type": "module",
     "version": "0.0.1",
     "private": true,
@@ -14,6 +14,9 @@
         "format": "prettier --write .",
         "start": "ts-node --esm index.ts",
         "prod": "yarn build && yarn start "
+    },
+    "engines": {
+        "node": ">=17"
     },
     "dependencies": {
         "@astrojs/node": "^5.0.3",

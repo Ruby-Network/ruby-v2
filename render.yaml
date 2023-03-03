@@ -1,5 +1,7 @@
 services:
     - type: web
       name: ruby
-      env: docker
+      env: node
       plan: free
+      buildCommand: yarn build 
+      startCommand: yarn run

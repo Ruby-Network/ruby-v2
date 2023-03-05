@@ -3,5 +3,5 @@ services:
       name: ruby
       env: node
       plan: free
-      buildCommand: yarn && yarn build 
+      buildCommand: yarn && yarn build
       startCommand: yarn start

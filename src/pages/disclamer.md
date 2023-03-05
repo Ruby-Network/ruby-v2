@@ -1,4 +1,4 @@
-// This needs to be in tbe footer of every page 
+// This needs to be in tbe footer of every page
 
 DISCLAIMER
 

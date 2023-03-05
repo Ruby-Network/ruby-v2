@@ -66,15 +66,14 @@ if (proxytype === 'DIP') {
             worker().then((event) => {
                 let search = document.querySelector('.dipinput');
                 let address = document.getElementById('uv-address');
-                searchURI(address.value)
+                searchURI(address.value);
                 //loadingIframe.classList.remove('dnone');
                 let textcolor = getComputedStyle(
                     document.body
                 ).getPropertyValue('--text-color');
                 //loadingIframe.src = `/loading#${textcolor}`;
                 iframe.src =
-                    window.__DIP.config.prefix +
-                    window.__DIP.encodeURL(url);
+                    window.__DIP.config.prefix + window.__DIP.encodeURL(url);
                 //iframe.addEventListener('load', function () {
                 //loadingIframe.classList.add('dnone');
                 document.getElementById('control').classList.remove('dnone');
@@ -95,7 +94,7 @@ if (proxytype === 'Osana') {
         .addEventListener('submit', async (event) => {
             event.preventDefault();
             let url;
-            function searchURI(value){
+            function searchURI(value) {
                 url = search(value, searchEngine.value);
             }
             worker().then((event) => {
@@ -106,7 +105,8 @@ if (proxytype === 'Osana') {
                     document.body
                 ).getPropertyValue('--text-color');
                 //loadingIframe.src = `/loading#${textcolor}`;
-                iframe.src = __osana$config.prefix + __osana$config.codec.encode(url);
+                iframe.src =
+                    __osana$config.prefix + __osana$config.codec.encode(url);
                 //iframe.addEventListener('load', function () {
                 //loadingIframe.classList.add('dnone');
                 document.getElementById('control').classList.remove('dnone');
@@ -133,12 +133,10 @@ function decoded(str) {
 function search(input, template) {
     try {
         return new URL(input).toString();
-    } catch (err) {
-    }
+    } catch (err) {}
     try {
         const url = new URL(`http://${input}`);
         if (url.hostname.includes('.')) return url.toString();
-    } catch (err) {
-    }
+    } catch (err) {}
     return template.replace('%s', encodeURIComponent(input));
 }

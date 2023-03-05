@@ -90,4 +90,4 @@ window.onload = function () {
         adress.value = link;
         form.dispatchEvent(new Event('submit'));
     }
-}
+};

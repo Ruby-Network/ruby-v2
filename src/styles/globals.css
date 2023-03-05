@@ -135,7 +135,7 @@
 }
 .pastel {
     --bg-color: #2a2d34;
-    --text-color: #f5e5fC;
+    --text-color: #f5e5fc;
     --border-color: #99d5c9;
     --text-bg-color: #2a2d28;
     --scroll-bar-track-color: #2a2d34;
@@ -175,7 +175,8 @@
     --input-bg-color: #242933;
 }
 .scoria {
-    --bg-color: linear-gradient(180deg,#10001b,#1d0003) no-repeat center center fixed;
+    --bg-color: linear-gradient(180deg, #10001b, #1d0003) no-repeat center
+        center fixed;
     --text-color: #ffffff;
     --border-color: #ff001f;
     --text-bg-color: #ff001f;

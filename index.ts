@@ -181,6 +181,7 @@ if (cluster.isPrimary) {
             return;
         }
     });
+// Define the /analytics endpoint
     app.use((req, res) => {
         res.writeHead(302, {
             Location: '/404',

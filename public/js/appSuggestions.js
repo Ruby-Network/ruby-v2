@@ -70,9 +70,24 @@ window.onload = function () {
     if (window.location.hash.includes('#custom')) {
         // Get the custom URL after the = sign
         let customURL = window.location.hash.split('=')[1];
-        if (localStorage.getItem('reloaded') !== 'true') {
+        if (localStorage.getItem('reloaded') !== 'true' && localStorage.getItem('customApps')) {
             adress.value = customURL;
             form.dispatchEvent(new Event('submit'));
         }
     }
-};
+    if (window.location.hash.includes('#link')) {
+        let link = window.location.hash.split('=')[1];
+        let iframe = document.getElementById('uv-iframe');
+        iframe.classList.remove('dnone');
+        iframe.style.display = 'absolute';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.border = 'none';
+        iframe.style.left = '0';
+        iframe.style.top = '0';
+        iframe.style.right = '0';
+        iframe.style.zIndex = '9999';
+        adress.value = link;
+        form.dispatchEvent(new Event('submit'));
+    }
+}

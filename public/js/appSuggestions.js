@@ -70,7 +70,7 @@ window.onload = function () {
     if (window.location.hash.includes('#custom')) {
         // Get the custom URL after the = sign
         let customURL = window.location.hash.split('=')[1];
-        if (localStorage.getItem('reloaded') !== 'true' && localStorage.getItem('customApps')) {
+        if (localStorage.getItem('reloaded') !== 'true') {
             adress.value = customURL;
             form.dispatchEvent(new Event('submit'));
         }

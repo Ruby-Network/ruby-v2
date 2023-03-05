@@ -59,22 +59,14 @@ if (proxytype === 'DIP') {
         .querySelector('.dipform')
         .addEventListener('submit', async (event) => {
             event.preventDefault();
-
+            let url;
+            function searchURI(value) {
+                url = search(value, searchEngine.value);
+            }
             worker().then((event) => {
                 let search = document.querySelector('.dipinput');
-                let searchURL =
-                    document.getElementById('uv-search-engine').value;
-                searchURL = searchURL.replace('%s', '');
-                let location;
-                //if search.value is a url then set location to that url without using .includes
-                if (
-                    search.value.includes('https://') ||
-                    search.value.includes('http://')
-                ) {
-                    location = search.value;
-                } else {
-                    location = searchURL + encodeURIComponent(search.value);
-                }
+                let address = document.getElementById('uv-address');
+                searchURI(address.value)
                 //loadingIframe.classList.remove('dnone');
                 let textcolor = getComputedStyle(
                     document.body
@@ -82,7 +74,7 @@ if (proxytype === 'DIP') {
                 //loadingIframe.src = `/loading#${textcolor}`;
                 iframe.src =
                     window.__DIP.config.prefix +
-                    window.__DIP.encodeURL(location);
+                    window.__DIP.encodeURL(url);
                 //iframe.addEventListener('load', function () {
                 //loadingIframe.classList.add('dnone');
                 document.getElementById('control').classList.remove('dnone');
@@ -102,30 +94,19 @@ if (proxytype === 'Osana') {
         .getElementById('uv-form')
         .addEventListener('submit', async (event) => {
             event.preventDefault();
+            let url;
+            function searchURI(value){
+                url = search(value, searchEngine.value);
+            }
             worker().then((event) => {
                 let search = document.querySelector('.dipinput');
-                let searchURL =
-                    document.getElementById('uv-search-engine').value;
-                searchURL = searchURL.replace('%s', '');
-                let location;
-                //if search.value is a url then set location to that url without using .includes
-                if (
-                    search.value.includes('https://') ||
-                    search.value.includes('http://')
-                ) {
-                    location = search.value;
-                } else {
-                    console.log(search.value);
-                    location = searchURL + encodeURIComponent(search.value);
-                }
-                //loadingIframe.classList.remove('dnone');
+                let address = document.getElementById('uv-address');
+                searchURI(address.value);
                 let textcolor = getComputedStyle(
                     document.body
                 ).getPropertyValue('--text-color');
                 //loadingIframe.src = `/loading#${textcolor}`;
-                iframe.src = `${
-                    __osana$config.prefix
-                }${__osana$config.codec.encode(location)}`;
+                iframe.src = __osana$config.prefix + __osana$config.codec.encode(url);
                 //iframe.addEventListener('load', function () {
                 //loadingIframe.classList.add('dnone');
                 document.getElementById('control').classList.remove('dnone');
@@ -148,4 +129,16 @@ function decoded(str) {
             ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char
         )
         .join('');
+}
+function search(input, template) {
+    try {
+        return new URL(input).toString();
+    } catch (err) {
+    }
+    try {
+        const url = new URL(`http://${input}`);
+        if (url.hostname.includes('.')) return url.toString();
+    } catch (err) {
+    }
+    return template.replace('%s', encodeURIComponent(input));
 }

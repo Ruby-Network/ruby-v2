@@ -133,6 +133,16 @@
     --scroll-bar-thumb-hover-color: #fff3bc;
     --input-bg-color: #000000;
 }
+.pastel {
+    --bg-color: #2a2d34;
+    --text-color: #f5e5fC;
+    --border-color: #99d5c9;
+    --text-bg-color: #2a2d28;
+    --scroll-bar-track-color: #2a2d34;
+    --scroll-bar-thumb-color: #ac3931;
+    --scroll-bar-thumb-hover-color: #99d5c9;
+    --input-bg-color: #2a2d34;
+}
 .pinkish-purple {
     --bg-color: linear-gradient(90deg, #665fd2, #9824d3) no-repeat center center
         fixed;

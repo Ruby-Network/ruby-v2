@@ -15,10 +15,10 @@
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.31.4.tgz#fa5aaeb3e6f3640f6f7625849b724a4d28d662e4"
   integrity sha512-6bBFeDTtPOn4jZaiD3p0f05MEGQL9pw2Zbfj546oFETNmjJFWO3nzHz6/m+P53calknCvyVzZ5YhoBLIvzn5iw==
 
-"@astrojs/compiler@^1.1.0":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-1.1.2.tgz#03ae9f6400c5c523e9c6063180580100a08524df"
-  integrity sha512-L3/JrdNwBFKcoDeStmRgJWvI2t/5nNJm7HnGjDy4e8BH3qKv8iQYdpvuQjeYRA00k6I1lxZGBm/0wU+Lg7HPiQ==
+"@astrojs/compiler@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-1.2.0.tgz#26a544d40873df122754b4989888866d9f3c189b"
+  integrity sha512-O8yPCyuq+PU9Fjht2tIW6WzSWiq8qDF1e8uAX2x+SOGFzKqOznp52UlDG2mSf+ekf0Z3R34sb64O7SgX+asTxg==
 
 "@astrojs/language-server@^0.28.3":
   version "0.28.3"
@@ -1036,12 +1036,12 @@ astro-robots-txt@^0.4.0:
     valid-filename "^4.0.0"
     zod "^3.20.6"
 
-astro@^2.0.4:
-  version "2.0.16"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-2.0.16.tgz#ebc24390f6b73edd7e55f08d1ba2573028a7129e"
-  integrity sha512-noQL+bbBZaCLbh7wmpVON+e4kDxymDsIQkEUzzuMKLQodYynxr/Sp7RBA/JnEqXz4CRyd7IrgeQBN0cKOuBtzQ==
+astro@^2.0.17:
+  version "2.0.17"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-2.0.17.tgz#889ec009c0a9732570bbe90b7707ec0941258692"
+  integrity sha512-K/SAoe4Tfhg4XhOu1mFOp9qiC/m8YuBmL3//WAA+mcPTlg9A21nlXH/jmsfbizQdZn/AyoPrkTWQm1pnU05OsQ==
   dependencies:
-    "@astrojs/compiler" "^1.1.0"
+    "@astrojs/compiler" "^1.2.0"
     "@astrojs/language-server" "^0.28.3"
     "@astrojs/markdown-remark" "^2.0.1"
     "@astrojs/telemetry" "^2.0.1"

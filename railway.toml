@@ -1,4 +1,5 @@
 [build]
+dockerEnabled = false
 builder = "nixpacks"
 buildCommand = "echo building!"
 

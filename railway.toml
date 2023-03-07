@@ -1,5 +1,5 @@
 [build]
-builder = "yarn"
+builder = "nixpacks"
 buildCommand = "yarn build"
 
 [deploy]

@@ -1,9 +1,9 @@
 [build]
 builder = "nixpacks"
-buildCommand = "yarn build"
+buildCommand = "npm run build"
 
 [deploy]
-startCommand = "yarn start"
+startCommand = "npm start"
 healthcheckPath = "/"
 healthcheckTimeout = 100
 restartPolicyType = "never"

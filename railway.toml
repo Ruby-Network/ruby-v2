@@ -1,0 +1,9 @@
+[build]
+builder = "yarn"
+buildCommand = "yarn build"
+
+[deploy]
+startCommand = "yarn start"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "never"

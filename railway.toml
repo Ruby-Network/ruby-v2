@@ -1,0 +1,10 @@
+[build]
+builder = "DOCKERFILE"
+buildCommand = "echo building!"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "docker-compose up -d"
+healthcheckPath = "/"
+restartPolicyType = "NEVER"
+healthcheckTimeout = 100

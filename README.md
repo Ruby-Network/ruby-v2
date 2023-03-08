@@ -28,7 +28,7 @@
 <img height="30px" src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/replit.svg">
 <img>
 </a>
-  <a href="https://railway.app/new/template?template=https://github.com/Ruby-Network/ruby">
+  <a href="https://railway.app/new/template/hnVkIQ">
     <img
       height="30px"
       src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/railway.svg"

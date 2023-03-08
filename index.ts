@@ -14,7 +14,7 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 import auth from 'http-auth';
 dotenv.config();
-const numCPUs = os.cpus().length;
+const numCPUs = process.env.CPUS || os.cpus().length;
 let educationWebsite = fs.readFileSync(join(__dirname, 'education/index.html'));
 let loadingPage = fs.readFileSync(join(__dirname, 'education/load.html'));
 const blacklisted: string[] = [];
@@ -27,9 +27,8 @@ fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     for (let i in lines) blacklisted.push(lines[i]);
 });
 
-if (cluster.isPrimary) {
+if (numCPUs > 0 && cluster.isPrimary) {
     console.log(`Primary ${process.pid} is running`);
-
     for (let i = 0; i < numCPUs; i++) {
         cluster.fork().on('online', () => {
             console.log(`Worker ${i + 1} is online`);

@@ -14,7 +14,7 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 import auth from 'http-auth';
 dotenv.config();
-const numCPUs = os.cpus().length;
+const numCPUs = process.env.CPUS || os.cpus().length;
 let educationWebsite = fs.readFileSync(join(__dirname, 'education/index.html'));
 let loadingPage = fs.readFileSync(join(__dirname, 'education/load.html'));
 const blacklisted: string[] = [];

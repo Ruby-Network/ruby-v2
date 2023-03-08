@@ -182,7 +182,8 @@ if (cluster.isPrimary) {
         }
     });
     app.get('/health', (req, res) => {
-        res.end('OK');
+        res.sendStatus(200);
+        return;
     });
     app.use((req, res) => {
         res.writeHead(302, {

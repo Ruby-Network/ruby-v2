@@ -181,10 +181,6 @@ if (cluster.isPrimary) {
             return;
         }
     });
-    app.get('/health', (req, res) => {
-        res.sendStatus(200);
-        return;
-    });
     app.use((req, res) => {
         res.writeHead(302, {
             Location: '/404',

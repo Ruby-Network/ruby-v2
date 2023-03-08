@@ -1,10 +1,10 @@
 [build]
-builder = "DOCKERFILE"
-buildCommand = "docker build --no-cache "
-dockerfilePath = "Dockerfile"
+builder = "nixpacks"
+buildCommand = "yarn build"
 
 [deploy]
-startCommand = "docker-compose up -d"
+startCommand = "yarn start"
 healthcheckPath = "/"
-restartPolicyType = "NEVER"
 healthcheckTimeout = 100
+restartPolicyType = "never"
+

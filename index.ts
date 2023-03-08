@@ -27,9 +27,8 @@ fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     for (let i in lines) blacklisted.push(lines[i]);
 });
 
-if (cluster.isPrimary) {
+if (numCPUs > 0 && cluster.isPrimary) {
     console.log(`Primary ${process.pid} is running`);
-
     for (let i = 0; i < numCPUs; i++) {
         cluster.fork().on('online', () => {
             console.log(`Worker ${i + 1} is online`);

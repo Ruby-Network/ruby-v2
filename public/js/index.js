@@ -121,31 +121,6 @@ if (proxytype === 'Osana') {
         return a;
     }
 }
-if (proxytype === 'Aero') {
-    document.getElementById('uv-form').addEventListener('submit', async (event) => {
-        event.preventDefault();
-        let url;
-        function searchURI(value) {
-            url = search(value, searchEngine.value);
-        }
-        worker().then((event) => {
-            let search = document.querySelector('.dipinput');
-            let address = document.getElementById('uv-address');
-            searchURI(address.value);
-            let textcolor = getComputedStyle(document.body).getPropertyValue('--text-color');
-            iframe.src = '/go/' + url;
-            document.getElementById('control').classList.remove('dnone');
-            iframe.classList.remove('dnone');
-        });
-    });
-    async function worker() {
-        var a = await navigator.serviceWorker.register('/aero-sw.js', {
-            scope: '/go/',
-            type: 'module',
-        });
-        return a;
-    }
-}
 function decoded(str) {
     if (str.charAt(str.length - 1) == '/') str = str.slice(0, -1);
     return decodeURIComponent(str)

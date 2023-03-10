@@ -143,6 +143,16 @@
     --scroll-bar-thumb-hover-color: #99d5c9;
     --input-bg-color: #2a2d34;
 }
+.teal {
+    --bg-color: #0c1a1a;
+    --text-color: #ffffff;
+    --border-color: #6aCfc7;
+    --text-bg-color: #0c1a2a;
+    --scroll-bar-track-color: #0c1a1a;
+    --scroll-bar-thumb-color: #6acfc7;
+    --scroll-bar-thumb-hover-color: #ffffff;
+    --input-bg-color: #0c1a1a;
+}
 .pinkish-purple {
     --bg-color: linear-gradient(90deg, #665fd2, #9824d3) no-repeat center center
         fixed;

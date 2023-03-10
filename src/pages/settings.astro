@@ -109,6 +109,7 @@ import Password from '../components/password';
         <option value="marsh">Marsh</option>
         <option value="basic">Basic</option>
         <option value="pastel">Pastel</option>
+        <option value="teal">Teal</option>
         <option value="pinkish-purple">Pinkish Purple</option>
         <option value="pink-and-gray">Pink And Gray</option>
         <option value="nord">Nord</option>
@@ -132,6 +133,11 @@ import Password from '../components/password';
         <option value="terminal">Hacker</option>
         <option value="blocks">Blocks</option>
         <option value="triangles-and-circles">Triangles and Circles</option>
+    </select>
+    <div class="divider mt-20">Click Off Cloaking</div>
+    <select class="dropdown" id="clickoff" onchange="changeClickoff(this.value)">
+        <option value="false">Off</option>
+        <option value="true">On</option>
     </select>
     <div class="divider mt-20">Password</div>
     <input

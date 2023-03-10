@@ -54,7 +54,6 @@ if (numCPUs > 0 && cluster.isPrimary) {
     app.use('/uv/', express.static(uvPath));
     //env vars for the unlock feature
     //analytics object
-    let analytics = [] as any;
     let key = process.env.KEY || '';
     if (!key || key === undefined || key === null || key === '') {
         key = 'unlock';
@@ -70,8 +69,6 @@ if (numCPUs > 0 && cluster.isPrimary) {
                 for (let i in blacklisted)
                     if (req.headers['x-bare-host']?.includes(blacklisted[i]))
                         return res.end('Denied');
-                analytics.push(req.headers['x-bare-host'])
-                let unique = [...new Set(analytics)]
                 bare.routeRequest(req, res);
             } catch (error) {
                 console.error(error);

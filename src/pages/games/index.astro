@@ -16,7 +16,7 @@ import '../../styles/globals.css';
         <h1 class="get-started-text">Games</h1>
     </div>
     <div class="games" id="games"></div>
-    <script src="/js/games.js" type="module" is:inline></script>
+    <script src="/js/searchGame.js" is:inline></script>
 </body>
 <style is:global>
     .get-started-div {
@@ -28,6 +28,26 @@ import '../../styles/globals.css';
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         -o-transform: translate(-50%, -50%);
+    }
+    .search-div {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+    }
+    .search-input {
+        background: var(--text-bg-color);
+        color: var(--text-color);
+        font-family: var(--font);
+        border-radius: 0.25rem;
+        border: 1px solid var(--border-color);
+        text-align: center;
+        width: 20rem;
+        height: 2rem;
     }
     .get-started-text {
         font-size: 3rem;

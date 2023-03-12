@@ -6,7 +6,5 @@ services:
       buildCommand: yarn && yarn build
       startCommand: yarn start
       envVars:
-        - key: PORT
-          value: 80
         - key: CPUS
           value: 0

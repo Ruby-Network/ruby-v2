@@ -88,7 +88,7 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
 
 - Multithreading for performance
 
-- **NEW: ** Off click cloaking (make the tab look like a Google search when you are doing something else)
+- **NEW:** Off click cloaking (make the tab look like a Google search when you are doing something else)
 
 -   And more!
 

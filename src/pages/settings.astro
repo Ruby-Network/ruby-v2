@@ -108,6 +108,8 @@ import Password from '../components/password';
         <option value="space">Space</option>
         <option value="marsh">Marsh</option>
         <option value="basic">Basic</option>
+        <option value="pastel">Pastel</option>
+        <option value="teal">Teal</option>
         <option value="pinkish-purple">Pinkish Purple</option>
         <option value="pink-and-gray">Pink And Gray</option>
         <option value="nord">Nord</option>
@@ -132,6 +134,15 @@ import Password from '../components/password';
         <option value="blocks">Blocks</option>
         <option value="triangles-and-circles">Triangles and Circles</option>
     </select>
+    <div class="divider mt-20">Click Off Cloaking</div>
+    <select
+        class="dropdown"
+        id="clickoff"
+        onchange="changeClickoff(this.value)"
+    >
+        <option value="false">Off</option>
+        <option value="true">On</option>
+    </select>
     <div class="divider mt-20">Password</div>
     <input
         class="input"
@@ -151,6 +162,11 @@ import Password from '../components/password';
     </select>
     <div class="divider mt-20">About:Blank Cloaking</div>
     <button class="button" id="cloak" onclick="aboutBlank()">Enable</button>
+    <div class="divider mt-20">AD blocking behavior</div>
+    <select class="dropdown" id="adbehavior" onchange="changeAds(this.value)">
+        <option value="false">On</option>
+        <option value="true">Off</option>
+    </select>
     <div class="divider mt-20">Reset All Settings</div>
     <button class="button" id="cloak" onclick="resetAll()">Reset All</button>
     <div class="divider mt-20"></div>

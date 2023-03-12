@@ -53,6 +53,7 @@ if (numCPUs > 0 && cluster.isPrimary) {
     //uv config
     app.use('/uv/', express.static(uvPath));
     //env vars for the unlock feature
+    //analytics object
     let key = process.env.KEY || '';
     if (!key || key === undefined || key === null || key === '') {
         key = 'unlock';
@@ -65,9 +66,13 @@ if (numCPUs > 0 && cluster.isPrimary) {
         //only block /,/404,/apps,/error,/search,/settings and /index if the key or cookie is not present
         if (bare.shouldRoute(req)) {
             try {
-                for (let i in blacklisted)
-                    if (req.headers['x-bare-host']?.includes(blacklisted[i]))
-                        return res.end('Denied');
+                if (!req.headers.cookie?.includes('allowads')) {
+                    for (let i in blacklisted)
+                        if (
+                            req.headers['x-bare-host']?.includes(blacklisted[i])
+                        )
+                            return res.end('Denied');
+                }
                 bare.routeRequest(req, res);
             } catch (error) {
                 console.error(error);
@@ -180,6 +185,25 @@ if (numCPUs > 0 && cluster.isPrimary) {
             return;
         }
     });
+    app.get('/disable-ads', (req, res) => {
+        if (req.headers.cookie?.includes('allowads')) {
+            res.clearCookie('allowads');
+            res.writeHead(302, {
+                Location: '/settings',
+            });
+            res.end('Disabled ads');
+            return;
+        } else {
+            res.writeHead(302, {
+                Location: '/settings',
+                'Set-Cookie':
+                    'allowads=allowads; Path=/; expires=Thu, 31 Dec 2099 23:59:59 GMT;',
+            });
+            res.end('Ads enabled');
+            return;
+        }
+    });
+    // Define the /analytics endpoint
     app.use((req, res) => {
         res.writeHead(302, {
             Location: '/404',

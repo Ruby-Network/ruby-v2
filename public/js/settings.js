@@ -349,6 +349,58 @@ function setFullScreenElsewhere() {
         changeFullscreen('true');
     }
 }
+//CLICKOFF CLOAKING
+function changeClickoff(value) {
+    localStorage.setItem('clickoff', value);
+    window.location.reload();
+}
+function handleClickoff() {
+    let favicon = document.getElementById('favicon');
+    let cloakedTitle = 'Google';
+    let cloakedFavicon = 'https://google.com/favicon.ico';
+    if (
+        localStorage.getItem('clickedoff') === 'false' ||
+        localStorage.getItem('clickedoff') === null ||
+        localStorage.getItem('clickedoff') === undefined
+    ) {
+        document.title = cloakedTitle;
+        favicon.href = cloakedFavicon;
+        localStorage.setItem('clickedoff', true);
+    } else {
+        document.title = localStorage.getItem('title');
+        favicon.href = localStorage.getItem('favicon');
+        localStorage.setItem('clickedoff', false);
+    }
+}
+function setClickoff(setValue, routechange) {
+    let clickoff = localStorage.getItem('clickoff');
+    if (!clickoff) {
+        localStorage.setItem('clickoff', false);
+    }
+    if (setValue === 'true') {
+        let val = document.getElementById('clickoff');
+        val.value = localStorage.getItem('clickoff');
+    }
+    if (clickoff === 'true') {
+        if (routechange === 'true') {
+            localStorage.setItem('clickedoff', false);
+        }
+        document.addEventListener('visibilitychange', handleClickoff);
+    }
+}
+function changeAds(value) {
+    localStorage.setItem('adsallowed', value);
+    window.location.href = '/disable-ads';
+}
+function setAds(setVal) {
+    if (!localStorage.getItem('adsallowed')) {
+        localStorage.setItem('adsallowed', false);
+    }
+    if (setVal === 'true') {
+        let val = document.getElementById('adbehavior');
+        val.value = localStorage.getItem('adsallowed');
+    }
+}
 if (
     window.location.pathname == '/settings' ||
     window.location.pathname == '/settings/'
@@ -360,6 +412,8 @@ if (
     setTheme();
     setBgeffect();
     setFullscreen();
+    setClickoff('true', 'true');
+    setAds('true');
     if (document.getElementById('bg-effect').value === 'none') {
         localStorage.setItem('autoChanged', 'null');
         localStorage.setItem('manualChanged', 'false');
@@ -375,6 +429,8 @@ if (
     setProxyElsewhere();
     setThemeElsewhere();
     setBgEffectElsewhere();
+    setClickoff('false', 'true');
+    setAds('false');
 } else {
     setTitleElsewhere();
     setFaviconElsewhere();
@@ -382,4 +438,6 @@ if (
     setThemeElsewhere();
     setBgEffectElsewhere();
     setFullScreenElsewhere();
+    setClickoff('false', 'true');
+    setAds('false');
 }

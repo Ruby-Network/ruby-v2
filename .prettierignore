@@ -21,6 +21,7 @@ pnpm-debug.log*
 /public/dip/
 /public/osana/
 /public/js/lib/
+/public/aero/
 .vscode/
 .github/
 /public/assets/fontawesome/

@@ -20,10 +20,6 @@
       src="https://img.shields.io/badge/render-4f65f1.svg?style=for-the-badge&logo=render&logoColor=46e3b7"
     />
   </a>
-  <a href="https://heroku.com/deploy?template=https://github.com/Ruby-Network/ruby">
-  <img height="30px" src="https://raw.githubusercontent.com/amethystnetwork-dev/Tsunami/main/deploy/heroku.svg">
-  </img>
-  </a>
 <a href="https://repl.it/github/Ruby-Network/ruby">
 <img height="30px" src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/replit.svg">
 <img>
@@ -54,6 +50,11 @@
     </a>
 </div>
 
+## NOTE:
+
+-   For Cyclic users this will **not** work as it is too big
+-   This will **NOT** deploy on Github Pages, Netlify, Vercel, Gitlab Pages or any other _static_ host
+
 ---
 
 This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). This edition focuses on speed and more features.
@@ -64,7 +65,7 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
 
 -   Tons of themes (you can even make your own)
 
--   We preload everything so you don't have to wait for the page to load
+-   We prefetch everything to speed up your experience
 
 -   Multiple Proxy Backends:
 
@@ -72,9 +73,7 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
     -   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
     -   [Osana](https://github.com/nebulaservices/osana)
 
-        Soon to be added:
-
-    -   [Aero](https://github.com/proxyhaven/aero)
+---
 
 -   Basic Password protection for the website (you can set a password in the settings page)
 
@@ -87,6 +86,12 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
 -   Easy to use clean UI/UX
 
 -   Easy to self host
+
+-   Tab cloaking
+
+-   Multithreading for performance
+
+-   **NEW:** Off click cloaking (make the tab look like a Google search when you are doing something else)
 
 -   And more!
 

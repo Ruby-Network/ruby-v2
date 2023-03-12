@@ -414,5 +414,21 @@
         "cdn": "false",
         "proxy": "false",
         "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/1v1-lol.png",
+        "baseFile": "none",
+        "name": "1v1.lol",
+        "cdn": "false",
+        "proxy": "true",
+        "url": "https://1v1.lol"
+    },
+    {
+        "img": "/assets/games-thumb/shellshock.png",
+        "baseFile": "none",
+        "name": "Shell Shockers",
+        "cdn": "false",
+        "proxy": "true",
+        "url": "https://shellshock.io"
     }
 ]

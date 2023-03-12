@@ -2,8 +2,9 @@ services:
     - type: web
       name: ruby
       env: node
-      PORT: 80
-      CPUS: 0
       plan: free
       buildCommand: yarn && yarn build
       startCommand: yarn start
+      envVars:
+        - PORT: 80
+        - CPUS: 0

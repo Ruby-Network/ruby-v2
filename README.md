@@ -20,10 +20,6 @@
       src="https://img.shields.io/badge/render-4f65f1.svg?style=for-the-badge&logo=render&logoColor=46e3b7"
     />
   </a>
-  <a href="https://deploy.cyclic.sh/ruby-network/ruby">
-  <img height="30px" src="https://deploy.cyclic.sh/button.svg">
-  </img>
-  </a>
 <a href="https://repl.it/github/Ruby-Network/ruby">
 <img height="30px" src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/replit.svg">
 <img>
@@ -54,6 +50,9 @@
     </a>
 </div>
 
+## NOTE:
+    - For Cyclic users this will **not** work as it is too big
+    - This will no deploy on Github Pages, Netlify, Vercel, Gitlab Pages or any other *static* host
 ---
 
 This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). This edition focuses on speed and more features.

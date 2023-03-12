@@ -20,8 +20,8 @@
       src="https://img.shields.io/badge/render-4f65f1.svg?style=for-the-badge&logo=render&logoColor=46e3b7"
     />
   </a>
-  <a href="https://heroku.com/deploy?template=https://github.com/Ruby-Network/ruby">
-  <img height="30px" src="https://raw.githubusercontent.com/amethystnetwork-dev/Tsunami/main/deploy/heroku.svg">
+  <a href="https://deploy.cyclic.sh/ruby-network/ruby">
+  <img height="30px" src="https://deploy.cyclic.sh/button.svg">
   </img>
   </a>
 <a href="https://repl.it/github/Ruby-Network/ruby">

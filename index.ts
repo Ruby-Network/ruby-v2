@@ -181,7 +181,7 @@ if (numCPUs > 0 && cluster.isPrimary) {
             return;
         }
     });
-// Define the /analytics endpoint
+    // Define the /analytics endpoint
     app.use((req, res) => {
         res.writeHead(302, {
             Location: '/404',

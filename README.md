@@ -51,8 +51,10 @@
 </div>
 
 ## NOTE:
-* For Cyclic users this will **not** work as it is too big
-* This will **NOT** deploy on Github Pages, Netlify, Vercel, Gitlab Pages or any other *static* host
+
+-   For Cyclic users this will **not** work as it is too big
+-   This will **NOT** deploy on Github Pages, Netlify, Vercel, Gitlab Pages or any other _static_ host
+
 ---
 
 This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). This edition focuses on speed and more features.
@@ -70,6 +72,7 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
     -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
     -   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
     -   [Osana](https://github.com/nebulaservices/osana)
+
 ---
 
 -   Basic Password protection for the website (you can set a password in the settings page)
@@ -84,11 +87,11 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
 
 -   Easy to self host
 
-- Tab cloaking
+-   Tab cloaking
 
-- Multithreading for performance
+-   Multithreading for performance
 
-- **NEW:** Off click cloaking (make the tab look like a Google search when you are doing something else)
+-   **NEW:** Off click cloaking (make the tab look like a Google search when you are doing something else)
 
 -   And more!
 

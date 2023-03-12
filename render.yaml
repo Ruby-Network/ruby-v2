@@ -6,5 +6,5 @@ services:
       buildCommand: yarn && yarn build
       startCommand: yarn start
       envVars:
-        - key: CPUS
-          value: 0
+          - key: CPUS
+            value: 0

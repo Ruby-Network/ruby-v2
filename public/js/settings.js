@@ -351,38 +351,41 @@ function setFullScreenElsewhere() {
 }
 //CLICKOFF CLOAKING
 function changeClickoff(value) {
-    localStorage.setItem('clickoff', value)
+    localStorage.setItem('clickoff', value);
     window.location.reload();
 }
 function handleClickoff() {
-    let favicon = document.getElementById('favicon')
+    let favicon = document.getElementById('favicon');
     let cloakedTitle = 'Google';
     let cloakedFavicon = 'https://google.com/favicon.ico';
-    if (localStorage.getItem('clickedoff') === 'false' || localStorage.getItem('clickedoff') === null || localStorage.getItem('clickedoff') === undefined) {
+    if (
+        localStorage.getItem('clickedoff') === 'false' ||
+        localStorage.getItem('clickedoff') === null ||
+        localStorage.getItem('clickedoff') === undefined
+    ) {
         document.title = cloakedTitle;
         favicon.href = cloakedFavicon;
-        localStorage.setItem('clickedoff', true)
-    }
-    else {
+        localStorage.setItem('clickedoff', true);
+    } else {
         document.title = localStorage.getItem('title');
         favicon.href = localStorage.getItem('favicon');
-        localStorage.setItem('clickedoff', false)
+        localStorage.setItem('clickedoff', false);
     }
 }
 function setClickoff(setValue, routechange) {
-    let clickoff = localStorage.getItem('clickoff')
+    let clickoff = localStorage.getItem('clickoff');
     if (!clickoff) {
-        localStorage.setItem('clickoff', false)
+        localStorage.setItem('clickoff', false);
     }
     if (setValue === 'true') {
-        let val = document.getElementById('clickoff')
-        val.value = localStorage.getItem('clickoff')
+        let val = document.getElementById('clickoff');
+        val.value = localStorage.getItem('clickoff');
     }
     if (clickoff === 'true') {
         if (routechange === 'true') {
-            localStorage.setItem('clickedoff', false)
+            localStorage.setItem('clickedoff', false);
         }
-       document.addEventListener("visibilitychange", handleClickoff);
+        document.addEventListener('visibilitychange', handleClickoff);
     }
 }
 if (
@@ -412,7 +415,7 @@ if (
     setProxyElsewhere();
     setThemeElsewhere();
     setBgEffectElsewhere();
-    setClickoff('false', 'true')
+    setClickoff('false', 'true');
 } else {
     setTitleElsewhere();
     setFaviconElsewhere();
@@ -420,5 +423,5 @@ if (
     setThemeElsewhere();
     setBgEffectElsewhere();
     setFullScreenElsewhere();
-    setClickoff('false', 'true')
+    setClickoff('false', 'true');
 }

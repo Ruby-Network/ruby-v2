@@ -63,7 +63,7 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
 
 -   Tons of themes (you can even make your own)
 
--   We preload everything so you don't have to wait for the page to load
+-   We prefetch everything to speed up your experience
 
 -   Multiple Proxy Backends:
 
@@ -83,6 +83,12 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
 -   Easy to use clean UI/UX
 
 -   Easy to self host
+
+- Tab cloaking
+
+- Multithreading for performance
+
+- **NEW: ** Off click cloaking (make the tab look like a Google search when you are doing something else)
 
 -   And more!
 

@@ -66,9 +66,11 @@ if (numCPUs > 0 && cluster.isPrimary) {
         //only block /,/404,/apps,/error,/search,/settings and /index if the key or cookie is not present
         if (bare.shouldRoute(req)) {
             try {
-                for (let i in blacklisted)
-                    if (req.headers['x-bare-host']?.includes(blacklisted[i]))
-                        return res.end('Denied');
+                if (!req.headers.cookie?.includes('allowads')) {
+                    for (let i in blacklisted)
+                        if (req.headers['x-bare-host']?.includes(blacklisted[i]))
+                            return res.end('Denied');
+                }
                 bare.routeRequest(req, res);
             } catch (error) {
                 console.error(error);

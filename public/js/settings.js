@@ -388,6 +388,19 @@ function setClickoff(setValue, routechange) {
         document.addEventListener('visibilitychange', handleClickoff);
     }
 }
+function changeAds(value) {
+    localStorage.setItem('adsallowed', value);
+    window.location.href = '/disable-ads';
+}
+function setAds(setVal) {
+    if (!localStorage.getItem('adsallowed')) {
+        localStorage.setItem('adsallowed', false);
+    }
+    if (setVal === 'true') {
+        let val = document.getElementById('adbehavior');
+        val.value = localStorage.getItem('adsallowed');
+    }
+}
 if (
     window.location.pathname == '/settings' ||
     window.location.pathname == '/settings/'
@@ -400,6 +413,7 @@ if (
     setBgeffect();
     setFullscreen();
     setClickoff('true', 'true');
+    setAds('true');
     if (document.getElementById('bg-effect').value === 'none') {
         localStorage.setItem('autoChanged', 'null');
         localStorage.setItem('manualChanged', 'false');
@@ -416,6 +430,7 @@ if (
     setThemeElsewhere();
     setBgEffectElsewhere();
     setClickoff('false', 'true');
+    setAds('false');
 } else {
     setTitleElsewhere();
     setFaviconElsewhere();
@@ -424,4 +439,5 @@ if (
     setBgEffectElsewhere();
     setFullScreenElsewhere();
     setClickoff('false', 'true');
+    setAds('false');
 }

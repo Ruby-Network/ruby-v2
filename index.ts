@@ -68,7 +68,9 @@ if (numCPUs > 0 && cluster.isPrimary) {
             try {
                 if (!req.headers.cookie?.includes('allowads')) {
                     for (let i in blacklisted)
-                        if (req.headers['x-bare-host']?.includes(blacklisted[i]))
+                        if (
+                            req.headers['x-bare-host']?.includes(blacklisted[i])
+                        )
                             return res.end('Denied');
                 }
                 bare.routeRequest(req, res);
@@ -180,6 +182,24 @@ if (numCPUs > 0 && cluster.isPrimary) {
         } else {
             res.writeHead(401);
             res.end(educationWebsite);
+            return;
+        }
+    });
+    app.get('/disable-ads', (req, res) => {
+        if (req.headers.cookie?.includes('allowads')) {
+            res.clearCookie('allowads');
+            res.writeHead(302, {
+                Location: '/settings',
+            });
+            res.end('Disabled ads');
+            return;
+        } else {
+            res.writeHead(302, {
+                Location: '/settings',
+                'Set-Cookie':
+                    'allowads=allowads; Path=/; expires=Thu, 31 Dec 2099 23:59:59 GMT;',
+            });
+            res.end('Ads enabled');
             return;
         }
     });

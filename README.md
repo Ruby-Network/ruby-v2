@@ -51,8 +51,8 @@
 </div>
 
 ## NOTE:
-    - For Cyclic users this will **not** work as it is too big
-    - This will no deploy on Github Pages, Netlify, Vercel, Gitlab Pages or any other *static* host
+* For Cyclic users this will **not** work as it is too big
+* This will no deploy on Github Pages, Netlify, Vercel, Gitlab Pages or any other *static* host
 ---
 
 This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). This edition focuses on speed and more features.

@@ -430,5 +430,77 @@
         "cdn": "false",
         "proxy": "true",
         "url": "https://shellshock.io"
+    },
+    {
+        "img": "/assets/games-thumb/binding-of-isaac.jpeg",
+        "baseFile": "index.html",
+        "name": "The Binding of Isaac",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/eaglerx.webp",
+        "baseFile": "index.html",
+        "name": "EaglerCraft X",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/miniagario.png",
+        "baseFile": "dots.html",
+        "name": "Mini Agario",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/yohoho.jpeg",
+        "baseFile": "",
+        "name": "YoHoHo",
+        "cdn": "false",
+        "proxy": "true",
+        "url": "https://yohoho.io"
+    },
+    {
+        "img": "/assets/games-thumb/paper.io2.webp",
+        "baseFile": "",
+        "name": "Paper.io 2",
+        "cdn": "false",
+        "proxy": "true",
+        "url": "https://paper-io.com/"
+    },
+    {
+        "img": "/assets/games-thumb/frogger.jpeg",
+        "baseFile": "index.html",
+        "name": "Frogger",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/supermario64.jpeg",
+        "baseFile": "index.html",
+        "name": "Super Mario 64",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/cybertanks.png",
+        "baseFile": "",
+        "name": "CyberTanks",
+        "cdn": "false",
+        "proxy": "true",
+        "url": "https://xigency.herokuapp.com/"
+    },
+    {
+        "img": "/assets/games-thumb/slitherio.webp",
+        "baseFile": "",
+        "name": "Slither.io",
+        "cdn": "false",
+        "proxy": "true",
+        "url": "http://slither.io"
     }
 ]

@@ -21,7 +21,7 @@
     "dependencies": {
         "@astrojs/node": "^5.0.3",
         "@astrojs/partytown": "^1.0.3",
-        "@astrojs/prefetch": "^0.1.2",
+        "@astrojs/prefetch": "^0.2.0",
         "@astrojs/react": "^2.0.2",
         "@astrojs/tailwind": "^3.0.1",
         "@fortawesome/fontawesome-svg-core": "^6.2.1",

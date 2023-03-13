@@ -66,10 +66,10 @@
     send "^0.18.0"
     server-destroy "^1.0.1"
 
-"@astrojs/partytown@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@astrojs/partytown/-/partytown-1.0.3.tgz#87747ed4e9d262a73898ce65628234c2542321c5"
-  integrity sha512-u2/pG9owRipICz/PksLUUqUat98sm0/YODvv3/IKKJ0JCwF7+0olbMvyyvoj7kJooIXh0XowcOjEs5vhCYFo5g==
+"@astrojs/partytown@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/partytown/-/partytown-1.1.0.tgz#9c480c92fc23636e4496f1a86f03b300c0fc58f9"
+  integrity sha512-2cO2MuK8KEWRIsYyAkxopSL7Q5aB3ra+HTkk0umNUwAKVEZWZdDtYifdztU7WFYIlV/6t+2191MvBTqTcnenJQ==
   dependencies:
     "@builder.io/partytown" "^0.7.4"
     mrmime "^1.0.0"

@@ -20,7 +20,7 @@ let key = process.env.KEY || 'unlock';
 let url = process.env.URL || 'rubynetwork.tech';
 let user = process.env.USERNAME || 'ruby';
 let pass = process.env.PASSWORD || 'ruby';
-let disableKEY = process.env.KEYDISABLE || 'false'
+let disableKEY = process.env.KEYDISABLE || 'false';
 let educationWebsite = fs.readFileSync(join(__dirname, 'education/index.html'));
 let loadingPage = fs.readFileSync(join(__dirname, 'education/load.html'));
 const blacklisted: string[] = [];
@@ -86,7 +86,9 @@ if (numCPUs > 0 && cluster.isPrimary) {
         } else if (req.headers.host === url) {
             app(req, res);
         } else if (
-            url.search === `?${key}` && !req.headers.cookie?.includes(key) && disableKEY === 'false'
+            url.search === `?${key}` &&
+            !req.headers.cookie?.includes(key) &&
+            disableKEY === 'false'
         ) {
             res.writeHead(302, {
                 Location: '/',

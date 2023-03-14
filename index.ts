@@ -16,16 +16,15 @@ import auth from 'http-auth';
 dotenv.config();
 //getting environment vars
 const numCPUs = process.env.CPUS || os.cpus().length;
-let key = process.env.KEY || '?unlock';
+let key = process.env.KEY || 'unlock';
 let url = process.env.URL || 'rubynetwork.tech';
 let user = process.env.USERNAME || 'ruby';
 let pass = process.env.PASSWORD || 'ruby';
-let disableYT = process.env.YTDISABLE || 'false';
+let disableKEY = process.env.KEYDISABLE || 'false'
 let educationWebsite = fs.readFileSync(join(__dirname, 'education/index.html'));
 let loadingPage = fs.readFileSync(join(__dirname, 'education/load.html'));
 const blacklisted: string[] = [];
 const disableyt: string[] = [];
-const otherBlacklist: string [] = [];
 fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     if (err) {
         console.error(err);
@@ -87,8 +86,7 @@ if (numCPUs > 0 && cluster.isPrimary) {
         } else if (req.headers.host === url) {
             app(req, res);
         } else if (
-            url.search === `?${key}` &&
-            !req.headers.cookie?.includes(key)
+            url.search === `?${key}` && !req.headers.cookie?.includes(key) && disableKEY === 'false'
         ) {
             res.writeHead(302, {
                 Location: '/',

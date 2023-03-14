@@ -25,6 +25,7 @@ let educationWebsite = fs.readFileSync(join(__dirname, 'education/index.html'));
 let loadingPage = fs.readFileSync(join(__dirname, 'education/load.html'));
 const blacklisted: string[] = [];
 const disableyt: string[] = [];
+const otherBlacklist: string [] = [];
 fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     if (err) {
         console.error(err);
@@ -33,7 +34,6 @@ fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     const lines = data.toString().split('\n');
     for (let i in lines) blacklisted.push(lines[i]);
 });
-
 if (numCPUs > 0 && cluster.isPrimary) {
     console.log(`Primary ${process.pid} is running`);
     for (let i = 0; i < numCPUs; i++) {

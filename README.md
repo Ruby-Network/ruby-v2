@@ -63,7 +63,7 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
 
 ## Features
 
--   Tons of themes (you can even make your own)
+-   Tons of themes
 
 -   We prefetch everything to speed up your experience
 

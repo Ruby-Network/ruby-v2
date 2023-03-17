@@ -3,10 +3,10 @@ let favicon = document.getElementById('favicon');
 let bgeffectInput = document.getElementById('bg-effect');
 
 function changeTitle(title) {
-    document.title = title
-    localStorage.setItem('title', title)
+    document.title = title;
+    localStorage.setItem('title', title);
 }
-switch(localStorage.getItem('title')) {
+switch (localStorage.getItem('title')) {
     case null:
         localStorage.setItem('title', 'Ruby');
         document.title = 'Ruby';
@@ -23,7 +23,7 @@ function changeFavicon(value) {
     favicon.href = value;
     localStorage.setItem('favicon', value);
 }
-switch(localStorage.getItem('favicon')) {
+switch (localStorage.getItem('favicon')) {
     case null:
         localStorage.setItem('favicon', url + '/favicon.ico');
         favicon.href = url + '/favicon.ico';
@@ -39,7 +39,7 @@ switch(localStorage.getItem('favicon')) {
 function changeProxy(proxy) {
     localStorage.setItem('proxy', proxy);
 }
-switch(localStorage.getItem('proxy')) {
+switch (localStorage.getItem('proxy')) {
     case null:
         localStorage.setItem('proxy', 'Ultraviolet');
         break;
@@ -48,17 +48,17 @@ switch(localStorage.getItem('proxy')) {
 function changeSearchEngine(engineType) {
     localStorage.setItem('searchEngine', engineType);
 }
-switch(localStorage.getItem('searchEngine')) {
+switch (localStorage.getItem('searchEngine')) {
     case null:
         localStorage.setItem('searchEngine', 'Google');
         break;
 }
 
 function changeTheme(theme) {
-    localStorage.setItem('theme', theme)
-    document.documentElement.className = theme
+    localStorage.setItem('theme', theme);
+    document.documentElement.className = theme;
 }
-switch(localStorage.getItem('theme')) {
+switch (localStorage.getItem('theme')) {
     case null:
         localStorage.setItem('theme', 'default');
         document.documentElement.className = 'Default';
@@ -69,12 +69,12 @@ switch(localStorage.getItem('theme')) {
 
 function changeBgEffect(bg, manual) {
     if (manual === true) {
-        localStorage.setItem('manual', true)
+        localStorage.setItem('manual', true);
     }
     localStorage.setItem('bgeffect', bg);
     window.location.reload();
 }
-switch(localStorage.getItem('bgeffect')) {
+switch (localStorage.getItem('bgeffect')) {
     case null:
         localStorage.setItem('bgeffect', 'none');
         break;
@@ -84,9 +84,9 @@ function changeClickoff(value) {
     localStorage.setItem('clickoff', value);
     window.location.reload();
 }
-switch(localStorage.getItem('clickoff')) {
+switch (localStorage.getItem('clickoff')) {
     case null:
-        localStorage.setItem('clickoff', false)
+        localStorage.setItem('clickoff', false);
         break;
     case 'true':
         document.addEventListener('visibilitychange', handleClickOff);
@@ -96,13 +96,13 @@ function handleClickOff() {
     let maskedFavicon = 'https://google.com/favicon.ico';
     let title = localStorage.getItem('title');
     let favicon = localStorage.getItem('favicon');
-    switch(localStorage.getItem('clickedoff')) {
+    switch (localStorage.getItem('clickedoff')) {
         case undefined:
         case null:
         case 'false':
-            document.title = maskedTitle
+            document.title = maskedTitle;
             document.getElementById('favicon').href = maskedFavicon;
-            localStorage.setItem('clickedoff', true)
+            localStorage.setItem('clickedoff', true);
             break;
         default:
             document.title = title;
@@ -123,9 +123,9 @@ function setPassword(value) {
 function changeFullscreen(value) {
     localStorage.setItem('fullscreenBehavior', value);
 }
-switch(localStorage.getItem('fullscreenBehavior')) {
+switch (localStorage.getItem('fullscreenBehavior')) {
     case null:
-        localStorage.setItem('fullscreenBehavior', true)
+        localStorage.setItem('fullscreenBehavior', true);
 }
 
 function aboutBlank() {
@@ -147,9 +147,9 @@ function changeAds(value) {
     localStorage.setItem('adsallowed', value);
     window.location.replace('/disable-ads');
 }
-switch(localStorage.getItem('adsallowed')) {
+switch (localStorage.getItem('adsallowed')) {
     case null:
-        localStorage.setItem('adsallowed', false)
+        localStorage.setItem('adsallowed', false);
 }
 
 function resetAll() {
@@ -161,7 +161,8 @@ function resetAll() {
     localStorage.removeItem('bgeffect');
     localStorage.removeItem('clickoff');
     localStorage.removeItem('fullscreenBehavior');
-    document.cookie = 'allowads=; Max-Age=0; path=/; domain=' + window.location.hostname;
+    document.cookie =
+        'allowads=; Max-Age=0; path=/; domain=' + window.location.hostname;
     localStorage.removeItem('adsallowed');
     localStorage.removeItem('clickedoff');
     window.location.reload();
@@ -210,7 +211,7 @@ function setSearchEngine() {
             break;
     }
 }
-switch(window.location.pathname) {
+switch (window.location.pathname) {
     case '/settings':
     case '/settings/':
         setSettingsValues();

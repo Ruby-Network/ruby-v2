@@ -85,8 +85,7 @@ if (numCPUs > 0 && cluster.isPrimary) {
             //@ts-ignore
         } else if (req.headers.host === url) {
             app(req, res);
-        }
-        else if (
+        } else if (
             url.search === `?${key}` &&
             !req.headers.cookie?.includes(key) &&
             disableKEY === 'false'
@@ -111,8 +110,7 @@ if (numCPUs > 0 && cluster.isPrimary) {
             url.pathname.includes('/games')
         ) {
             return res.end(educationWebsite);
-        }
-        else {
+        } else {
             app(req, res);
         }
     });

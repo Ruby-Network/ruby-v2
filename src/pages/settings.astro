@@ -93,7 +93,7 @@ import Password from '../components/password';
     <select
         class="dropdown"
         id="theme"
-        onchange="changeThemeSettings(this.value, manual = true)"
+        onchange="changeTheme(this.value, manual = true)"
     >
         <option value="default">Default</option>
         <option value="pink">Pink</option>
@@ -120,13 +120,12 @@ import Password from '../components/password';
         <option value="connected">Connected</option>
         <option value="terminal">Terminal</option>
         <option value="rainbow">Rainbow</option>
-        <option value="custom">Custom Theme</option>
     </select>
     <div class="divider mt-20">Background Effect</div>
     <select
         class="dropdown"
         id="bg-effect"
-        onchange="changeBgeffectSettings(this.value, manual = true)"
+        onchange="changeBgEffect(this.value, manual = true)"
     >
         <option value="none">None</option>
         <option value="multicolor">Multicolor</option>

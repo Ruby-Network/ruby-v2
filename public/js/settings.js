@@ -37,7 +37,16 @@ switch (localStorage.getItem('favicon')) {
 }
 
 function changeProxy(proxy) {
-    localStorage.setItem('proxy', proxy);
+    if (proxy === 'Aero') {
+        if (window.confirm('NOTE: aero is very unstable and may break are you sure you want to use it? (Press OK to continue)')) {
+            localStorage.setItem('proxy', proxy)
+        } else {
+            window.alert('Ok, defaulting to last selected option...')
+            window.location.reload();
+        }
+    } else {
+        localStorage.setItem('proxy', proxy);
+    }
 }
 switch (localStorage.getItem('proxy')) {
     case null:

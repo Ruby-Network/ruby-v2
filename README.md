@@ -72,7 +72,7 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
     -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
     -   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
     -   [Osana](https://github.com/nebulaservices/osana)
-        [aero](https://github.com/nebulaservices/aero) **NOTE: aero is unstable and may cause issues** (We currently use our own [fork](https://github.com/ruby-network/aero))
+    -   [aero](https://github.com/nebulaservices/aero) **NOTE: aero is unstable and may cause issues** (We currently use our own [fork](https://github.com/ruby-network/aero))
 ---
 
 -   Basic Password protection for the website (you can set a password in the settings page)

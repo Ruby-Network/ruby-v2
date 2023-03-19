@@ -38,13 +38,40 @@ switch (localStorage.getItem('favicon')) {
 
 function changeProxy(proxy) {
     if (proxy === 'Aero') {
-        if (window.confirm('NOTE: aero is very unstable and may break are you sure you want to use it? (Press OK to continue)')) {
-            localStorage.setItem('proxy', proxy)
-        } else {
-            window.alert('Ok, defaulting to last selected option...')
-            window.location.reload();
-        }
-    } else {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "aero is very unstable and may cause issues and break",
+            icon: 'warning',
+            color: 'var(--text-color)',
+            background: 'var(--bg-color)',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, I am sure'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'Changed',
+                    text: 'You are now using aero',
+                    icon: 'success',
+                    color: 'var(--text-color)',
+                    background: 'var(--bg-color)',
+                });
+                localStorage.setItem('proxy', proxy);
+            }
+            else {
+                Swal.fire({
+                    title: 'Defaulting...',
+                    text: 'Defaulting to previously selected option',
+                    color: 'var(--text-color)',
+                    background: 'var(--bg-color)',
+                }).then(() => {
+                    window.location.reload();
+                })
+            }
+        })
+    }
+    else {
         localStorage.setItem('proxy', proxy);
     }
 }
@@ -121,13 +148,43 @@ function handleClickOff() {
 }
 
 function setPassword(value) {
-    if (window.confirm('Are you sure you want to set a password?')) {
-        localStorage.setItem('password', value);
-        window.location.reload();
-    } else {
-        alert('OK then, your password will not be set.');
+    Swal.fire({
+            title: 'Are you sure you would like to set a password?',
+            text: "If you don't remember this password you will have to clear all data on this website",
+            icon: 'warning',
+            color: 'var(--text-color)',
+            background: 'var(--bg-color)',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, I am sure'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.setItem('password', value);
+                Swal.fire({
+                    title: 'Password Set!',
+                    text: 'Your password is now set! As a reminder here is the password: ' + localStorage.getItem('password'),
+                    icon: 'success',
+                    color: 'var(--text-color)',
+                    background: 'var(--bg-color)',
+                }).then(() => {
+                    localStorage.setItem('unlocked', false)
+                    window.location.reload()
+                })
+            }
+            else {
+                Swal.fire({
+                    title: 'Password not set',
+                    color: 'var(--text-color)',
+                    icon: 'info',
+                    background: 'var(--bg-color)',
+                })
+                .then(() => {
+                    window.location.reload();
+                })
+            }
+        });
     }
-}
 
 function changeFullscreen(value) {
     localStorage.setItem('fullscreenBehavior', value);
@@ -170,6 +227,8 @@ function resetAll() {
     localStorage.removeItem('bgeffect');
     localStorage.removeItem('clickoff');
     localStorage.removeItem('fullscreenBehavior');
+    localStorage.removeItem('password');
+    localStorage.removeItem('unlocked');
     document.cookie =
         'allowads=; Max-Age=0; path=/; domain=' + window.location.hostname;
     localStorage.removeItem('adsallowed');

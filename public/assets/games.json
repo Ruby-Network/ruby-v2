@@ -502,5 +502,13 @@
         "cdn": "false",
         "proxy": "true",
         "url": "http://slither.io"
+    },
+    {
+        "img": "/assets/games-thumb/cat-ninja.png",
+        "baseFile": "index.html",
+        "name": "Cat Ninja",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
     }
 ]

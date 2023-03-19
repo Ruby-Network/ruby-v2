@@ -15,8 +15,12 @@ import '../../styles/globals.css';
     <div class="get-started-div">
         <h1 class="get-started-text">Games</h1>
     </div>
+    <div class="search-div">
+        <input type="text" oninput="search_games(this.value)" placeholder="Search For A Game..." class="search-input"></input>
+    </div>
     <div class="games" id="games"></div>
     <script src="/js/games.js" type="module" is:inline></script>
+    <script src="/js/searchGames.js" is:inline></script>
 </body>
 <style is:global>
     .get-started-div {
@@ -43,11 +47,11 @@ import '../../styles/globals.css';
         background: var(--text-bg-color);
         color: var(--text-color);
         font-family: var(--font);
-        border-radius: 0.25rem;
+        border-radius: 0.5rem;
         border: 1px solid var(--border-color);
         text-align: center;
         width: 20rem;
-        height: 2rem;
+        height: 2.5rem;
     }
     .get-started-text {
         font-size: 3rem;

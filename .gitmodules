@@ -1,6 +1,3 @@
 [submodule "public/ruby-assets"]
 	path = public/ruby-assets
 	url = https://github.com/ruby-network/ruby-assets
-[submodule "public/aero"]
-	path = public/aero
-	url = https://github.com/ruby-network/aero

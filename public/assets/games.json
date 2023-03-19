@@ -510,5 +510,21 @@
         "cdn": "false",
         "proxy": "false",
         "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/gm2.jpeg",
+        "baseFile": "index.html",
+        "name": "Gun Mayhem 2",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
+    },
+    {
+        "img": "/assets/games-thumb/ssf.jpeg",
+        "baseFile": "index.html",
+        "name": "Super Smash Flash",
+        "cdn": "false",
+        "proxy": "false",
+        "url": ""
     }
 ]

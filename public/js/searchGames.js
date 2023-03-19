@@ -12,3 +12,16 @@ function search_games(input) {
     }
   }
 }
+function category_games(category) {
+    let x = document.getElementsByClassName('game-tile');
+    for (i = 0; i < x.length; i++) {
+        switch(x[i].dataset.tag.includes(category)) {
+            case false:
+                x[i].style.display = "none";
+                break;
+            case true:
+                x[i].style.display = '';
+                break;
+        }
+    }
+}

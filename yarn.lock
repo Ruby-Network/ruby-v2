@@ -58,12 +58,12 @@
     unist-util-visit "^4.1.0"
     vfile "^5.3.2"
 
-"@astrojs/node@^5.0.3":
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/@astrojs/node/-/node-5.0.4.tgz#1ffb5a7bae270633b232fcf56805f99d9afc7b7d"
-  integrity sha512-pBD0cpQM4fDzwBBxyX7r7jTsYo/oXbUwAvHRB0OQGXsWjYvqqa8KQvNwQwYXXpNxCwgtpVtkdg4tV4mv1hSpWQ==
+"@astrojs/node@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/node/-/node-5.1.0.tgz#a3a844b8aeb4c9e1b5f6d5706b7231f1945bd626"
+  integrity sha512-O0u++oE8S9vVR0xPW5qqJzPla76UEYF+cZV2EuyVKgQRaXRXVgFsqHRxBICf79tP18fk8STxd6pqel6R1CWEUw==
   dependencies:
-    "@astrojs/webapi" "^2.0.1"
+    "@astrojs/webapi" "^2.1.0"
     send "^0.18.0"
     server-destroy "^1.0.1"
 
@@ -121,7 +121,7 @@
     undici "^5.20.0"
     which-pm-runs "^1.1.0"
 
-"@astrojs/webapi@^2.0.1", "@astrojs/webapi@^2.1.0":
+"@astrojs/webapi@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@astrojs/webapi/-/webapi-2.1.0.tgz#0cbe21efd278456a4450afe0288c99d680cc2a32"
   integrity sha512-sbF44s/uU33jAdefzKzXZaENPeXR0sR3ptLs+1xp9xf5zIBhedH2AfaFB5qTEv9q5udUVoKxubZGT3G1nWs6rA==

@@ -20,9 +20,6 @@
       src="https://img.shields.io/badge/render-4f65f1.svg?style=for-the-badge&logo=render&logoColor=46e3b7"
     />
   </a>
-<a href="https://repl.it/github/Ruby-Network/ruby">
-<img height="30px" src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/replit.svg">
-<img>
 </a>
   <a href="https://railway.app/new/template/hnVkIQ">
     <img

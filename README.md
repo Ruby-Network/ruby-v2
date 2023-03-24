@@ -17,19 +17,19 @@
   <a href="https://render.com/deploy?repo=https://github.com/Ruby-Network/ruby">
     <img
       height="30px"
-      src="https://img.shields.io/badge/render-4f65f1.svg?style=for-the-badge&logo=render&logoColor=46e3b7"
+      src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/main/buttons/remade/render.svg"
     />
   </a>
 </a>
   <a href="https://railway.app/new/template/hnVkIQ">
     <img
       height="30px"
-      src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/railway.svg"
+      src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/main/buttons/remade/railway.svg"
     />
   </a>
   <a href="https://glitch.com/edit/#!/import/github/Ruby-Network/ruby">
   <img height="30px" 
-  src="https://raw.githubusercontent.com/FogNetwork/Tsunami/main/deploy/glitch.svg">
+  src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/main/buttons/remade/glitch.svg">
   </img>
   </a>
   <br />

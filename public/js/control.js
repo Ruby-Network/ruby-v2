@@ -89,10 +89,9 @@ function exitIframe() {
     }
     if (localStorage.getItem('tabs') === 'true') {
         if (window.location.hash.includes('#g')) {
-            window.location.replace('/tabs')
+            window.location.replace('/tabs');
         }
-    }
-    else {
+    } else {
         window.location.reload();
         localStorage.setItem('reloaded', 'true');
     }
@@ -102,4 +101,3 @@ if (localStorage.getItem('tabs') === 'true') {
         document.getElementById('search-button').setAttribute('class', 'dnone');
     }
 }
-

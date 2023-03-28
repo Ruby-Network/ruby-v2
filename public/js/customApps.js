@@ -10,11 +10,10 @@ if (customApps) {
         appElement.innerHTML = `<ol><i class="fa-solid fa-user-plus"></i></ol> <p>${app.name}</p>`;
         appElement.onclick = () => {
             localStorage.setItem('reloaded', 'false');
-            localStorage.setItem('customAppsUsedInTabs', 'false')
+            localStorage.setItem('customAppsUsedInTabs', 'false');
             if (localStorage.getItem('tabs') === 'true') {
-                window.location.replace('/tabs' + '#custom=' + app.url)
-            }
-            else {
+                window.location.replace('/tabs' + '#custom=' + app.url);
+            } else {
                 window.location.replace('/search' + '#custom=' + app.url);
             }
         };

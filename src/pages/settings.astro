@@ -48,9 +48,14 @@ import Password from '../components/password';
     />
     <!-- END METADATA -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
-     <!-- Cloudflare Web Analytics -->
-     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4c8e51b204b048f98a90125e8950dd6e"}' defer></script>
-     <!-- End Cloudflare Web Analytics -->
+    <!-- Cloudflare Web Analytics -->
+    <script
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "4c8e51b204b048f98a90125e8950dd6e"}'
+        defer
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
 </head>
 <body>
     <Header />
@@ -95,11 +100,7 @@ import Password from '../components/password';
         <option value="Qwant">Qwant</option>
     </select>
     <div class="divider mt-20">Theme Select</div>
-    <select
-        class="dropdown"
-        id="theme"
-        onchange="changeTheme(this.value)"
-    >
+    <select class="dropdown" id="theme" onchange="changeTheme(this.value)">
         <option value="default">Default</option>
         <option value="pink">Pink</option>
         <option value="blue">Blue</option>
@@ -166,7 +167,11 @@ import Password from '../components/password';
         <option value="false">Fullscreen the content</option>
     </select>
     <div class="divider mt-20">Tab Behavior</div>
-    <select class="dropdown" id="tabsBehavior" onchange="changeTabs(this.value)">
+    <select
+        class="dropdown"
+        id="tabsBehavior"
+        onchange="changeTabs(this.value)"
+    >
         <option value="true">Tabs Enabled</option>
         <option value="false">Tabs Disabled</option>
     </select>

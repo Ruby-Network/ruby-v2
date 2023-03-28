@@ -210,7 +210,7 @@
         "img": "/assets/games-thumb/tanktrouble.webp",
         "baseFile": "index.html",
         "name": "Tank Trouble 2",
-        "tags": ["arcade", "shooter", "strategy", "static"],    
+        "tags": ["arcade", "shooter", "strategy", "static"],
         "cdn": "false",
         "proxy": "false",
         "url": ""

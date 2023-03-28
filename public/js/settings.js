@@ -40,14 +40,14 @@ function changeProxy(proxy) {
     if (proxy === 'Aero') {
         Swal.fire({
             title: 'Are you sure?',
-            text: "aero is very unstable and may cause issues and break",
+            text: 'aero is very unstable and may cause issues and break',
             icon: 'warning',
             color: 'var(--text-color)',
             background: 'var(--bg-color)',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, I am sure'
+            confirmButtonText: 'Yes, I am sure',
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire({
@@ -58,8 +58,7 @@ function changeProxy(proxy) {
                     background: 'var(--bg-color)',
                 });
                 localStorage.setItem('proxy', proxy);
-            }
-            else {
+            } else {
                 Swal.fire({
                     title: 'Defaulting...',
                     text: 'Defaulting to previously selected option',
@@ -67,11 +66,10 @@ function changeProxy(proxy) {
                     background: 'var(--bg-color)',
                 }).then(() => {
                     window.location.reload();
-                })
+                });
             }
-        })
-    }
-    else {
+        });
+    } else {
         localStorage.setItem('proxy', proxy);
     }
 }
@@ -149,42 +147,42 @@ function handleClickOff() {
 
 function setPassword(value) {
     Swal.fire({
-            title: 'Are you sure you would like to set a password?',
-            text: "If you don't remember this password you will have to clear all data on this website",
-            icon: 'warning',
-            color: 'var(--text-color)',
-            background: 'var(--bg-color)',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, I am sure'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                localStorage.setItem('password', value);
-                Swal.fire({
-                    title: 'Password Set!',
-                    text: 'Your password is now set! As a reminder here is the password: ' + localStorage.getItem('password'),
-                    icon: 'success',
-                    color: 'var(--text-color)',
-                    background: 'var(--bg-color)',
-                }).then(() => {
-                    localStorage.setItem('unlocked', false)
-                    window.location.reload()
-                })
-            }
-            else {
-                Swal.fire({
-                    title: 'Password not set',
-                    color: 'var(--text-color)',
-                    icon: 'info',
-                    background: 'var(--bg-color)',
-                })
-                .then(() => {
-                    window.location.reload();
-                })
-            }
-        });
-    }
+        title: 'Are you sure you would like to set a password?',
+        text: "If you don't remember this password you will have to clear all data on this website",
+        icon: 'warning',
+        color: 'var(--text-color)',
+        background: 'var(--bg-color)',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, I am sure',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.setItem('password', value);
+            Swal.fire({
+                title: 'Password Set!',
+                text:
+                    'Your password is now set! As a reminder here is the password: ' +
+                    localStorage.getItem('password'),
+                icon: 'success',
+                color: 'var(--text-color)',
+                background: 'var(--bg-color)',
+            }).then(() => {
+                localStorage.setItem('unlocked', false);
+                window.location.reload();
+            });
+        } else {
+            Swal.fire({
+                title: 'Password not set',
+                color: 'var(--text-color)',
+                icon: 'info',
+                background: 'var(--bg-color)',
+            }).then(() => {
+                window.location.reload();
+            });
+        }
+    });
+}
 
 function changeFullscreen(value) {
     localStorage.setItem('fullscreenBehavior', value);
@@ -219,16 +217,16 @@ switch (localStorage.getItem('adsallowed')) {
 }
 
 function changeTabs(value) {
-    localStorage.setItem('tabs', value)
-    window.location.reload()
+    localStorage.setItem('tabs', value);
+    window.location.reload();
 }
 
-switch(localStorage.getItem('tabs')) {
+switch (localStorage.getItem('tabs')) {
     case null:
     case undefined:
     case 'null':
     case 'undefined':
-        localStorage.setItem('tabs', true)
+        localStorage.setItem('tabs', true);
 }
 
 function resetAll() {
@@ -260,7 +258,7 @@ function setSettingsValues() {
     let clickoffVal = document.getElementById('clickoff');
     let fullscreenVal = document.getElementById('fullscreen');
     let adbehaviorVal = document.getElementById('adbehavior');
-    let tabsVal = document.getElementById('tabsBehavior')
+    let tabsVal = document.getElementById('tabsBehavior');
     titleVal.value = localStorage.getItem('title');
     faviconVal.value = localStorage.getItem('favicon');
     proxyVal.value = localStorage.getItem('proxy');
@@ -270,7 +268,7 @@ function setSettingsValues() {
     clickoffVal.value = localStorage.getItem('clickoff');
     fullscreenVal.value = localStorage.getItem('fullscreenBehavior');
     adbehaviorVal.value = localStorage.getItem('adsallowed');
-    tabsVal.value = localStorage.getItem('tabs')
+    tabsVal.value = localStorage.getItem('tabs');
 }
 function setSearchEngine() {
     let searchEngineVal = document.getElementById('uv-search-engine');

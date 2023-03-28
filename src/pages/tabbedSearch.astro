@@ -107,151 +107,152 @@ import Search from '../components/search';
         <i class="fas fa-times hover:brightness-200" onclick="exitIframe()"></i>
         <i id="search-button" class="fas fa-search hover:brightness-200"></i>
     </div -->
-    <div
-        id="nav-toggle"
-        class="dnone exit w-80 h-2 text-center align-middle bg-transparent absolute"
-    >
+        <div
+            id="nav-toggle"
+            class="dnone exit w-80 h-2 text-center align-middle bg-transparent absolute"
+        >
+        </div>
     </div>
-</body>
-<style>
-    #control {
-        position: absolute;
-        top: 0rem;
-        left: 0rem;
-        background: var(--bg-color);
-        min-height: 4rem;
-        width: 0%;
-        display: flex;
-        flex-direction: row;
-        height: 0rem;
-        align-items: center;
-        justify: center;
-        gap: 0.75rem;
-        border: none;
-        filter: var(--brightness-filter);
-        color: var(--text-color);
-        font-size: 1.5rem;
-        cursor: pointer;
-        outline: none;
-        font-family: var(--font);
-    }
-    #control>i {
-        position: relative;
-        left: 1.25rem;
-    }
-    .get-started-div {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
-    }
+    <style>
+        #control {
+            position: absolute;
+            top: 0rem;
+            left: 0rem;
+            background: var(--bg-color);
+            min-height: 4rem;
+            width: 0%;
+            display: flex;
+            flex-direction: row;
+            height: 0rem;
+            align-items: center;
+            justify: center;
+            gap: 0.75rem;
+            border: none;
+            filter: var(--brightness-filter);
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            outline: none;
+            font-family: var(--font);
+        }
+        #control > i {
+            position: relative;
+            left: 1.25rem;
+        }
+        .get-started-div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+        }
 
-    .get-started-text {
-        font-size: 3rem;
-        text-align: center;
-        margin-top: 2rem;
-        color: var(--text-color);
-        font-family: var(--font);
-    }
-    #uv-address {
-        width: 20rem;
-        height: 2.5rem;
-        border: 1px solid var(--border-color);
-        border-radius: 0.75rem;
-        padding: 0.5rem;
-        font-size: 1.2rem;
-        color: var(--text-color);
-        background: var(--text-bg-color);
-        outline: none;
-        text-align: center;
-        position: relative;
-        left: 50%;
-        top: 0.5rem;
-        transform: translate(-50%);
-        -moz-transform: translate(-50%);
-        -webkit-transform: translate(-50%);
-        -ms-transform: translate(-50%);
-        -o-transform: translate(-50%);
-        font-family: var(--font);
-    }
-    #suggestions {
-        width: 20rem;
-        height: 7rem;
-        border-left: 1px solid var(--border-color);
-        border-right: 1px solid var(--border-color);
-        border-bottom: 1px solid var(--border-color);
-        border-radius: 0 0 0.75rem 0.75rem;
-        padding: 0.5rem;
-        font-size: 1.2rem;
-        color: var(--text-color);
-        background: var(--text-bg-color);
-        outline: none;
-        text-align: center;
-        font-family: var(--font);
-        overflow-x: auto;
-        cursor: pointer;
-        position: relative;
-        left: 50%;
-        top: -2rem;
-        transform: translate(-50%);
-        -moz-transform: translate(-50%);
-        -webkit-transform: translate(-50%);
-        -ms-transform: translate(-50%);
-        -o-transform: translate(-50%);
-    }
-    li {
-        list-style: none;
-        padding: 0.5rem;
-        cursor: pointer;
-        font-family: var(--font);
-        color: var(--text-color);
-        position: relative;
-    }
-    .dnone2 {
-        display: none !important;
-        visibility: none !important;
-        width: 0 !important;
-        height: 0 !important;
-    }
-</style>
-<style is:global>
-    #search {
-        position: relative;
-        left: 119%;
-        top: -2rem;
-        transform: translate(-50%);
-        -moz-transform: translate(-50%);
-        -webkit-transform: translate(-50%);
-        -ms-transform: translate(-50%);
-        -o-transform: translate(-50%);
-        border-radius: 0.75rem;
-        border: 1px solid var(--border-color);
-        background: var(--text-bg-color);
-        color: var(--text-color);
-        height: 2.5rem;
-        font-family: var(--font);
-        /* filter: var(--brightness-filter); */
-    }
-    .dnone {
-        display: none;
-        visibility: none;
-    }
-    .exit {
-        left: 50%;
-        top: 0;
-        transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
-        color: var(--text-color);
-        font-size: 1.5rem;
-        font-family: var(--font);
-        z-index: 9999;
-        /* background: var(--text-bg-color); */
-    }
-</style>
+        .get-started-text {
+            font-size: 3rem;
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--text-color);
+            font-family: var(--font);
+        }
+        #uv-address {
+            width: 20rem;
+            height: 2.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            background: var(--text-bg-color);
+            outline: none;
+            text-align: center;
+            position: relative;
+            left: 50%;
+            top: 0.5rem;
+            transform: translate(-50%);
+            -moz-transform: translate(-50%);
+            -webkit-transform: translate(-50%);
+            -ms-transform: translate(-50%);
+            -o-transform: translate(-50%);
+            font-family: var(--font);
+        }
+        #suggestions {
+            width: 20rem;
+            height: 7rem;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            border-radius: 0 0 0.75rem 0.75rem;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            background: var(--text-bg-color);
+            outline: none;
+            text-align: center;
+            font-family: var(--font);
+            overflow-x: auto;
+            cursor: pointer;
+            position: relative;
+            left: 50%;
+            top: -2rem;
+            transform: translate(-50%);
+            -moz-transform: translate(-50%);
+            -webkit-transform: translate(-50%);
+            -ms-transform: translate(-50%);
+            -o-transform: translate(-50%);
+        }
+        li {
+            list-style: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-family: var(--font);
+            color: var(--text-color);
+            position: relative;
+        }
+        .dnone2 {
+            display: none !important;
+            visibility: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+    </style>
+    <style is:global>
+        #search {
+            position: relative;
+            left: 119%;
+            top: -2rem;
+            transform: translate(-50%);
+            -moz-transform: translate(-50%);
+            -webkit-transform: translate(-50%);
+            -ms-transform: translate(-50%);
+            -o-transform: translate(-50%);
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+            background: var(--text-bg-color);
+            color: var(--text-color);
+            height: 2.5rem;
+            font-family: var(--font);
+            /* filter: var(--brightness-filter); */
+        }
+        .dnone {
+            display: none;
+            visibility: none;
+        }
+        .exit {
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            color: var(--text-color);
+            font-size: 1.5rem;
+            font-family: var(--font);
+            z-index: 9999;
+            /* background: var(--text-bg-color); */
+        }
+    </style>
+</body>

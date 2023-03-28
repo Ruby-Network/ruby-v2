@@ -60,7 +60,7 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
 
 ## Features
 
--   Tons of themes (you can even make your own)
+-   Tons of themes
 
 -   We prefetch everything to speed up your experience
 
@@ -69,6 +69,7 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
     -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
     -   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
     -   [Osana](https://github.com/nebulaservices/osana)
+    -   [aero](https://github.com/nebulaservices/aero) **NOTE: aero is unstable and may cause issues** (We currently use our own [fork](https://github.com/ruby-network/aero))
 
 ---
 

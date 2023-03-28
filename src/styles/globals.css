@@ -72,6 +72,16 @@
     --scroll-bar-thumb-hover-color: hsl(310 50% 90%);
     --input-bg-color: hsl(310 50% 10%);
 }
+.violet {
+    --bg-color: #957796;
+    --text-color: #fefedf;
+    --border-color: #fefedf;
+    --text-bg-color: #4f4350;
+    --scroll-bar-track-color: #957796;
+    --scroll-bar-thumb-color: #4f4350;
+    --scroll-bar-thumb-hover-color: #fefedf;
+    --input-bg-color: #4f4350;
+}
 .red {
     --bg-color: hsl(10 50% 10%);
     --text-color: hsl(10 50% 90%);

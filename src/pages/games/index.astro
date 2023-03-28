@@ -15,9 +15,35 @@ import '../../styles/globals.css';
     <div class="get-started-div">
         <h1 class="get-started-text">Games</h1>
     </div>
-    <div class="games" id="games"></div>
-    <script src="/js/games.js" type="module" is:inline></script>
+    <div class="search-div">
+        <input
+            type="text"
+            oninput="search_games(this.value)"
+            placeholder="Search For A Game..."
+            class="search-input"
+        />
+    </div>
+    <select class="search-select" onchange="category_games(this.value)">
+        <option value="">All</option>
+        <option value="arcade">Arcade</option>
+        <option value="platformer">Platformer</option>
+        <option value="static">Static</option>
+        <option value="racing">Racing</option>
+        <option value="flash">Flash</option>
+        <option value="adventure">Adventure</option>
+        <option value="multiplayer">Multiplayer</option>
+        <option value="retro">Retro</option>
+        <option value="emulation">Emulation</option>
+        <option value="sports">Sports</option>
+        <option value="strategy">Strategy</option>
+        <option value="shooter">Shooter</option>
+        <option value="proxied">Proxied</option>
+    </select>
 </body>
+<div class="games" id="games"></div>
+<script src="/js/games.js" type="module" is:inline></script>
+<script src="/js/searchGames.js" is:inline></script>
+
 <style is:global>
     .get-started-div {
         position: absolute;
@@ -31,8 +57,10 @@ import '../../styles/globals.css';
     }
     .search-div {
         position: absolute;
+        display: flex;
+        gap: 0.5rem;
         top: 40%;
-        left: 50%;
+        left: 53.25%;
         transform: translate(-50%, -50%);
         -moz-transform: translate(-50%, -50%);
         -webkit-transform: translate(-50%, -50%);
@@ -43,11 +71,35 @@ import '../../styles/globals.css';
         background: var(--text-bg-color);
         color: var(--text-color);
         font-family: var(--font);
-        border-radius: 0.25rem;
+        border-radius: 0.5rem;
         border: 1px solid var(--border-color);
         text-align: center;
         width: 20rem;
-        height: 2rem;
+        height: 2.5rem;
+    }
+    .search-select {
+        background: var(--text-bg-color);
+        color: var(--text-color);
+        font-family: var(--font);
+        border-radius: 0.5rem;
+        border: 1px solid var(--border-color);
+        text-align: center;
+        width: 5rem;
+        height: 2.5rem;
+    }
+    @media (max-width: 823px) {
+        .search-div {
+            left: 52.99%;
+        }
+    }
+    @media (max-width: 599px) {
+        .search-select {
+            width: 20rem;
+        }
+        .search-div {
+            flex-wrap: wrap;
+            left: 50%;
+        }
     }
     .get-started-text {
         font-size: 3rem;

@@ -1,0 +1,258 @@
+---
+import '../styles/globals.css';
+import Button from '../components/button.astro';
+import Search from '../components/search';
+---
+
+<head>
+    <script src="/uv/uv.bundle.js" defer></script>
+    <script src="/uv/uv.config.js" defer></script>
+    <script src="/uv/uv-sw.js" defer></script>
+    <script src="/dip/dip.config.js" defer></script>
+    <script src="/dip/dip.page.js" defer></script>
+    <script src="/osana/osana.bundle.js" defer></script>
+    <script src="/osana/osana.config.js" defer></script>
+    <script src="/js/settings.js" defer></script>
+    <script src="/js/index.js" defer></script>
+    <link id="favicon" rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css" />
+    <script src="/js/control.js" defer></script>
+    <script src="/js/appSuggestions.js" defer></script>
+    <script src="/js/searchSuggestions.js" defer></script>
+    <script src="/chrome-tabs/tabbedSearch.js" is:inline></script>
+    <!-- ALL METADATA -->
+    <meta name="keywords" content="Ruby" />
+    <meta name="author" content="Ruby" />
+    <meta name="title" content="Ruby" />
+    <meta
+        name="description"
+        content="Ruby (V2) is fast, sleek and customizable"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rubynetwork.tech" />
+    <meta property="og:title" content="Ruby" />
+    <meta
+        property="og:description"
+        content="Ruby (V2) is fast, sleek and customizable"
+    />
+    <meta
+        property="og:image"
+        content="https://user-images.githubusercontent.com/73721704/210157935-6aa8ec46-6fa4-4dd5-956f-6bfe351de42c.png"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://rubynetwork.tech" />
+    <meta property="twitter:title" content="Ruby" />
+    <meta
+        property="twitter:description"
+        content="Ruby (V2) is fast, sleek and customizable"
+    />
+    <meta
+        property="twitter:image"
+        content="https://user-images.githubusercontent.com/73721704/210157935-6aa8ec46-6fa4-4dd5-956f-6bfe351de42c.png"
+    />
+    <!-- END METADATA -->
+    <script
+        type="text/javascript"
+        src="/js/lib/particles/particles.min.js"
+        defer
+    ></script>
+    <script src="/js/particles.js" defer></script>
+    <script src="/js/register.js" defer></script>
+    <link rel="manifest" href="/manifest.json" />
+</head>
+<body>
+    <Search client:only="react" />
+    <div class="get-started-div">
+        <h1 class="get-started-text">Search</h1>
+        <form class="dipform" action="submit" id="uv-form">
+            <div class="search">
+                <input
+                    id="uv-search-engine"
+                    value="https://www.google.com/search?q=%s"
+                    type="hidden"
+                />
+                <input
+                    id="uv-address"
+                    type="text"
+                    class="dipinput"
+                    placeholder="Privately Search the web..."
+                />
+            </div>
+            <Button
+                secondButtonId="search"
+                buttonText="Search"
+                buttonType="submit"
+            />
+        </form>
+        <div id="suggestions" class="dnone">
+            <ul id="suggestions-data"></ul>
+        </div>
+    </div>
+    <iframe
+        class="dnone"
+        id="uv-iframe"
+        style="height: 100%;width: 100%;border: none;position: fixed;top: 0;right: 0;left: 0;bottom: 0;border: none; background: var(--bg-color);"
+    >
+    </iframe>
+    <div id="pjs" class="dnone particles"></div>
+    <div class="dnone dnone2" id="control">
+        <!-- i
+            class="fas fa-arrows-rotate hover:brightness-200"
+            onclick="refreshIframe()"></i>
+        <i class="fas fa-arrow-left hover:brightness-200" onclick="backIframe()"
+        ></i>
+        <i
+            class="fas fa-arrow-right hover:brightness-200"
+            onclick="forwardIframe()"></i>
+        <i class="fas fa-times hover:brightness-200" onclick="exitIframe()"></i>
+        <i id="search-button" class="fas fa-search hover:brightness-200"></i>
+    </div -->
+        <div
+            id="nav-toggle"
+            class="dnone exit w-80 h-2 text-center align-middle bg-transparent absolute"
+        >
+        </div>
+    </div>
+    <style>
+        #control {
+            position: absolute;
+            top: 0rem;
+            left: 0rem;
+            background: var(--bg-color);
+            min-height: 4rem;
+            width: 0%;
+            display: flex;
+            flex-direction: row;
+            height: 0rem;
+            align-items: center;
+            justify: center;
+            gap: 0.75rem;
+            border: none;
+            filter: var(--brightness-filter);
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            outline: none;
+            font-family: var(--font);
+        }
+        #control > i {
+            position: relative;
+            left: 1.25rem;
+        }
+        .get-started-div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+        }
+
+        .get-started-text {
+            font-size: 3rem;
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--text-color);
+            font-family: var(--font);
+        }
+        #uv-address {
+            width: 20rem;
+            height: 2.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            background: var(--text-bg-color);
+            outline: none;
+            text-align: center;
+            position: relative;
+            left: 50%;
+            top: 0.5rem;
+            transform: translate(-50%);
+            -moz-transform: translate(-50%);
+            -webkit-transform: translate(-50%);
+            -ms-transform: translate(-50%);
+            -o-transform: translate(-50%);
+            font-family: var(--font);
+        }
+        #suggestions {
+            width: 20rem;
+            height: 7rem;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            border-radius: 0 0 0.75rem 0.75rem;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            background: var(--text-bg-color);
+            outline: none;
+            text-align: center;
+            font-family: var(--font);
+            overflow-x: auto;
+            cursor: pointer;
+            position: relative;
+            left: 50%;
+            top: -2rem;
+            transform: translate(-50%);
+            -moz-transform: translate(-50%);
+            -webkit-transform: translate(-50%);
+            -ms-transform: translate(-50%);
+            -o-transform: translate(-50%);
+        }
+        li {
+            list-style: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-family: var(--font);
+            color: var(--text-color);
+            position: relative;
+        }
+        .dnone2 {
+            display: none !important;
+            visibility: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+    </style>
+    <style is:global>
+        #search {
+            position: relative;
+            left: 119%;
+            top: -2rem;
+            transform: translate(-50%);
+            -moz-transform: translate(-50%);
+            -webkit-transform: translate(-50%);
+            -ms-transform: translate(-50%);
+            -o-transform: translate(-50%);
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+            background: var(--text-bg-color);
+            color: var(--text-color);
+            height: 2.5rem;
+            font-family: var(--font);
+            /* filter: var(--brightness-filter); */
+        }
+        .dnone {
+            display: none;
+            visibility: none;
+        }
+        .exit {
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            color: var(--text-color);
+            font-size: 1.5rem;
+            font-family: var(--font);
+            z-index: 9999;
+            /* background: var(--text-bg-color); */
+        }
+    </style>
+</body>

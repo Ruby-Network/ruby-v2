@@ -31,3 +31,5 @@ docker-compose.yml
 *.htpasswd
 
 /public/ruby-assets/
+/public/chrome-tabs/
+/src/pages/tabs.astro

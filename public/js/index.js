@@ -16,6 +16,7 @@ let proxytype = localStorage.getItem('proxy');
 let currenturl = window.location.href;
 let controlCenter = document.getElementById('iframe-control');
 let urlBar = document.getElementById('url-bar');
+var proxiedURL = 'nothing';
 //let loader = document.getElementById("loader");
 // import { proxyApi, prefix } from "/aero/config.js";
 function loading(textcolor) {
@@ -72,8 +73,7 @@ if (proxytype === 'DIP') {
                     document.body
                 ).getPropertyValue('--text-color');
                 //loadingIframe.src = `/loading#${textcolor}`;
-                iframe.src =
-                    window.__DIP.config.prefix + window.__DIP.encodeURL(url);
+                iframe.src = __DIP.config.prefix + __DIP.encodeURL(url);
                 //iframe.addEventListener('load', function () {
                 //loadingIframe.classList.add('dnone');
                 document.getElementById('control').classList.remove('dnone');
@@ -117,6 +117,39 @@ if (proxytype === 'Osana') {
     async function worker() {
         var a = await navigator.serviceWorker.register('/sw.js', {
             scope: '/service/',
+        });
+        return a;
+    }
+}
+if (proxytype === 'Aero') {
+    document
+        .getElementById('uv-form')
+        .addEventListener('submit', async (event) => {
+            event.preventDefault();
+            let url;
+            function searchURI(value) {
+                url = search(value, searchEngine.value);
+            }
+            worker().then((event) => {
+                let search = document.querySelector('.dipinput');
+                let address = document.getElementById('uv-address');
+                searchURI(address.value);
+                let textcolor = getComputedStyle(
+                    document.body
+                ).getPropertyValue('--text-color');
+                //loadingIframe.src = `/loading#${textcolor}`;
+                iframe.src = '/go/' + url;
+                //iframe.addEventListener('load', function () {
+                //loadingIframe.classList.add('dnone');
+                document.getElementById('control').classList.remove('dnone');
+                iframe.classList.remove('dnone');
+                //});
+            });
+        });
+    async function worker() {
+        var a = await navigator.serviceWorker.register('/aero-sw.js', {
+            scope: '/go/',
+            type: 'module',
         });
         return a;
     }

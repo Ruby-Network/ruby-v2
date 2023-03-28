@@ -14,10 +14,17 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 import auth from 'http-auth';
 dotenv.config();
+//getting environment vars
 const numCPUs = process.env.CPUS || os.cpus().length;
+let key = process.env.KEY || 'unlock';
+let url = process.env.URL || 'rubynetwork.tech';
+let user = process.env.USERNAME || 'ruby';
+let pass = process.env.PASSWORD || 'ruby';
+let disableKEY = process.env.KEYDISABLE || 'false';
 let educationWebsite = fs.readFileSync(join(__dirname, 'education/index.html'));
 let loadingPage = fs.readFileSync(join(__dirname, 'education/load.html'));
 const blacklisted: string[] = [];
+const disableyt: string[] = [];
 fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     if (err) {
         console.error(err);
@@ -26,7 +33,6 @@ fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     const lines = data.toString().split('\n');
     for (let i in lines) blacklisted.push(lines[i]);
 });
-
 if (numCPUs > 0 && cluster.isPrimary) {
     console.log(`Primary ${process.pid} is running`);
     for (let i = 0; i < numCPUs; i++) {
@@ -52,12 +58,6 @@ if (numCPUs > 0 && cluster.isPrimary) {
     app.use(express.urlencoded({ extended: false }));
     //uv config
     app.use('/uv/', express.static(uvPath));
-    //env vars for the unlock feature
-    //analytics object
-    let key = process.env.KEY || '';
-    if (!key || key === undefined || key === null || key === '') {
-        key = 'unlock';
-    }
     const server = createServer();
     server.on('request', (req, res) => {
         //@ts-ignore
@@ -82,11 +82,13 @@ if (numCPUs > 0 && cluster.isPrimary) {
                 res.end();
                 return;
             }
-        } else if (req.headers.host === 'rubynetwork.tech') {
+            //@ts-ignore
+        } else if (req.headers.host === url) {
             app(req, res);
         } else if (
             url.search === `?${key}` &&
-            !req.headers.cookie?.includes(key)
+            !req.headers.cookie?.includes(key) &&
+            disableKEY === 'false'
         ) {
             res.writeHead(302, {
                 Location: '/',
@@ -168,8 +170,6 @@ if (numCPUs > 0 && cluster.isPrimary) {
     });
     app.post('/login-form', (req, res) => {
         let body = req.body;
-        let user = process.env.USERNAME || 'ruby';
-        let pass = process.env.PASSWORD || 'ruby';
         body = JSON.stringify(body);
         body = JSON.parse(body);
         if (body.username === user && body.password === pass) {

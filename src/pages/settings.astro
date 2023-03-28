@@ -165,6 +165,11 @@ import Password from '../components/password';
         <option value="true">Remove the nav bar</option>
         <option value="false">Fullscreen the content</option>
     </select>
+    <div class="divider mt-20">Tab Behavior</div>
+    <select class="dropdown" id="tabsBehavior" onchange="changeTabs(this.value)">
+        <option value="true">Tabs Enabled</option>
+        <option value="false">Tabs Disabled</option>
+    </select>
     <div class="divider mt-20">About:Blank Cloaking</div>
     <button class="button" id="cloak" onclick="aboutBlank()">Enable</button>
     <div class="divider mt-20">AD blocking behavior</div>

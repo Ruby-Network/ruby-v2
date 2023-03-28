@@ -12,7 +12,7 @@ await fetch('/assets/games.json')
             //not needed as of now but added for future use
         } else if (gameData.proxy === 'true') {
             localStorage.setItem('reloaded', 'false');
-            window.location.replace('/search#custom=' + gameData.url);
+            window.location.replace('/search#g=' + gameData.url);
         } else {
             iframe.src = `/ruby-assets/${gameName}/${gameData.baseFile}`;
         }

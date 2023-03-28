@@ -218,6 +218,19 @@ switch (localStorage.getItem('adsallowed')) {
         localStorage.setItem('adsallowed', false);
 }
 
+function changeTabs(value) {
+    localStorage.setItem('tabs', value)
+    window.location.reload()
+}
+
+switch(localStorage.getItem('tabs')) {
+    case null:
+    case undefined:
+    case 'null':
+    case 'undefined':
+        localStorage.setItem('tabs', true)
+}
+
 function resetAll() {
     localStorage.removeItem('title');
     localStorage.removeItem('favicon');
@@ -229,6 +242,7 @@ function resetAll() {
     localStorage.removeItem('fullscreenBehavior');
     localStorage.removeItem('password');
     localStorage.removeItem('unlocked');
+    localStorage.removeItem('tabs');
     document.cookie =
         'allowads=; Max-Age=0; path=/; domain=' + window.location.hostname;
     localStorage.removeItem('adsallowed');
@@ -246,6 +260,7 @@ function setSettingsValues() {
     let clickoffVal = document.getElementById('clickoff');
     let fullscreenVal = document.getElementById('fullscreen');
     let adbehaviorVal = document.getElementById('adbehavior');
+    let tabsVal = document.getElementById('tabsBehavior')
     titleVal.value = localStorage.getItem('title');
     faviconVal.value = localStorage.getItem('favicon');
     proxyVal.value = localStorage.getItem('proxy');
@@ -255,6 +270,7 @@ function setSettingsValues() {
     clickoffVal.value = localStorage.getItem('clickoff');
     fullscreenVal.value = localStorage.getItem('fullscreenBehavior');
     adbehaviorVal.value = localStorage.getItem('adsallowed');
+    tabsVal.value = localStorage.getItem('tabs')
 }
 function setSearchEngine() {
     let searchEngineVal = document.getElementById('uv-search-engine');
@@ -287,6 +303,8 @@ switch (window.location.pathname) {
         break;
     case '/search':
     case '/search/':
+    case '/tabbedSearch':
+    case '/tabbedSearch/':
         setSearchEngine();
         localStorage.setItem('clickedoff', false);
         break;

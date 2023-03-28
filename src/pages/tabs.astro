@@ -1,0 +1,163 @@
+---
+import '../styles/globals.css'
+import Modal from '../components/modal'
+import Password from '../components/password'
+import Head from '../layouts/allpages.astro';
+---
+  <Head />
+  <body>
+        <script src='/chrome-tabs/tabsPage.js' is:inline></script>
+        <link rel="stylesheet" href="/chrome-tabs/chrome-tabs.css"/>
+        <Modal client:only="react" />
+        <Password client:only="react" />
+        <div id="pjs" class="dnone particles"></div>
+        <div class="chrome-tabs" style="--tab-content-margin: 9px">
+          <div class="chrome-tabs-content">
+            <div class="chrome-tab" data-id="-1" active>
+              <div class="chrome-tab-dividers"></div>
+              <div class="chrome-tab-background">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><symbol id="chrome-tab-geometry-left" viewBox="0 0 214 36"><path d="M17 0h197v36H0v-2c4.5 0 9-3.5 9-8V8c0-4.5 3.5-8 8-8z"/></symbol><symbol id="chrome-tab-geometry-right" viewBox="0 0 214 36"><use xlink:href="#chrome-tab-geometry-left"/></symbol><clipPath id="crop"><rect class="mask" width="100%" height="100%" x="0"/></clipPath></defs><svg width="52%" height="100%"><use xlink:href="#chrome-tab-geometry-left" width="214" height="36" class="chrome-tab-geometry"/></svg><g transform="scale(-1, 1)"><svg width="52%" height="100%" x="-100%" y="0"><use xlink:href="#chrome-tab-geometry-right" width="214" height="36" class="chrome-tab-geometry"/></svg></g></svg>
+              </div>
+              <div class="chrome-tab-content">
+                <div class="chrome-tab-title">Search</div>
+                <div class="chrome-tab-drag-handle"></div>
+                <div class="chrome-tab-close"></div>
+              </div>
+            </div>
+          </div>
+          <div class="chrome-tabs-bottom-bar"></div>
+            <button data-add-tab id="add-tab"><i class="fa-solid fa-plus"></i></button>
+            <style>
+            .chrome-tabs .chrome-tab {
+                width: 258px;
+            }
+
+            .chrome-tabs .chrome-tab:nth-child(1) {
+                transform: translate3d(0px, 0, 0);
+            }
+
+            .chrome-tabs .chrome-tab:nth-child(2) {
+                transform: translate3d(239px, 0, 0);
+            }
+        </style>
+        </div>
+        <div class="chrome-tabs-bottom-bar"></div>
+        <div class="control-bar" id="control-bar">
+            <input class="url-bar" id="url-bar" onchange="browserSearch(this.value)" placeholder="Search Anything..."></input>
+            <div class="left-control">
+                <i class="fa-solid fa-arrow-left hover:brightness-100" onclick="Backward()"></i>
+                <i class="fa-solid fa-arrow-right hover:brightness-100" onclick="Forward()"></i>
+                <i class="fa-solid fa-rotate-right hover:brightness-100" onclick="Refresh()"></i>
+            </div> 
+            <div class="right-control">
+                <i class="fa-solid fa-copy hover:brightness-100" onclick="popOut()"></i>
+                <i class="fa-solid fa-expand hover:brightness-100" onclick="fullScreen()"></i>
+            </div>  
+        </div>
+        <div id="tabContents"></div>
+    <script src="/chrome-tabs/draggabilly.pkgd.min.js" is:inline></script>
+    <script src="/chrome-tabs/chrome-tabs.js" is:inline></script>
+    <script src="/chrome-tabs/tabbedLogic.js" is:inline></script>
+  </body>
+  <style is:global> 
+  * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    iframe {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: 86px;
+    }
+    #hamburger {
+        top: 0.1rem !important;
+        z-index: 9999 !important;
+    }
+    .control-bar {
+        width: 100%;
+        height: 40px;
+        background: var(--bg-color);
+        position: absolute;
+        z-index: 2;
+        filter: var(--brightness-filter);
+    }
+    .url-bar {
+        position: relative;
+        left: 50%;
+        top: 50%;
+        width: 75%;
+        height: 1.45rem;
+        text-align: center;
+        background: var(--text-bg-color);
+        border: 1px solid var(--border-color);
+        border-radius: 0.4rem;
+        transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+    }
+    .left-control {
+        position: absolute;
+        top: 0.5rem;
+        left: 1.5rem;
+        display: flex;
+        flex-direction: row;
+        gap: 0.75rem;
+        border: none;
+        background: none;
+        filter: var(--brightness-filter);
+        color: var(--text-color);
+        font-size: 1.5rem;
+        cursor: pointer;
+        outline: none;
+        font-family: var(--font);
+    }
+    @media (max-width: 876px) {
+        .left-control {
+            display: none;
+            visibility: none;
+        }
+    }
+    .right-control {
+        position: absolute;
+        top: 0.5rem;
+        right: 2.5rem;
+        display: flex;
+        flex-direction: row;
+        gap: 0.75rem;
+        border: none;
+        background: none;
+        filter: var(--brightness-filter);
+        color: var(--text-color);
+        font-size: 1.5rem;
+        cursor: pointer;
+        outline: none;
+        font-family: var(--font);
+    }
+    @media (max-width: 876px) {
+        .right-control {
+            display: none;
+            visibility: none;
+        }
+    }
+    .modal {
+        top: 2.85rem !important;
+    }
+    #add-tab {
+        position: absolute;
+        top: 0.1rem;
+        color: var(--text-color);
+        font-size: 33px;
+        font-weight: bolder;
+        right: 5rem;
+    }
+    #add-tab:hover {
+        filter: drop-shadow(0px 0px 12px var(--text-color));
+    }
+
+    </style>

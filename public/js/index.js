@@ -16,6 +16,7 @@ let proxytype = localStorage.getItem('proxy');
 let currenturl = window.location.href;
 let controlCenter = document.getElementById('iframe-control');
 let urlBar = document.getElementById('url-bar');
+var proxiedURL = 'nothing';
 //let loader = document.getElementById("loader");
 // import { proxyApi, prefix } from "/aero/config.js";
 function loading(textcolor) {
@@ -72,8 +73,7 @@ if (proxytype === 'DIP') {
                     document.body
                 ).getPropertyValue('--text-color');
                 //loadingIframe.src = `/loading#${textcolor}`;
-                iframe.src =
-                    window.__DIP.config.prefix + window.__DIP.encodeURL(url);
+                iframe.src = __DIP.config.prefix + __DIP.encodeURL(url);
                 //iframe.addEventListener('load', function () {
                 //loadingIframe.classList.add('dnone');
                 document.getElementById('control').classList.remove('dnone');

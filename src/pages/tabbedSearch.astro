@@ -1,9 +1,6 @@
 ---
-import Modal from '../components/modal';
-import Button from '../components/button.astro';
-import Header from '../components/header.astro';
 import '../styles/globals.css';
-import Password from '../components/password';
+import Button from '../components/button.astro';
 import Search from '../components/search';
 ---
 
@@ -22,7 +19,7 @@ import Search from '../components/search';
     <script src="/js/control.js" defer></script>
     <script src="/js/appSuggestions.js" defer></script>
     <script src="/js/searchSuggestions.js" defer></script>
-    <script src="/chrome-tabs/tabsEnabled.js" is:inline></script>
+    <script src="/chrome-tabs/tabbedSearch.js" is:inline></script>
     <!-- ALL METADATA -->
     <meta name="keywords" content="Ruby" />
     <meta name="author" content="Ruby" />
@@ -62,15 +59,9 @@ import Search from '../components/search';
     <script src="/js/particles.js" defer></script>
     <script src="/js/register.js" defer></script>
     <link rel="manifest" href="/manifest.json" />
-    <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4c8e51b204b048f98a90125e8950dd6e"}' defer></script>
-    <!-- End Cloudflare Web Analytics -->
 </head>
 <body>
-    <Header />
-    <Password client:only="react" />
     <Search client:only="react" />
-    <Modal client:only="react" />
     <div class="get-started-div">
         <h1 class="get-started-text">Search</h1>
         <form class="dipform" action="submit" id="uv-form">
@@ -100,12 +91,12 @@ import Search from '../components/search';
     <iframe
         class="dnone"
         id="uv-iframe"
-        style="height: calc(100% - 4rem);width: 100%;border: none;position: fixed;top: 4rem;right: 0;left: 0;bottom: 0;border: none; background: var(--bg-color);"
+        style="height: 100%;width: 100%;border: none;position: fixed;top: 0;right: 0;left: 0;bottom: 0;border: none; background: var(--bg-color);"
     >
     </iframe>
     <div id="pjs" class="dnone particles"></div>
-    <div class="dnone" id="control">
-        <i
+    <div class="dnone dnone2" id="control">
+        <!-- i
             class="fas fa-arrows-rotate hover:brightness-200"
             onclick="refreshIframe()"></i>
         <i class="fas fa-arrow-left hover:brightness-200" onclick="backIframe()"
@@ -113,12 +104,9 @@ import Search from '../components/search';
         <i
             class="fas fa-arrow-right hover:brightness-200"
             onclick="forwardIframe()"></i>
-        <i
-            class="fas fa-expand hover:brightness-200"
-            onclick="fullscreenIframe()"></i>
-        <i id="exit-button" class="fas fa-times hover:brightness-200" onclick="exitIframe()"></i>
+        <i class="fas fa-times hover:brightness-200" onclick="exitIframe()"></i>
         <i id="search-button" class="fas fa-search hover:brightness-200"></i>
-    </div>
+    </div -->
     <div
         id="nav-toggle"
         class="dnone exit w-80 h-2 text-center align-middle bg-transparent absolute"
@@ -128,19 +116,28 @@ import Search from '../components/search';
 <style>
     #control {
         position: absolute;
-        top: 1.25rem;
-        left: 1rem;
+        top: 0rem;
+        left: 0rem;
+        background: var(--bg-color);
+        min-height: 4rem;
+        width: 0%;
         display: flex;
         flex-direction: row;
+        height: 0rem;
+        align-items: center;
+        justify: center;
         gap: 0.75rem;
         border: none;
-        background: none;
         filter: var(--brightness-filter);
         color: var(--text-color);
         font-size: 1.5rem;
         cursor: pointer;
         outline: none;
         font-family: var(--font);
+    }
+    #control>i {
+        position: relative;
+        left: 1.25rem;
     }
     .get-started-div {
         position: absolute;
@@ -213,6 +210,12 @@ import Search from '../components/search';
         font-family: var(--font);
         color: var(--text-color);
         position: relative;
+    }
+    .dnone2 {
+        display: none !important;
+        visibility: none !important;
+        width: 0 !important;
+        height: 0 !important;
     }
 </style>
 <style is:global>

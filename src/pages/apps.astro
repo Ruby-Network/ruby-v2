@@ -10,6 +10,7 @@ import Password from '../components/password';
 <Head />
 <body>
     <Header />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script src="/js/customApps.js" defer></script>
     <Password client:only="react" />
     <Modal client:only="react" />
@@ -17,7 +18,7 @@ import Password from '../components/password';
     <h1 class="get-started-text">Apps</h1>
     <div class="apps" id="apps">
         <button
-            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#discord')"
+            onclick="localStorage.setItem('reloaded', 'false'); localStorage.setItem('customAppsUsedInTabs', 'false'); if (localStorage.getItem('tabs') === 'true') {window.location.replace('/tabs#discord')} else {window.location.replace('/search#discord')}"
             class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
         >
             <ol>
@@ -26,7 +27,7 @@ import Password from '../components/password';
             <p>Discord</p>
         </button>
         <button
-            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#youtube')"
+            onclick="localStorage.setItem('reloaded', 'false'); localStorage.setItem('customAppsUsedInTabs', 'false'); if (localStorage.getItem('tabs') === 'true') {window.location.replace('/tabs#youtube')} else {window.location.replace('/search#youtube')}"
             class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
         >
             <ol>
@@ -35,7 +36,7 @@ import Password from '../components/password';
             <p>Youtube</p>
         </button>
         <button
-            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#twitter')"
+            onclick="localStorage.setItem('reloaded', 'false'); localStorage.setItem('customAppsUsedInTabs', 'false'); if (localStorage.getItem('tabs') === 'true') {window.location.replace('/tabs#twitter')} else {window.location.replace('/search#twitter')}"
             class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
         >
             <ol>
@@ -44,7 +45,7 @@ import Password from '../components/password';
             <p>Twitter</p>
         </button>
         <button
-            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#google')"
+            onclick="localStorage.setItem('reloaded', 'false'); localStorage.setItem('customAppsUsedInTabs', 'false'); if (localStorage.getItem('tabs') === 'true') {window.location.replace('/tabs#google')} else {window.location.replace('/search#google')}"
             class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
         >
             <ol>
@@ -53,7 +54,7 @@ import Password from '../components/password';
             <p>Google</p>
         </button>
         <button
-            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#twitch')"
+            onclick="localStorage.setItem('reloaded', 'false'); localStorage.setItem('customAppsUsedInTabs', 'false'); if (localStorage.getItem('tabs') === 'true') {window.location.replace('/tabs#twitch')} else {window.location.replace('/search#twitch')}"
             class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
         >
             <ol>
@@ -61,8 +62,8 @@ import Password from '../components/password';
             </ol>
             <p>Twitch</p>
         </button>
-        <button
-            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#reddit')"
+        <button 
+            onclick="localStorage.setItem('reloaded', 'false'); localStorage.setItem('customAppsUsedInTabs', 'false'); if (localStorage.getItem('tabs') === 'true') {window.location.replace('/tabs#reddit')} else {window.location.replace('/search#reddit')}"
             class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
         >
             <ol>
@@ -71,7 +72,7 @@ import Password from '../components/password';
             <p>Reddit</p>
         </button>
         <button
-            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#spotify')"
+            onclick="localStorage.setItem('reloaded', 'false'); localStorage.setItem('customAppsUsedInTabs', 'false'); if (localStorage.getItem('tabs') === 'true') {window.location.replace('/tabs#spotify')} else {window.location.replace('/search#spotify')}"
             class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
         >
             <ol>
@@ -80,7 +81,7 @@ import Password from '../components/password';
             <p>Spotify</p>
         </button>
         <button
-            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#geforce')"
+            onclick="localStorage.setItem('reloaded', 'false'); localStorage.setItem('customAppsUsedInTabs', 'false'); if (localStorage.getItem('tabs') === 'true') {window.location.replace('/tabs#geforce')} else {window.location.replace('/search#geforce')}"
             class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
         >
             <ol>
@@ -102,7 +103,7 @@ import Password from '../components/password';
             <p>Geforce</p>
         </button>
         <button
-            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#haikei')"
+            onclick="localStorage.setItem('reloaded', 'false'); localStorage.setItem('customAppsUsedInTabs', 'false'); if (localStorage.getItem('tabs') === 'true') {window.location.replace('/tabs#haikei')} else {window.location.replace('/search#haikei')}"
             class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
         >
             <!-- <ol>
@@ -111,7 +112,7 @@ import Password from '../components/password';
             <p>Haikei</p>
         </button>
         <button
-            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#pinterest')"
+            onclick="localStorage.setItem('reloaded', 'false'); localStorage.setItem('customAppsUsedInTabs', 'false'); if (localStorage.getItem('tabs') === 'true') {window.location.replace('/tabs#pinterest')} else {window.location.replace('/search#pinterest')}"
             class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
         >
             <ol>
@@ -120,7 +121,7 @@ import Password from '../components/password';
             <p>Pinterest</p>
         </button>
         <button
-            onclick="localStorage.setItem('reloaded', 'false'); window.location.replace('/search#github')"
+            onclick="localStorage.setItem('reloaded', 'false'); localStorage.setItem('customAppsUsedInTabs', 'false'); if (localStorage.getItem('tabs') === 'true') {window.location.replace('/tabs#github')} else {window.location.replace('/search#github')}"
             class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
         >
             <ol>
@@ -130,31 +131,61 @@ import Password from '../components/password';
         </button>
         <button
             onclick="
-                    let url = window.prompt('Enter the URL of the website you want to add');
-                    let name = window.prompt('Enter the name of the website you want to add');
-                    if (url) {
-                        localStorage.setItem('reloaded', 'false');
-                        let customApps = JSON.parse(localStorage.getItem('customApps'));
-                        if (!customApps) {
-                            customApps = []
-                            customApps.push({name: name, url: url});
-                            localStorage.setItem('customApps', JSON.stringify(customApps));
-                            window.location.reload();
-                        }
-                        else {
-                            if (customApps.find(app => app.url === url)) {
-                                window.alert('This app already exists');
-                            }
+                    let url;
+                    let name;
+                    swal.fire({
+                        title: 'Input the URL',
+                        background: 'var(--bg-color)',
+                        color: 'var(--text-color)',
+                        border: 'var(--border-color)',
+                        input: 'text',
+                    })
+                    .then((result) => {
+                        url = result.value
+                        swal.fire({
+                            title: `Enter the website name`,
+                            input: 'text',
+                            background: 'var(--bg-color)',
+                            color: 'var(--text-color)',
+                            border: 'var(--border-color)',
+                        })
+                        .then((result) => {
+                            name = result.value
+                            if (url) {
+                                localStorage.setItem('reloaded', 'false');
+                                let customApps = JSON.parse(localStorage.getItem('customApps'));
+                                if (!customApps) {
+                                    customApps = []
+                                    customApps.push({name: name, url: url});
+                                    localStorage.setItem('customApps', JSON.stringify(customApps));
+                                    window.location.reload();
+                                }
+                                else {
+                                    if (customApps.find(app => app.url === url)) {
+                                        swal.fire({
+                                            title: 'This App Already exists!',
+                                            background: 'var(--bg-color)',
+                                            color: 'var(--text-color)',
+                                            border: 'var(--border-color)',
+                                            })
+                                        }
+                                        else {
+                                            customApps.push({name: name, url: url});
+                                            localStorage.setItem('customApps', JSON.stringify(customApps));
+                                            window.location.reload();
+                                        }
+                                    }
+                                }
                             else {
-                                customApps.push({name: name, url: url});
-                                localStorage.setItem('customApps', JSON.stringify(customApps));
-                                window.location.reload();
+                                swal.fire({
+                                    title: 'Please Enter a Valid URL!',
+                                    background: 'var(--bg-color)',
+                                    color: 'var(--text-color)',
+                                    border: 'var(--border-color)',
+                                })
                             }
-                        }
-                    }
-                    else {
-                        window.alert('Please enter a valid URL');
-                    }
+                        })
+                    })
                 "
             class="app-button hover:border-[var(--border-color)] hover:rounded-xl hover:border-2 active:brightness-200"
             id="add-app"

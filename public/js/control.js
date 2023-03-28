@@ -87,6 +87,19 @@ function exitIframe() {
         localStorage.setItem('reloaded', 'true');
         window.location.replace('/games');
     }
-    window.location.reload();
-    localStorage.setItem('reloaded', 'true');
+    if (localStorage.getItem('tabs') === 'true') {
+        if (window.location.hash.includes('#g')) {
+            window.location.replace('/tabs')
+        }
+    }
+    else {
+        window.location.reload();
+        localStorage.setItem('reloaded', 'true');
+    }
 }
+if (localStorage.getItem('tabs') === 'true') {
+    if (window.location.hash.includes('#g')) {
+        document.getElementById('search-button').setAttribute('class', 'dnone');
+    }
+}
+

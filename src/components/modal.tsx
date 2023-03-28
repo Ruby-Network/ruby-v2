@@ -14,6 +14,7 @@ import {
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 export default function Modal() {
     const [modal, setModal] = useState(false);
+    const [isTabbed, setTabbed] = useState(false);
     useEffect(() => {
         const modal = document.getElementById('modal');
         const modalContent = document.getElementById('content');
@@ -22,6 +23,9 @@ export default function Modal() {
         const ham = document.getElementsByClassName('hamburger-react')[0];
         const ham2 = document.getElementById('hamburger');
         const span = document.getElementsByClassName('close')[0];
+        if (localStorage.getItem('tabs') === 'true') {
+            setTabbed(true)
+        }
         //detect click outside modal
         window.onclick = function (event) {
             if (event.target === btn || event.target === btn2) {
@@ -38,7 +42,7 @@ export default function Modal() {
         setModal(false);
     };
     return (
-        <div>
+            <div>
             <AnimatePresence>
                 {modal && (
                     <motion.div
@@ -63,6 +67,7 @@ export default function Modal() {
                                         <FontAwesomeIcon icon={faHome} /> Home
                                     </a>
                                 </li>
+                                {!isTabbed &&
                                 <li className="modal-list-item text-xl font-semibold rounded-xl hover:bg-[var(--bg-color)] hover:brightness-200 m-3">
                                     <a
                                         rel="prefetch"
@@ -75,6 +80,21 @@ export default function Modal() {
                                         Proxy
                                     </a>
                                 </li>
+                                }
+                                {isTabbed && 
+                                <li className="modal-list-item text-xl font-semibold rounded-xl hover:bg-[var(--bg-color)] hover:brightness-200 m-3">
+                                    <a
+                                        rel="prefetch"
+                                        href="/tabs"
+                                        className="modal-list-item-link block w-full p-2 border-[var(--border-color)] border-2 border-solid rounded-xl"
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={faWindowMaximize}
+                                        />{' '}
+                                        Proxy
+                                    </a>
+                                </li>
+                                }
                                 <li className="modal-list-item text-xl font-semibold rounded-xl hover:bg-[var(--bg-color)] hover:brightness-200 m-3">
                                     <a
                                         rel="prefetch"

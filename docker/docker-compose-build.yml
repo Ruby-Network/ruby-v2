@@ -8,3 +8,13 @@ services:
     ports:
       # DO NOT CHANGE 8080!
       - your port here:8080
+      #ADVANCED ITEMS BELOW
+      #     - ${PORT}:8080
+      #env_file:
+         #     - .env.docker
+      #environment:
+         #     - URL=${URL}
+#networks:
+#  default:
+#    external:
+#      name: default_net

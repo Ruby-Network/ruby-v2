@@ -17,7 +17,7 @@ dotenv.config();
 //getting environment vars
 const numCPUs = process.env.CPUS || os.cpus().length;
 let key = process.env.KEY || 'unlock';
-let url = process.env.URL || 'rubynetwork.tech';
+let uri = process.env.URL || 'rubynetwork.tech';
 let user = process.env.USERNAME || 'ruby';
 let pass = process.env.PASSWORD || 'ruby';
 let disableKEY = process.env.KEYDISABLE || 'false';
@@ -83,7 +83,7 @@ if (numCPUs > 0 && cluster.isPrimary) {
                 return;
             }
             //@ts-ignore
-        } else if (req.headers.host === url) {
+        } else if (req.headers.host === uri) {
             app(req, res);
         } else if (
             url.search === `?${key}` &&

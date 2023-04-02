@@ -1,6 +1,6 @@
 var el = document.querySelector('.chrome-tabs')
       var chromeTabs = new ChromeTabs()
-      let id = 0;
+      let id = 1;
       let currentTab;
       let urlTab = '/tabbedSearch'
       chromeTabs.init(el)
@@ -61,17 +61,16 @@ var el = document.querySelector('.chrome-tabs')
         function init() {
             if (localStorage.getItem('savedTabs') === 'true') {
                 chromeTabs.removeTab(chromeTabs.activeTabEl);
+                if (JSON.parse(localStorage.getItem('savedTabsUrls'))[0].id != 0) {
+                      savedTabsUrls.unshift({id: 0, url: "about:blank"});
+                }
                 if (localStorage.getItem('savedTabsLength') === '0') {
                     chromeTabs.addTab()
                 }
-                for (i = 0; i < parseInt(localStorage.getItem('savedTabsLength')); i++) {
+                for (i = 1; i < parseInt(localStorage.getItem('savedTabsLength'))+1; i++) {
                     //urlTab =
                     let ALLURLS = JSON.parse(localStorage.getItem('savedTabsUrls'))
                     urlTab = ALLURLS[i].url
-                    chromeTabs.addTab({
-                        title: 'Search',
-                        favicon: '/favicon.ico'
-                    })
                 }
             }
             else {
@@ -110,7 +109,8 @@ var el = document.querySelector('.chrome-tabs')
       })
       function saveTabs() {
           let allTabUrls = [];
-          for (i = 0; i < tabContents.length; i++) {
+          allTabUrls.push({id: 0, url: "about:blank"})
+          for (i = 1; i < tabContents.length+1; i++) {
               try {
                     let original;
                     original = document.getElementById(i).contentWindow.document.getElementById('uv-iframe').src
@@ -133,6 +133,7 @@ var el = document.querySelector('.chrome-tabs')
           //event.returnValue = 'Are you sure you want to leave? Any changes you have made will be lost.'
       //})
       window.onbeforeunload = function() {
+            saveTabs();
             return 'Do you really want to leave this page?';
         };
       function browserInit(tabEl, id) {
@@ -258,7 +259,7 @@ var el = document.querySelector('.chrome-tabs')
           try {
                 let SRC = document.getElementById(currentTab).contentWindow.document.getElementById('uv-iframe').contentWindow.location.href
                 if (SRC.includes('/loading')) {
-                    throw ('LOL')
+                    throw ('LOL GET GUD')
                 }
                 else {
                     window.open(SRC)

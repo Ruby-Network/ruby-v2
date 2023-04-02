@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import { hostname } from 'node:os';
 import cluster from 'cluster';
 import os from 'os';
+import fetch from 'node-fetch'
 //@ts-ignore
 import { handler as ssrHandler } from './dist/server/entry.mjs';
 import path from 'node:path';
@@ -245,3 +246,97 @@ if (numCPUs > 0 && cluster.isPrimary) {
         port,
     });
 }
+const socks = require('socks');
+const http = require('http');
+const https = require('https');
+const fs = require('fs');
+
+// Tor proxy configuration
+const torProxy = {
+  ipaddress: '127.0.0.1',
+  port: 9050,
+  type: 5
+};
+
+// HTTP proxy server
+http.createServer((req, res) => {
+  const requestOptions = {
+    hostname: req.headers.host,
+    port: req.headers.port || (req.headers.protocol === 'https:' ? 443 : 80),
+    path: req.url,
+    method: req.method,
+    headers: req.headers
+  };
+
+  // Create a SOCKS5 proxy tunnel to Tor
+  socks.createConnection({
+    proxy: torProxy,
+    target: requestOptions,
+    timeout: 10000
+  }, (err, socket) => {
+    if (err) {
+      console.error(err);
+      res.writeHead(500);
+      res.end();
+      return;
+    }
+
+    // Forward the request through the tunnel
+    const proxyReq = http.request({
+      method: req.method,
+      path: req.url,
+      headers: req.headers,
+      socket: socket
+    }, (proxyRes) => {
+      res.writeHead(proxyRes.statusCode, proxyRes.headers);
+      proxyRes.pipe(res);
+    });
+
+    req.pipe(proxyReq);
+  });
+}).listen(8080, () => {
+  console.log('HTTP proxy server listening on port 8080');
+});
+
+// HTTPS proxy server
+https.createServer({
+  key: fs.readFileSync('server.key'),
+  cert: fs.readFileSync('server.cert')
+}, (req, res) => {
+  const requestOptions = {
+    hostname: req.headers.host,
+    port: req.headers.port || 443,
+    path: req.url,
+    method: req.method,
+    headers: req.headers
+  };
+
+  // Create a SOCKS5 proxy tunnel to Tor
+  socks.createConnection({
+    proxy: torProxy,
+    target: requestOptions,
+    timeout: 10000
+  }, (err, socket) => {
+    if (err) {
+      console.error(err);
+      res.writeHead(500);
+      res.end();
+      return;
+    }
+
+    // Forward the request through the tunnel
+    const proxyReq = https.request({
+      method: req.method,
+      path: req.url,
+      headers: req.headers,
+      socket: socket
+    }, (proxyRes) => {
+      res.writeHead(proxyRes.statusCode, proxyRes.headers);
+      proxyRes.pipe(res);
+    });
+
+    req.pipe(proxyReq);
+  });
+}).listen(8443, () => {
+  console.log('HTTPS proxy server listening on port 8443');
+});

@@ -17,13 +17,20 @@ dotenv.config();
 //getting environment vars
 const numCPUs = process.env.CPUS || os.cpus().length;
 let key = process.env.KEY || 'unlock';
-let url = process.env.URL || 'rubynetwork.tech';
+let uri = process.env.URL || 'rubynetwork.tech';
+if (uri.includes('http')) {
+    uri = uri.replace('http://', '');
+}
+if (uri.includes('https')) {
+    uri = uri.replace('https://', '')
+}
 let user = process.env.USERNAME || 'ruby';
 let pass = process.env.PASSWORD || 'ruby';
 let disableKEY = process.env.KEYDISABLE || 'false';
 let educationWebsite = fs.readFileSync(join(__dirname, 'education/index.html'));
 let loadingPage = fs.readFileSync(join(__dirname, 'education/load.html'));
 const blacklisted: string[] = [];
+console.log(uri)
 const disableyt: string[] = [];
 fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     if (err) {
@@ -83,7 +90,7 @@ if (numCPUs > 0 && cluster.isPrimary) {
                 return;
             }
             //@ts-ignore
-        } else if (req.headers.host === url) {
+        } else if (req.headers.host === uri) {
             app(req, res);
         } else if (
             url.search === `?${key}` &&

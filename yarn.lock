@@ -1025,16 +1025,16 @@ array-iterate@^2.0.0:
   resolved "https://registry.yarnpkg.com/array-iterate/-/array-iterate-2.0.1.tgz#6efd43f8295b3fee06251d3d62ead4bd9805dd24"
   integrity sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==
 
-astro-robots-txt@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/astro-robots-txt/-/astro-robots-txt-0.4.0.tgz#144aa8f466c5d60da4bbbae4e89fa2c8f488a46b"
-  integrity sha512-tzZUnSXNC5gtSaLvF/LGC0A6cxt7lW5J0tuuQfM84/Vj2/dIdsvxHUp1JI1APhdpwP6TvH05aJnJFnGHn/pZlQ==
+astro-robots-txt@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/astro-robots-txt/-/astro-robots-txt-0.4.1.tgz#07fba6a49501dc0cb776036c929a56cf24c72eca"
+  integrity sha512-YujWFocCHcOA+sDlaiqVsUH7eeHDOn9WrtsyT7KPW3JOHn1dZB1KwoshsPGTJiZ0PeeAqPcHOz+M9xjzc/tjsQ==
   dependencies:
     "@proload/core" "^0.3.3"
     "@proload/plugin-tsm" "^0.2.1"
-    deepmerge "^4.3.0"
+    deepmerge "^4.3.1"
     valid-filename "^4.0.0"
-    zod "^3.20.6"
+    zod "^3.21.4"
 
 astro@^2.1.7:
   version "2.1.7"
@@ -1473,10 +1473,10 @@ deepmerge-ts@^4.2.2:
   resolved "https://registry.yarnpkg.com/deepmerge-ts/-/deepmerge-ts-4.3.0.tgz#432aff3cd09f947e36cdb3772a43960bf45327fe"
   integrity sha512-if3ZYdkD2dClhnXR5reKtG98cwyaRT1NeugQoAPTTfsOpV9kqyeiBF9Qa5RHjemb3KzD5ulqygv6ED3t5j9eJw==
 
-deepmerge@^4.2.2, deepmerge@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.3.0.tgz#65491893ec47756d44719ae520e0e2609233b59b"
-  integrity sha512-z2wJZXrmeHdvYJp/Ux55wIjqo81G5Bp4c+oELTW+7ar6SogWHajt5a9gO3s3IDaGSAXjDk0vlQKN3rms8ab3og==
+deepmerge@^4.2.2, deepmerge@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.3.1.tgz#44b5f2147cd3b00d4b56137685966f26fd25dd4a"
+  integrity sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==
 
 defaults@^1.0.3:
   version "1.0.4"
@@ -4381,10 +4381,10 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zod@^3.17.3, zod@^3.20.6:
-  version "3.21.1"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.21.1.tgz#ac5bb7cf68876281ebd02f95ac4bb9a080370282"
-  integrity sha512-+dTu2m6gmCbO9Ahm4ZBDapx2O6ZY9QSPXst2WXjcznPMwf2YNpn3RevLx4KkZp1OPW/ouFcoBtBzFz/LeY69oA==
+zod@^3.17.3, zod@^3.21.4:
+  version "3.21.4"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.21.4.tgz#10882231d992519f0a10b5dd58a38c9dabbb64db"
+  integrity sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==
 
 zwitch@^2.0.0, zwitch@^2.0.4:
   version "2.0.4"

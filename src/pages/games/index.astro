@@ -22,27 +22,30 @@ import '../../styles/globals.css';
             placeholder="Search For A Game..."
             class="search-input"
         />
-    </div>
-    <select class="search-select" onchange="category_games(this.value)">
-        <option value="">All</option>
-        <option value="arcade">Arcade</option>
-        <option value="platformer">Platformer</option>
-        <option value="static">Static</option>
-        <option value="racing">Racing</option>
-        <option value="flash">Flash</option>
-        <option value="adventure">Adventure</option>
-        <option value="multiplayer">Multiplayer</option>
-        <option value="retro">Retro</option>
-        <option value="emulation">Emulation</option>
-        <option value="sports">Sports</option>
-        <option value="strategy">Strategy</option>
-        <option value="shooter">Shooter</option>
-        <option value="proxied">Proxied</option>
-    </select>
+        <select class="search-select" onchange="category_games(this.value)">
+            <option value="">All</option>
+            <option value="arcade">Arcade</option>
+            <option value="platformer">Platformer</option>
+            <option value="static">Static</option>
+            <option value="racing">Racing</option>
+            <option value="flash">Flash</option>
+            <option value="adventure">Adventure</option>
+            <option value="multiplayer">Multiplayer</option>
+            <option value="retro">Retro</option>
+            <option value="emulation">Emulation</option>
+            <option value="sports">Sports</option>
+            <option value="strategy">Strategy</option>
+            <option value="shooter">Shooter</option>
+            <option value="proxied">Proxied</option>
+        </select>
+        </div>
+    <div class="games" id="games"></div>
+    <script src="/js/games.js" type="module" is:inline></script>
+    <script src="/js/searchGames.js" is:inline></script>
+    <div class="games" id="games"></div>
+    <script src="/js/games.js" type="module" is:inline></script>
+    <script src="/js/searchGames.js" is:inline></script>
 </body>
-<div class="games" id="games"></div>
-<script src="/js/games.js" type="module" is:inline></script>
-<script src="/js/searchGames.js" is:inline></script>
 
 <style is:global>
     .get-started-div {

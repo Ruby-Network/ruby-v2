@@ -640,10 +640,10 @@
   dependencies:
     tsm "^2.1.4"
 
-"@titaniumnetwork-dev/ultraviolet@^1.0.8":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@titaniumnetwork-dev/ultraviolet/-/ultraviolet-1.0.10.tgz#515474b2be346574575fe155ad0f7ff82608b852"
-  integrity sha512-y5Hv92jQUvwmcEMIeFuImuD5CmI7b0MQGL7qkFcEZxETxlwy+jveLaHpF1UWgtGJS50GSnj9GCJWZWp/W6IwEQ==
+"@titaniumnetwork-dev/ultraviolet@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@titaniumnetwork-dev/ultraviolet/-/ultraviolet-1.0.11.tgz#3d80c6af376107f5da2a4742401006b12552bd97"
+  integrity sha512-FJtZw/xQubrgk8pJLs5wx9k6okCGZPR7FXWXTiL5wOiCvjqgDQCmHBTb7M5eYqnQil05tbaz92+16Ki/7rRWIw==
   dependencies:
     "@tomphttp/bare-client" "^1.1.2-beta.3"
     css-tree "^2.0.4"

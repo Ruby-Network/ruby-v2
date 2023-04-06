@@ -154,6 +154,20 @@ if (proxytype === 'Aero') {
         return a;
     }
 }
+if (proxytype === 'Rammerhead') {
+    document
+        .getElementById('uv-form')
+        .addEventListener('submit', async (event) => {
+            event.preventDefault();
+            let address = document.getElementById('uv-address');
+            let topURL = window.location.origin
+            let url = search(address.value, searchEngine.value)
+            iframe.classList.remove('dnone')
+            let endURL = await window.rh.rhInteract(`${topURL}`, `${url}`)
+            iframe.src = endURL.href
+            document.getElementById('control').classList.remove('dnone')
+        })
+}
 function decoded(str) {
     if (str.charAt(str.length - 1) == '/') str = str.slice(0, -1);
     return decodeURIComponent(str)

@@ -27,7 +27,7 @@ var el = document.querySelector('.chrome-tabs')
             }
         }
       }
-      function updateURL(id) {
+      async function updateURL(id) {
           let iframeURL = document.getElementById(id).contentWindow.document.getElementById('uv-iframe').contentWindow.location.href
           if (iframeURL.includes('/loading')) {
               document.getElementById('url-bar').value = ''
@@ -45,6 +45,9 @@ var el = document.querySelector('.chrome-tabs')
                     break;
                 case 'Aero':
                     iframeURL = iframeURL.split('/go/').slice(1).join('/go/')
+                    break;
+                case 'Rammerhead':
+                    iframeURL = ''
                     break;
                 default:
                     iframeURL = iframeURL

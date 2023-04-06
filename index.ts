@@ -2,17 +2,39 @@ import createBareServer from '@tomphttp/bare-server-node';
 import express, { Request, Response, NextFunction } from 'express';
 import { createServer } from 'node:http';
 import { uvPath } from '@titaniumnetwork-dev/ultraviolet';
-import { join } from 'node:path';
+import path, { join } from 'node:path';
 import { hostname } from 'node:os';
 import cluster from 'cluster';
 import os from 'os';
+import chalk from 'chalk';
 //@ts-ignore
 import { handler as ssrHandler } from './dist/server/entry.mjs';
-import path from 'node:path';
 const __dirname = path.resolve();
 import dotenv from 'dotenv';
 import fs from 'fs';
 import auth from 'http-auth';
+//rammerhead stuff
+//@ts-ignore
+import createRammerhead from 'rammerhead/src/server/index.js';
+const rh = createRammerhead();
+const rammerheadScopes = [
+	'/rammerhead.js',
+	'/hammerhead.js',
+	'/transport-worker.js',
+	'/task.js',
+	'/iframe-task.js',
+	'/worker-hammerhead.js',
+	'/messaging',
+	'/sessionexists',
+	'/deletesession',
+	'/newsession',
+	'/editsession',
+	'/needpassword',
+	'/syncLocalStorage',
+	'/api/shuffleDict',
+];
+const rammerheadSession = /^\/[a-z0-9]{32}/;
+//END rammerhead specific stuff
 dotenv.config();
 //getting environment vars
 const numCPUs = process.env.CPUS || os.cpus().length;
@@ -30,7 +52,6 @@ let disableKEY = process.env.KEYDISABLE || 'false';
 let educationWebsite = fs.readFileSync(join(__dirname, 'education/index.html'));
 let loadingPage = fs.readFileSync(join(__dirname, 'education/load.html'));
 const blacklisted: string[] = [];
-console.log(uri)
 const disableyt: string[] = [];
 fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     if (err) {
@@ -75,9 +96,7 @@ if (numCPUs > 0 && cluster.isPrimary) {
             try {
                 if (!req.headers.cookie?.includes('allowads')) {
                     for (let i in blacklisted)
-                        if (
-                            req.headers['x-bare-host']?.includes(blacklisted[i])
-                        )
+                        if (req.headers['x-bare-host']?.includes(blacklisted[i]))
                             return res.end('Denied');
                 }
                 bare.routeRequest(req, res);
@@ -89,6 +108,8 @@ if (numCPUs > 0 && cluster.isPrimary) {
                 res.end();
                 return;
             }
+        } else if (shouldRouteRh(req)) {
+            routeRhRequest(req, res);
             //@ts-ignore
         } else if (req.headers.host === uri) {
             app(req, res);
@@ -114,7 +135,11 @@ if (numCPUs > 0 && cluster.isPrimary) {
             url.pathname.includes('/settings') ||
             url.pathname.includes('/index') ||
             url.pathname.includes('/ruby-assets') ||
-            url.pathname.includes('/games')
+            url.pathname.includes('/games') ||
+            url.pathname.includes('/uv') ||
+            url.pathname.includes('/aero') ||
+            url.pathname.includes('/osana') ||
+            url.pathname.includes('/dip')
         ) {
             return res.end(educationWebsite);
         } else {
@@ -125,7 +150,11 @@ if (numCPUs > 0 && cluster.isPrimary) {
     server.on('upgrade', (req, socket, head) => {
         if (bare.shouldRoute(req)) {
             bare.routeUpgrade(req, socket, head);
-        } else {
+        } 
+        else if (shouldRouteRh(req)) {
+            routeRhUpgrade(req, socket, head);
+        }
+        else {
             socket.end();
         }
     });
@@ -210,7 +239,6 @@ if (numCPUs > 0 && cluster.isPrimary) {
             return;
         }
     });
-    // Define the /analytics endpoint
     app.use((req, res) => {
         res.writeHead(302, {
             Location: '/404',
@@ -219,6 +247,24 @@ if (numCPUs > 0 && cluster.isPrimary) {
         return;
     });
     //!CUSTOM ENDPOINTS END
+    //RAMMERHEAD FUNCTIONS
+    //@ts-ignore
+    function shouldRouteRh(req) {
+	    const RHurl = new URL(req.url, 'http://0.0.0.0');
+	    return (
+		    rammerheadScopes.includes(RHurl.pathname) ||
+		    rammerheadSession.test(RHurl.pathname)
+	    );
+    }
+    //@ts-ignore
+    function routeRhRequest(req, res) {
+	    rh.emit('request', req, res);
+    }
+    //@ts-ignore
+    function routeRhUpgrade(req, socket, head) {
+	    rh.emit('upgrade', req, socket, head);
+    }
+//END RAMMERHEAD SPECIFIC FUNCTIONS
     let port = parseInt(process.env.PORT || '');
 
     if (isNaN(port)) port = 8080;
@@ -229,7 +275,7 @@ if (numCPUs > 0 && cluster.isPrimary) {
         // by default we are listening on 0.0.0.0 (every interface)
         // we just need to list a few
         // LIST PID
-        console.log(`Process id: ${process.pid}`);
+        console.log(chalk.green(`Process id: ${process.pid}`));
         console.log('Listening on:');
         //@ts-ignore
         console.log(`\thttp://localhost:${address.port}`);

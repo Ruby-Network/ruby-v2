@@ -34,7 +34,7 @@
         "astro-robots-txt": "^0.4.1",
         "dotenv": "^16.0.3",
         "express": "^4.18.2",
-        "framer-motion": "^10.9.1",
+        "framer-motion": "^10.11.2",
         "hamburger-react": "^2.5.0",
         "htpasswd": "^2.4.6",
         "http-auth": "^4.2.0",

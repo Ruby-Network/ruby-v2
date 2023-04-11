@@ -7,6 +7,7 @@ import { hostname } from 'node:os';
 import cluster from 'cluster';
 import os from 'os';
 import chalk from 'chalk';
+import compression from 'compression'
 //@ts-ignore
 import { handler as ssrHandler } from './dist/server/entry.mjs';
 const __dirname = path.resolve();
@@ -40,6 +41,7 @@ dotenv.config();
 const numCPUs = process.env.CPUS || os.cpus().length;
 let key = process.env.KEY || 'unlock';
 let uri = process.env.URL || 'rubynetwork.tech';
+let start = false;
 if (uri.includes('http')) {
     uri = uri.replace('http://', '');
 }
@@ -62,22 +64,24 @@ fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     for (let i in lines) blacklisted.push(lines[i]);
 });
 if (numCPUs > 0 && cluster.isPrimary) {
-    console.log(`Primary ${process.pid} is running`);
+    console.log(chalk.cyan(chalk.bold('Starting Server...')))
+    console.log(chalk.yellow(`Primary ${process.pid} is running`));
     for (let i = 0; i < numCPUs; i++) {
         cluster.fork().on('online', () => {
-            console.log(`Worker ${i + 1} is online`);
+            console.log(chalk.magenta(`Worker ${i + 1} is online`));
         });
     }
     cluster.on('exit', (worker, code, signal) => {
-        console.log(
+        console.log(chalk.red(chalk.bold(
             `Worker ${worker.process.pid} died with code: ${code} and signal: ${signal}`
-        );
-        console.log(`Starting new worker in it's place`);
+        )));
+        console.log(chalk.yellow(`Starting new worker in it's place`));
         cluster.fork();
     });
 } else {
     const bare = createBareServer('/bare/');
     const app = express();
+    app.use(compression());
     app.use(express.static(join(__dirname, 'dist/client')));
     //Server side render middleware for astro
     app.use(ssrHandler);
@@ -246,6 +250,7 @@ if (numCPUs > 0 && cluster.isPrimary) {
         res.end();
         return;
     });
+
     //!CUSTOM ENDPOINTS END
     //RAMMERHEAD FUNCTIONS
     //@ts-ignore
@@ -276,12 +281,12 @@ if (numCPUs > 0 && cluster.isPrimary) {
         // we just need to list a few
         // LIST PID
         console.log(chalk.green(`Process id: ${process.pid}`));
-        console.log('Listening on:');
+        console.log(chalk.blue('Listening on:'));
         //@ts-ignore
-        console.log(`\thttp://localhost:${address.port}`);
+        console.log(chalk.blue(`\thttp://localhost:${address.port}`));
         //@ts-ignore
-        console.log(`\thttp://${hostname()}:${address.port}`);
-        console.log(
+        console.log(chalk.blue(`\thttp://${hostname()}:${address.port}`));
+        console.log(chalk.blue(
             `\thttp://${
                 //@ts-ignore
                 address.family === 'IPv6'
@@ -291,7 +296,7 @@ if (numCPUs > 0 && cluster.isPrimary) {
                       address.address
                 //@ts-ignore
             }:${address.port}`
-        );
+        ));
     });
 
     server.listen({

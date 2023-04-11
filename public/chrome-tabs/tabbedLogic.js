@@ -165,6 +165,9 @@ var el = document.querySelector('.chrome-tabs')
             case 'Aero':
                 iframeSRC = iframeSRC.split('/go/').slice(1).join('/go/')
                 break;
+            case 'Rammerhead':
+                iframeSRC = ''
+                break;
             default:
                 iframeSRC = iframeSRC
         }

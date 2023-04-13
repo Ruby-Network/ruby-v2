@@ -28,7 +28,7 @@ var el = document.querySelector('.chrome-tabs')
         }
       }
       async function updateURL(id) {
-          let iframeURL = document.getElementById(id).contentWindow.document.getElementById('uv-iframe').contentWindow.location.href
+          let iframeURL = document.getElementById(id).contentWindow.location.href
           if (iframeURL.includes('/loading')) {
               document.getElementById('url-bar').value = ''
           }
@@ -62,6 +62,7 @@ var el = document.querySelector('.chrome-tabs')
       }
       let tabContents = []
         function init() {
+            localStorage.setItem('gamesBypass', 'false')
             if (localStorage.getItem('savedTabs') === 'true') {
                 chromeTabs.removeTab(chromeTabs.activeTabEl);
                 if (localStorage.getItem('savedTabsLength') === '0') {
@@ -106,9 +107,7 @@ var el = document.querySelector('.chrome-tabs')
           document.getElementById('tabContents').appendChild(iframe)
           browserInit(detail.tabEl, iframeid);
           iframe.addEventListener('load', function () {
-              document.getElementById(iframeid).contentWindow.document.getElementById('uv-iframe').addEventListener('load', function () {
-                  window.parent.updateURL(iframeid)
-              })
+                updateURL(iframeid)
           })
       })
       function saveTabs() {
@@ -145,7 +144,7 @@ var el = document.querySelector('.chrome-tabs')
         let URLBAR = document.getElementById('url-bar')
         let iframeSRC;
         try {
-            iframeSRC = document.getElementById(id).contentWindow.document.getElementById('uv-iframe').contentWindow.location.href
+            iframeSRC = document.getElementById(id).contentWindow.location.href
         }
         catch (err) {
             console.log('No content to load ignoring')
@@ -179,8 +178,11 @@ var el = document.querySelector('.chrome-tabs')
         }
       }
       function browserSearch(value) {
-              document.getElementById(currentTab).contentWindow.document.getElementById('uv-address').value = value
-              document.getElementById(currentTab).contentWindow.document.getElementById('uv-form').dispatchEvent(new Event('submit'))
+              document.getElementById(currentTab).contentWindow.location.href = '/tabbedSearch'
+              document.getElementById(currentTab).addEventListener('load', function () {
+                document.getElementById(currentTab).contentWindow.document.getElementById('uv-address').value = value
+                document.getElementById(currentTab).contentWindow.document.getElementById('uv-form').dispatchEvent(new Event('submit'))
+              })
       }
       function decode(str) {
         if (str.charAt(str.length - 1) == "/") str = str.slice(0, -1);
@@ -262,7 +264,7 @@ var el = document.querySelector('.chrome-tabs')
 
       function popOut() {
           try {
-                let SRC = document.getElementById(currentTab).contentWindow.document.getElementById('uv-iframe').contentWindow.location.href
+                let SRC = document.getElementById(currentTab).contentWindow.location.href
                 if (SRC.includes('/loading')) {
                     throw ('LOL')
                 }
@@ -278,13 +280,13 @@ var el = document.querySelector('.chrome-tabs')
           console.log('To be implemented')
       }
       function Refresh() {
-          document.getElementById(currentTab).contentWindow.refreshIframe()
+          document.getElementById(currentTab).contentWindow.location.reload()
       }
       function Forward() {
-          document.getElementById(currentTab).contentWindow.forwardIframe()
+          document.getElementById(currentTab).contentWindow.history.forward()
       }
       function Backward() {
-          document.getElementById(currentTab).contentWindow.backIframe()
+          document.getElementById(currentTab).contentWindow.history.back()
       }
 
     init();

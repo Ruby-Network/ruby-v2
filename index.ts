@@ -36,12 +36,20 @@ const rammerheadScopes = [
 ];
 const rammerheadSession = /^\/[a-z0-9]{32}/;
 //END rammerhead specific stuff
+//Chalk colors for codes
+const error = chalk.bold.red;
+const success = chalk.green;
+const warning = chalk.yellow;
+const info = chalk.blue;
+const debug = chalk.magenta;
+const boldInfo = chalk.bold.blue;
+const debug2 = chalk.cyan;
+//END CHALK
 dotenv.config();
 //getting environment vars
 const numCPUs = process.env.CPUS || os.cpus().length;
 let key = process.env.KEY || 'unlock';
 let uri = process.env.URL || 'rubynetwork.tech';
-let start = false;
 if (uri.includes('http')) {
     uri = uri.replace('http://', '');
 }
@@ -64,18 +72,17 @@ fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     for (let i in lines) blacklisted.push(lines[i]);
 });
 if (numCPUs > 0 && cluster.isPrimary) {
-    console.log(chalk.cyan(chalk.bold('Starting Server...')))
-    console.log(chalk.yellow(`Primary ${process.pid} is running`));
+    console.log(debug(`Primary ${process.pid} is running`));
     for (let i = 0; i < numCPUs; i++) {
         cluster.fork().on('online', () => {
-            console.log(chalk.magenta(`Worker ${i + 1} is online`));
+            console.log(debug2(`Worker ${i + 1} is online`));
         });
     }
     cluster.on('exit', (worker, code, signal) => {
-        console.log(chalk.red(chalk.bold(
+        console.log(error(
             `Worker ${worker.process.pid} died with code: ${code} and signal: ${signal}`
-        )));
-        console.log(chalk.yellow(`Starting new worker in it's place`));
+        ));
+        console.log(warning(`Starting new worker in it's place`));
         cluster.fork();
     });
 } else {
@@ -113,7 +120,7 @@ if (numCPUs > 0 && cluster.isPrimary) {
                 return;
             }
         } else if (shouldRouteRh(req)) {
-            routeRhRequest(req, res);
+                routeRhRequest(req, res);
             //@ts-ignore
         } else if (req.headers.host === uri) {
             app(req, res);
@@ -156,7 +163,10 @@ if (numCPUs > 0 && cluster.isPrimary) {
             bare.routeUpgrade(req, socket, head);
         } 
         else if (shouldRouteRh(req)) {
-            routeRhUpgrade(req, socket, head);
+            try {
+                routeRhUpgrade(req, socket, head);
+            }
+            catch (error) {}
         }
         else {
             socket.end();
@@ -250,7 +260,6 @@ if (numCPUs > 0 && cluster.isPrimary) {
         res.end();
         return;
     });
-
     //!CUSTOM ENDPOINTS END
     //RAMMERHEAD FUNCTIONS
     //@ts-ignore
@@ -267,7 +276,10 @@ if (numCPUs > 0 && cluster.isPrimary) {
     }
     //@ts-ignore
     function routeRhUpgrade(req, socket, head) {
-	    rh.emit('upgrade', req, socket, head);
+        try {
+	        rh.emit('upgrade', req, socket, head);
+        }
+        catch (error) {}
     }
 //END RAMMERHEAD SPECIFIC FUNCTIONS
     let port = parseInt(process.env.PORT || '');
@@ -280,13 +292,13 @@ if (numCPUs > 0 && cluster.isPrimary) {
         // by default we are listening on 0.0.0.0 (every interface)
         // we just need to list a few
         // LIST PID
-        console.log(chalk.green(`Process id: ${process.pid}`));
-        console.log(chalk.blue('Listening on:'));
+        console.log(success(`Process id: ${process.pid}`));
+        console.log(debug('Listening on:'));
         //@ts-ignore
-        console.log(chalk.blue(`\thttp://localhost:${address.port}`));
+        console.log(debug2(`\thttp://localhost:${address.port}`));
         //@ts-ignore
-        console.log(chalk.blue(`\thttp://${hostname()}:${address.port}`));
-        console.log(chalk.blue(
+        console.log(debug2(`\thttp://${hostname()}:${address.port}`));
+        console.log(debug2(
             `\thttp://${
                 //@ts-ignore
                 address.family === 'IPv6'

@@ -4109,9 +4109,9 @@ quick-lru@^5.1.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
-"rammerhead@https://github.com/holy-unblocker/rammerhead/releases/download/v1.2.41-holy.5/rammerhead-1.2.41-holy.5.tgz":
+"rammerhead@https://github.com/Ruby-Network/rammerhead/releases/download/version/rammerhead.tgz":
   version "1.2.41-holy.5"
-  resolved "https://github.com/holy-unblocker/rammerhead/releases/download/v1.2.41-holy.5/rammerhead-1.2.41-holy.5.tgz#b75e518a9a24ad752f09e4c359b028051336df9d"
+  resolved "https://github.com/Ruby-Network/rammerhead/releases/download/version/rammerhead.tgz#a339c12d84270a3635140a1f4579c545814877e4"
   dependencies:
     async-exit-hook "^2.0.1"
     cookie "^0.5.0"

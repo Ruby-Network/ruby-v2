@@ -43,7 +43,7 @@
         "path-to-regexp": "^6.2.1",
         "postcss": "^8.4.21",
         "prettier": "^2.8.7",
-        "rammerhead": "https://github.com/holy-unblocker/rammerhead/releases/download/v1.2.41-holy.5/rammerhead-1.2.41-holy.5.tgz",
+        "rammerhead": "https://github.com/Ruby-Network/rammerhead/releases/download/version/rammerhead.tgz",
         "react": "^18.0.0",
         "react-dom": "^18.0.0",
         "tailwindcss": "^3.0.24",

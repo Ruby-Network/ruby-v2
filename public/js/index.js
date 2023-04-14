@@ -47,7 +47,13 @@ if (proxytype === 'Ultraviolet') {
             //loadingIframe.classList.remove('dnone');
             //loadingIframe.src = `/loading#${textcolor}`;
             // blob = __uv$config.prefix + __uv$config.encodeUrl(url);
-            iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+            if(localStorage.getItem('tabs') === 'true' && localStorage.getItem('gamesBypass') === 'false') {
+                location.href = __uv$config.prefix + __uv$config.encodeUrl(url)
+                localStorage.setItem('gamesBypass', 'false')
+            }
+            else {
+                iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+            }
             //iframe.addEventListener('load', function () {
             //loadingIframe.classList.add('dnone');
             document.getElementById('control').classList.remove('dnone');
@@ -73,7 +79,12 @@ if (proxytype === 'DIP') {
                     document.body
                 ).getPropertyValue('--text-color');
                 //loadingIframe.src = `/loading#${textcolor}`;
-                iframe.src = __DIP.config.prefix + __DIP.encodeURL(url);
+                if(localStorage.getItem('tabs') === 'true' && localStorage.getItem('gamesBypass') === 'false') {
+                    location.href = __DIP.config.prefix + __DIP.encodeURL(url);
+                }
+                else {
+                    iframe.src = __DIP.config.prefix + __DIP.encodeURL(url);
+                }
                 //iframe.addEventListener('load', function () {
                 //loadingIframe.classList.add('dnone');
                 document.getElementById('control').classList.remove('dnone');
@@ -105,8 +116,12 @@ if (proxytype === 'Osana') {
                     document.body
                 ).getPropertyValue('--text-color');
                 //loadingIframe.src = `/loading#${textcolor}`;
-                iframe.src =
-                    __osana$config.prefix + __osana$config.codec.encode(url);
+                if(localStorage.getItem('tabs') === 'true' && localStorage.getItem('gamesBypass') === 'false') {
+                    location.href = __osana$config.prefix + __osana$config.codec.encode(url);
+                }
+                else {
+                    iframe.src = __osana$config.prefix + __osana$config.codec.encode(url);
+                }
                 //iframe.addEventListener('load', function () {
                 //loadingIframe.classList.add('dnone');
                 document.getElementById('control').classList.remove('dnone');
@@ -138,7 +153,12 @@ if (proxytype === 'Aero') {
                     document.body
                 ).getPropertyValue('--text-color');
                 //loadingIframe.src = `/loading#${textcolor}`;
-                iframe.src = '/go/' + url;
+                if(localStorage.getItem('tabs') === 'true' && localStorage.getItem('gamesBypass') === 'false') {
+                    location.href = '/go/' + url;
+                }
+                else {
+                    iframe.src = '/go/' + url;
+                }
                 //iframe.addEventListener('load', function () {
                 //loadingIframe.classList.add('dnone');
                 document.getElementById('control').classList.remove('dnone');
@@ -153,6 +173,25 @@ if (proxytype === 'Aero') {
         });
         return a;
     }
+}
+if (proxytype === 'Rammerhead') {
+    document
+        .getElementById('uv-form')
+        .addEventListener('submit', async (event) => {
+            event.preventDefault();
+            let address = document.getElementById('uv-address');
+            let topURL = window.location.origin
+            let url = search(address.value, searchEngine.value)
+            iframe.classList.remove('dnone')
+            let endURL = await window.rh.rhInteract(`${topURL}`, `${url}`)
+            if(localStorage.getItem('tabs') === 'true' && localStorage.getItem('gamesBypass') === 'false') {
+                location.href = endURL.href
+            }
+            else {
+                iframe.src = endURL.href
+            }
+            document.getElementById('control').classList.remove('dnone')
+        })
 }
 function decoded(str) {
     if (str.charAt(str.length - 1) == '/') str = str.slice(0, -1);

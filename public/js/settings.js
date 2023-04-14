@@ -69,7 +69,34 @@ function changeProxy(proxy) {
                 });
             }
         });
-    } else {
+    } else if (proxy === 'Rammerhead') {
+        Swal.fire({
+            title: 'Some info about Rammerhead',
+            text: 'Rammerhead is a proxy that runs more on the server instead of your end. This means that the response times may be slower then the other options.',
+            icon: 'info',
+            color: 'var(--text-color)',
+            background: 'var(--bg-color)',
+        }).then(() => {
+            Swal.fire({
+                title: 'Even more Info',
+                icon: 'info',
+                text: 'Rammerhead also adds a feature called sessions. This allows the server to sync with your localStorage and cookies to save across devices. NEVER share this session ID as it will allow them to use your logged in accounts. If your device clears cookies and other data when turning it off, you can export your settings and we will grab the Rammerhead session ID for you. After this you can re upload those exported settings and we will make sure the session ID is the same as before.',
+                color: 'var(--text-color)',
+                background: 'var(--bg-color)',
+            }).then(() => {
+                Swal.fire({
+                    title: 'You are now using Rammerhead',
+                    text: 'You can change this any time and remember NEVER share your session ID',
+                    icon: 'success',
+                    color: 'var(--text-color)',
+                    background: 'var(--bg-color)',
+                }).then(() => {
+                    localStorage.setItem('proxy', proxy);
+                })
+            })
+        })
+    }
+    else {
         localStorage.setItem('proxy', proxy);
     }
 }
@@ -246,6 +273,30 @@ function resetAll() {
     localStorage.removeItem('adsallowed');
     localStorage.removeItem('clickedoff');
     window.location.reload();
+}
+function downloadSettings() {
+    const settingsElement = document.createElement('a')
+    const settingsData = []
+    function GetItem(item) {
+        let data = localStorage.getItem(item)
+        settingsData.push({item, data})
+    }
+    GetItem('title')
+    GetItem('favicon')
+    GetItem('proxy')
+    GetItem('searchEngine')
+    GetItem('theme')
+    GetItem('bgeffect') 
+    GetItem('clickoff')
+    GetItem('fullscreenBehavior') 
+    GetItem('adsallowed')
+    GetItem('tabs')
+    settingsElement.setAttribute('href', `data:application/json;charset=utf-8,${JSON.stringify(settingsData)}`)
+    settingsElement.setAttribute('download', 'rubySettings.json')
+    settingsElement.style.display = 'none'
+    document.body.appendChild(settingsElement)
+    settingsElement.click()
+    document.body.removeChild(settingsElement)
 }
 
 function setSettingsValues() {

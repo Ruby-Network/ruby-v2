@@ -2,17 +2,49 @@ import createBareServer from '@tomphttp/bare-server-node';
 import express, { Request, Response, NextFunction } from 'express';
 import { createServer } from 'node:http';
 import { uvPath } from '@titaniumnetwork-dev/ultraviolet';
-import { join } from 'node:path';
+import path, { join } from 'node:path';
 import { hostname } from 'node:os';
 import cluster from 'cluster';
 import os from 'os';
+import chalk from 'chalk';
+import compression from 'compression'
 //@ts-ignore
 import { handler as ssrHandler } from './dist/server/entry.mjs';
-import path from 'node:path';
 const __dirname = path.resolve();
 import dotenv from 'dotenv';
 import fs from 'fs';
 import auth from 'http-auth';
+//rammerhead stuff
+//@ts-ignore
+import createRammerhead from 'rammerhead/src/server/index.js';
+const rh = createRammerhead();
+const rammerheadScopes = [
+	'/rammerhead.js',
+	'/hammerhead.js',
+	'/transport-worker.js',
+	'/task.js',
+	'/iframe-task.js',
+	'/worker-hammerhead.js',
+	'/messaging',
+	'/sessionexists',
+	'/deletesession',
+	'/newsession',
+	'/editsession',
+	'/needpassword',
+	'/syncLocalStorage',
+	'/api/shuffleDict',
+];
+const rammerheadSession = /^\/[a-z0-9]{32}/;
+//END rammerhead specific stuff
+//Chalk colors for codes
+const error = chalk.bold.red;
+const success = chalk.green;
+const warning = chalk.yellow;
+const info = chalk.blue;
+const debug = chalk.magenta;
+const boldInfo = chalk.bold.blue;
+const debug2 = chalk.cyan;
+//END CHALK
 dotenv.config();
 //getting environment vars
 const numCPUs = process.env.CPUS || os.cpus().length;
@@ -30,7 +62,6 @@ let disableKEY = process.env.KEYDISABLE || 'false';
 let educationWebsite = fs.readFileSync(join(__dirname, 'education/index.html'));
 let loadingPage = fs.readFileSync(join(__dirname, 'education/load.html'));
 const blacklisted: string[] = [];
-console.log(uri)
 const disableyt: string[] = [];
 fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     if (err) {
@@ -41,22 +72,23 @@ fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     for (let i in lines) blacklisted.push(lines[i]);
 });
 if (numCPUs > 0 && cluster.isPrimary) {
-    console.log(`Primary ${process.pid} is running`);
+    console.log(debug(`Primary ${process.pid} is running`));
     for (let i = 0; i < numCPUs; i++) {
         cluster.fork().on('online', () => {
-            console.log(`Worker ${i + 1} is online`);
+            console.log(debug2(`Worker ${i + 1} is online`));
         });
     }
     cluster.on('exit', (worker, code, signal) => {
-        console.log(
+        console.log(error(
             `Worker ${worker.process.pid} died with code: ${code} and signal: ${signal}`
-        );
-        console.log(`Starting new worker in it's place`);
+        ));
+        console.log(warning(`Starting new worker in it's place`));
         cluster.fork();
     });
 } else {
     const bare = createBareServer('/bare/');
     const app = express();
+    app.use(compression());
     app.use(express.static(join(__dirname, 'dist/client')));
     //Server side render middleware for astro
     app.use(ssrHandler);
@@ -75,9 +107,7 @@ if (numCPUs > 0 && cluster.isPrimary) {
             try {
                 if (!req.headers.cookie?.includes('allowads')) {
                     for (let i in blacklisted)
-                        if (
-                            req.headers['x-bare-host']?.includes(blacklisted[i])
-                        )
+                        if (req.headers['x-bare-host']?.includes(blacklisted[i]))
                             return res.end('Denied');
                 }
                 bare.routeRequest(req, res);
@@ -89,6 +119,8 @@ if (numCPUs > 0 && cluster.isPrimary) {
                 res.end();
                 return;
             }
+        } else if (shouldRouteRh(req)) {
+                routeRhRequest(req, res);
             //@ts-ignore
         } else if (req.headers.host === uri) {
             app(req, res);
@@ -114,7 +146,11 @@ if (numCPUs > 0 && cluster.isPrimary) {
             url.pathname.includes('/settings') ||
             url.pathname.includes('/index') ||
             url.pathname.includes('/ruby-assets') ||
-            url.pathname.includes('/games')
+            url.pathname.includes('/games') ||
+            url.pathname.includes('/uv') ||
+            url.pathname.includes('/aero') ||
+            url.pathname.includes('/osana') ||
+            url.pathname.includes('/dip')
         ) {
             return res.end(educationWebsite);
         } else {
@@ -125,7 +161,14 @@ if (numCPUs > 0 && cluster.isPrimary) {
     server.on('upgrade', (req, socket, head) => {
         if (bare.shouldRoute(req)) {
             bare.routeUpgrade(req, socket, head);
-        } else {
+        } 
+        else if (shouldRouteRh(req)) {
+            try {
+                routeRhUpgrade(req, socket, head);
+            }
+            catch (error) {}
+        }
+        else {
             socket.end();
         }
     });
@@ -210,7 +253,6 @@ if (numCPUs > 0 && cluster.isPrimary) {
             return;
         }
     });
-    // Define the /analytics endpoint
     app.use((req, res) => {
         res.writeHead(302, {
             Location: '/404',
@@ -219,6 +261,27 @@ if (numCPUs > 0 && cluster.isPrimary) {
         return;
     });
     //!CUSTOM ENDPOINTS END
+    //RAMMERHEAD FUNCTIONS
+    //@ts-ignore
+    function shouldRouteRh(req) {
+	    const RHurl = new URL(req.url, 'http://0.0.0.0');
+	    return (
+		    rammerheadScopes.includes(RHurl.pathname) ||
+		    rammerheadSession.test(RHurl.pathname)
+	    );
+    }
+    //@ts-ignore
+    function routeRhRequest(req, res) {
+	    rh.emit('request', req, res);
+    }
+    //@ts-ignore
+    function routeRhUpgrade(req, socket, head) {
+        try {
+	        rh.emit('upgrade', req, socket, head);
+        }
+        catch (error) {}
+    }
+//END RAMMERHEAD SPECIFIC FUNCTIONS
     let port = parseInt(process.env.PORT || '');
 
     if (isNaN(port)) port = 8080;
@@ -229,13 +292,13 @@ if (numCPUs > 0 && cluster.isPrimary) {
         // by default we are listening on 0.0.0.0 (every interface)
         // we just need to list a few
         // LIST PID
-        console.log(`Process id: ${process.pid}`);
-        console.log('Listening on:');
+        console.log(success(`Process id: ${process.pid}`));
+        console.log(debug('Listening on:'));
         //@ts-ignore
-        console.log(`\thttp://localhost:${address.port}`);
+        console.log(debug2(`\thttp://localhost:${address.port}`));
         //@ts-ignore
-        console.log(`\thttp://${hostname()}:${address.port}`);
-        console.log(
+        console.log(debug2(`\thttp://${hostname()}:${address.port}`));
+        console.log(debug2(
             `\thttp://${
                 //@ts-ignore
                 address.family === 'IPv6'
@@ -245,7 +308,7 @@ if (numCPUs > 0 && cluster.isPrimary) {
                       address.address
                 //@ts-ignore
             }:${address.port}`
-        );
+        ));
     });
 
     server.listen({

@@ -1,3 +1,4 @@
+let navToggle = document.getElementById('navToggle')
 var el = document.querySelector('.chrome-tabs')
       var chromeTabs = new ChromeTabs()
       let id = 0;
@@ -27,8 +28,8 @@ var el = document.querySelector('.chrome-tabs')
             }
         }
       }
-      function updateURL(id) {
-          let iframeURL = document.getElementById(id).contentWindow.document.getElementById('uv-iframe').contentWindow.location.href
+      async function updateURL(id) {
+          let iframeURL = document.getElementById(id).contentWindow.location.href
           if (iframeURL.includes('/loading')) {
               document.getElementById('url-bar').value = ''
           }
@@ -46,6 +47,9 @@ var el = document.querySelector('.chrome-tabs')
                 case 'Aero':
                     iframeURL = iframeURL.split('/go/').slice(1).join('/go/')
                     break;
+                case 'Rammerhead':
+                    iframeURL = ''
+                    break;
                 default:
                     iframeURL = iframeURL
             }
@@ -59,6 +63,7 @@ var el = document.querySelector('.chrome-tabs')
       }
       let tabContents = []
         function init() {
+            localStorage.setItem('gamesBypass', 'false')
             if (localStorage.getItem('savedTabs') === 'true') {
                 chromeTabs.removeTab(chromeTabs.activeTabEl);
                 if (localStorage.getItem('savedTabsLength') === '0') {
@@ -103,9 +108,7 @@ var el = document.querySelector('.chrome-tabs')
           document.getElementById('tabContents').appendChild(iframe)
           browserInit(detail.tabEl, iframeid);
           iframe.addEventListener('load', function () {
-              document.getElementById(iframeid).contentWindow.document.getElementById('uv-iframe').addEventListener('load', function () {
-                  window.parent.updateURL(iframeid)
-              })
+                updateURL(iframeid)
           })
       })
       function saveTabs() {
@@ -142,7 +145,7 @@ var el = document.querySelector('.chrome-tabs')
         let URLBAR = document.getElementById('url-bar')
         let iframeSRC;
         try {
-            iframeSRC = document.getElementById(id).contentWindow.document.getElementById('uv-iframe').contentWindow.location.href
+            iframeSRC = document.getElementById(id).contentWindow.location.href
         }
         catch (err) {
             console.log('No content to load ignoring')
@@ -162,6 +165,9 @@ var el = document.querySelector('.chrome-tabs')
             case 'Aero':
                 iframeSRC = iframeSRC.split('/go/').slice(1).join('/go/')
                 break;
+            case 'Rammerhead':
+                iframeSRC = ''
+                break;
             default:
                 iframeSRC = iframeSRC
         }
@@ -173,8 +179,11 @@ var el = document.querySelector('.chrome-tabs')
         }
       }
       function browserSearch(value) {
-              document.getElementById(currentTab).contentWindow.document.getElementById('uv-address').value = value
-              document.getElementById(currentTab).contentWindow.document.getElementById('uv-form').dispatchEvent(new Event('submit'))
+              document.getElementById(currentTab).contentWindow.location.href = '/tabbedSearch'
+              document.getElementById(currentTab).addEventListener('load', function () {
+                document.getElementById(currentTab).contentWindow.document.getElementById('uv-address').value = value
+                document.getElementById(currentTab).contentWindow.document.getElementById('uv-form').dispatchEvent(new Event('submit'))
+              })
       }
       function decode(str) {
         if (str.charAt(str.length - 1) == "/") str = str.slice(0, -1);
@@ -256,7 +265,7 @@ var el = document.querySelector('.chrome-tabs')
 
       function popOut() {
           try {
-                let SRC = document.getElementById(currentTab).contentWindow.document.getElementById('uv-iframe').contentWindow.location.href
+                let SRC = document.getElementById(currentTab).contentWindow.location.href
                 if (SRC.includes('/loading')) {
                     throw ('LOL')
                 }
@@ -272,14 +281,80 @@ var el = document.querySelector('.chrome-tabs')
           console.log('To be implemented')
       }
       function Refresh() {
-          document.getElementById(currentTab).contentWindow.refreshIframe()
+          document.getElementById(currentTab).contentWindow.location.reload()
       }
       function Forward() {
-          document.getElementById(currentTab).contentWindow.forwardIframe()
+          document.getElementById(currentTab).contentWindow.history.forward()
       }
       function Backward() {
-          document.getElementById(currentTab).contentWindow.backIframe()
+          document.getElementById(currentTab).contentWindow.history.back()
       }
+    navToggle.addEventListener('mouseover', function () {
+        let fullscreenBehavior = localStorage.getItem('fullscreenBehavior');
+        if (fullscreenBehavior === 'true') {
+            fullScreenIframe(false);
+        } else if (fullscreenBehavior === 'false') {
+            fullScreenIframe(false, 'content');
+        }
+    });
+    function fullScreenIframe(value, fullscreenBehavior) {
+        if (fullscreenBehavior === 'content') {
+            if (value === true) {
+                let iframe = document.getElementById('uv-iframe');
+                iframe.requestFullscreen();
+                navToggle.classList.remove('dnone');
+            } else if (value === false) {
+                document.exitFullscreen();
+                navToggle.classList.add('dnone');
+            }
+        } else {
+            if (value === true) {
+                let iframe = document.getElementById(currentTab);
+                document.getElementById('hamburger').classList.add('dnone')
+                navToggle.classList.remove('dnone');
+                //set to position absolute
+                iframe.style.position = 'absolute';
+                //set to top left corner
+                iframe.style.top = '0';
+                iframe.style.left = '0';
+                //set to full width and height
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                //set z-index to 9999
+                iframe.style.zIndex = '9998';
+                //add a transition
+                iframe.style.transition = 'all 0.5s ease-in-out';
+            } else if (value === false) {
+                let iframe = document.getElementById(currentTab);
+                document.getElementById('hamburger').classList.remove('dnone')
+                navToggle.classList.add('dnone');
+                //set styles to height: calc(100% - 4rem);width: 100%;border: none;position: fixed;top: 4rem;right: 0;left: 0;bottom: 0;border: none; background: var(--bg-color);
+                iframe.style.height = 'calc(100% - 86px)';
+                iframe.style.width = '100%';
+                iframe.style.border = 'none';
+                iframe.style.position = 'fixed';
+                iframe.style.top = '86px';
+                iframe.style.right = '0';
+                iframe.style.left = '0';
+                iframe.style.bottom = '0';
+                iframe.style.border = 'none';
+                iframe.style.background = 'var(--bg-color)';
+                iframe.style.transition = 'all 0.5s ease-in-out';
+                iframe.style.zIndex = '9999';
+            }
+        }
+    }
+    function fullscreenIframe() {
+        let fullscreenBehavior = localStorage.getItem('fullscreenBehavior');
+        if (fullscreenBehavior === 'true') {
+            fullScreenIframe(true);
+        } else if (fullscreenBehavior === 'false') {
+            fullScreenIframe(true, 'content');
+        } else {
+            localStorage.setItem('fullscreenBehavior', 'true');
+            fullScreenIframe(true);
+        }
+    }
 
     init();
     initApps();

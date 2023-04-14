@@ -51,10 +51,11 @@ import Head from '../layouts/allpages.astro';
             </div> 
             <div class="right-control">
                 <i class="fa-solid fa-copy hover:brightness-100" onclick="popOut()"></i>
-                <i class="fa-solid fa-expand hover:brightness-100" onclick="fullScreen()"></i>
+                <i class="fa-solid fa-expand hover:brightness-100" onclick="fullscreenIframe()"></i>
             </div>  
         </div>
         <div id="tabContents"></div>
+        <div id="navToggle" class="dnone"></div>
     <script src="/chrome-tabs/draggabilly.pkgd.min.js" is:inline></script>
     <script src="/chrome-tabs/chrome-tabs.js" is:inline></script>
     <script src="/chrome-tabs/tabbedLogic.js" is:inline></script>
@@ -158,6 +159,14 @@ import Head from '../layouts/allpages.astro';
     }
     #add-tab:hover {
         filter: drop-shadow(0px 0px 12px var(--text-color));
+    }
+    #navToggle {
+        background: transparent;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 0.2rem;
+        z-index: 999999;
     }
 
     </style>

@@ -66,10 +66,10 @@
     send "^0.18.0"
     server-destroy "^1.0.1"
 
-"@astrojs/partytown@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/partytown/-/partytown-1.1.1.tgz#2e9a1a918c5785f94bcb809a7f689df399e34d8b"
-  integrity sha512-IaKzYieiuxnSRGSuAivV92kDTa0ENbei4Y0yEAowhyzV6MxJJImYEUKycSo/HUJwPQQmsPmBbp/IA4pyoL1Wxg==
+"@astrojs/partytown@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/partytown/-/partytown-1.2.0.tgz#736437b046e4fd6dec39993d9c5e235329f1af0f"
+  integrity sha512-AjrroKpBJR4rs0CLlmLqZ82Dfa3fFvN9mQZ3cfOXQYo85Rc/85R01MZiS1S1G5IzqWi2TDWIMH6R1cm12aGKDg==
   dependencies:
     "@builder.io/partytown" "^0.7.4"
     mrmime "^1.0.0"
@@ -511,12 +511,17 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-6.3.0.tgz#51f734e64511dbc3674cd347044d02f4dd26e86b"
   integrity sha512-4BC1NMoacEBzSXRwKjZ/X/gmnbp/HU5Qqat7E8xqorUtBFZS+bwfGH5/wqOC2K6GV0rgEobp3OjGRMa5fK9pFg==
 
-"@fortawesome/fontawesome-svg-core@^6.2.1":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-6.3.0.tgz#b6a17d48d231ac1fad93e43fca7271676bf316cf"
-  integrity sha512-uz9YifyKlixV6AcKlOX8WNdtF7l6nakGyLYxYaCa823bEBqyj/U2ssqtctO38itNEwXb8/lMzjdoJ+aaJuOdrw==
+"@fortawesome/fontawesome-common-types@6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-6.4.0.tgz#88da2b70d6ca18aaa6ed3687832e11f39e80624b"
+  integrity sha512-HNii132xfomg5QVZw0HwXXpN22s7VBHQBv9CeOu9tfJnhsWQNd2lmTNi8CSrnw5B+5YOmzu1UoPAyxaXsJ6RgQ==
+
+"@fortawesome/fontawesome-svg-core@^6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-6.4.0.tgz#3727552eff9179506e9203d72feb5b1063c11a21"
+  integrity sha512-Bertv8xOiVELz5raB2FlXDPKt+m94MQ3JgDfsVbrqNpLU9+UE2E18GKjLKw+d3XbeYPqg1pzyQKGsrzbw+pPaw==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "6.3.0"
+    "@fortawesome/fontawesome-common-types" "6.4.0"
 
 "@fortawesome/free-brands-svg-icons@^6.2.1":
   version "6.3.0"
@@ -525,12 +530,12 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.3.0"
 
-"@fortawesome/free-solid-svg-icons@^6.2.1":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-6.3.0.tgz#d3bd33ae18bb15fdfc3ca136e2fea05f32768a65"
-  integrity sha512-x5tMwzF2lTH8pyv8yeZRodItP2IVlzzmBuD1M7BjawWgg9XAvktqJJ91Qjgoaf8qJpHQ8FEU9VxRfOkLhh86QA==
+"@fortawesome/free-solid-svg-icons@^6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-6.4.0.tgz#48c0e790847fa56299e2f26b82b39663b8ad7119"
+  integrity sha512-kutPeRGWm8V5dltFP1zGjQOEAzaLZj4StdQhWVZnfGFCvAPVvHh8qk5bRrU4KXnRRRNni5tKQI9PBAdI6MP8nQ==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "6.3.0"
+    "@fortawesome/fontawesome-common-types" "6.4.0"
 
 "@fortawesome/react-fontawesome@^0.2.0":
   version "0.2.0"
@@ -852,10 +857,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18.0.32":
-  version "18.0.32"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.32.tgz#5e88b2af6833251d54ec7fe86d393224499f41d5"
-  integrity sha512-gYGXdtPQ9Cj0w2Fwqg5/ak6BcK3Z15YgjSqtyDizWUfx7mQ8drs0NBUzRRsAdoFVTO8kJ8L2TL8Skm7OFPnLUw==
+"@types/react@*", "@types/react@^18.0.33":
+  version "18.0.33"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.33.tgz#a1575160cb4376787c2f5fe0312302f824baa61e"
+  integrity sha512-sHxzVxeanvQyQ1lr8NSHaj0kDzcNiGpILEVt69g9S31/7PfMvNCKLKcsHw4lYKjs3cGNJjXSP4mYzX43QlnjNA==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -1953,10 +1958,10 @@ fraction.js@^4.2.0:
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.2.0.tgz#448e5109a313a3527f5a3ab2119ec4cf0e0e2950"
   integrity sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==
 
-framer-motion@^10.9.1:
-  version "10.9.1"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-10.9.1.tgz#623dc7e21e94cac60836e82fe3d5ef748390ca88"
-  integrity sha512-fuCDRGKOu5n9gN2/R7O22mE+BHMGK5D57S3Oq8n2ITd4aYR7D22QM5I4VPD3CWahNt/lyDUs20u9Aw+6ah9oAQ==
+framer-motion@^10.11.2:
+  version "10.11.2"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-10.11.2.tgz#0c423acbc3be232b364365b84cf3fd8a519c1044"
+  integrity sha512-IrwuC9regNOU99JoM/Z62CAMA3awGV6AcF7e3bcgXk/ZoNlGSt5aVq0J7UAwtLmCkwVlRvBkiMnvv2mZ1GW2pg==
   dependencies:
     tslib "^2.4.0"
   optionalDependencies:

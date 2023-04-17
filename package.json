@@ -41,7 +41,7 @@
         "htpasswd": "^2.4.6",
         "http-auth": "^4.2.0",
         "path-to-regexp": "^6.2.1",
-        "postcss": "^8.4.21",
+        "postcss": "^8.4.22",
         "prettier": "^2.8.7",
         "rammerhead": "https://github.com/Ruby-Network/rammerhead/releases/download/version/rammerhead.tgz",
         "react": "^18.0.0",

@@ -1,8 +1,8 @@
 {
     "name": "ruby",
     "type": "module",
-    "version": "0.0.1",
-    "private": true,
+    "version": "1.0.4",
+    "private": false,
     "scripts": {
         "dev": "astro dev",
         "build": "astro build",
@@ -43,7 +43,7 @@
         "path-to-regexp": "^6.2.1",
         "postcss": "^8.4.23",
         "prettier": "^2.8.7",
-        "rammerhead": "https://github.com/Ruby-Network/rammerhead/releases/download/version/rammerhead.tgz",
+        "rammerhead": "https://github.com/Ruby-Network/rammerhead/releases/download/v1/rammerhead-2.tgz",
         "react": "^18.0.0",
         "react-dom": "^18.0.0",
         "tailwindcss": "^3.0.24",

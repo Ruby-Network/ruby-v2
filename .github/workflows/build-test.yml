@@ -1,0 +1,15 @@
+#the point of this file is to minimize errors when deploying
+name: Build Test
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Test the build (and run)
+        run: |
+          'npm i && npm run build'

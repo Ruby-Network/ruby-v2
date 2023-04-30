@@ -153,7 +153,8 @@ if (numCPUs > 0 && cluster.isPrimary) {
             url.pathname.includes('/uv') ||
             url.pathname.includes('/aero') ||
             url.pathname.includes('/osana') ||
-            url.pathname.includes('/dip')
+            url.pathname.includes('/dip') ||
+            url.pathname.includes('/rh')
         ) {
             return res.end(educationWebsite);
         } else {

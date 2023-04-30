@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+      - name: Install Node and npm
+        run: |
+          'sudo apt update && sudo apt install node && sudo apt install npm'
       - name: Test the build (and run)
         run: |
           'npm i && npm run build'

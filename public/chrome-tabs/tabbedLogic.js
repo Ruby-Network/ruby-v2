@@ -1,7 +1,7 @@
 let navToggle = document.getElementById('navToggle')
 var el = document.querySelector('.chrome-tabs')
       var chromeTabs = new ChromeTabs()
-      let id = 0;
+      let id = 1;
       let currentTab;
       let urlTab = '/tabbedSearch'
       chromeTabs.init(el)
@@ -66,10 +66,13 @@ var el = document.querySelector('.chrome-tabs')
             localStorage.setItem('gamesBypass', 'false')
             if (localStorage.getItem('savedTabs') === 'true') {
                 chromeTabs.removeTab(chromeTabs.activeTabEl);
+                if (JSON.parse(localStorage.getItem('savedTabsUrls'))[0].id != 0) {
+                      savedTabsUrls.unshift({id: 0, url: "about:blank"});
+                }
                 if (localStorage.getItem('savedTabsLength') === '0') {
                     chromeTabs.addTab()
                 }
-                for (i = 0; i < parseInt(localStorage.getItem('savedTabsLength')); i++) {
+                for (i = 1; i < parseInt(localStorage.getItem('savedTabsLength'))+1; i++) {
                     //urlTab =
                     let ALLURLS = JSON.parse(localStorage.getItem('savedTabsUrls'))
                     urlTab = ALLURLS[i].url
@@ -108,12 +111,15 @@ var el = document.querySelector('.chrome-tabs')
           document.getElementById('tabContents').appendChild(iframe)
           browserInit(detail.tabEl, iframeid);
           iframe.addEventListener('load', function () {
-                updateURL(iframeid)
+              document.getElementById(iframeid).contentWindow.document.getElementById('uv-iframe').addEventListener('load', function () {
+                  window.parent.updateURL(iframeid)
+              })
           })
       })
       function saveTabs() {
           let allTabUrls = [];
-          for (i = 0; i < tabContents.length; i++) {
+          allTabUrls.push({id: 0, url: "about:blank"})
+          for (i = 1; i < tabContents.length+1; i++) {
               try {
                     let original;
                     original = document.getElementById(i).contentWindow.document.getElementById('uv-iframe').src
@@ -136,7 +142,7 @@ var el = document.querySelector('.chrome-tabs')
           //event.returnValue = 'Are you sure you want to leave? Any changes you have made will be lost.'
       //})
       window.onbeforeunload = function() {
-            return 'Do you really want to leave this page?';
+            saveTabs();
         };
       function browserInit(tabEl, id) {
           document.getElementById('url-bar').value = ''
@@ -181,9 +187,9 @@ var el = document.querySelector('.chrome-tabs')
       function browserSearch(value) {
               document.getElementById(currentTab).contentWindow.location.href = '/tabbedSearch'
               document.getElementById(currentTab).addEventListener('load', function () {
-                document.getElementById(currentTab).contentWindow.document.getElementById('uv-address').value = value
-                document.getElementById(currentTab).contentWindow.document.getElementById('uv-form').dispatchEvent(new Event('submit'))
-              })
+              document.getElementById(currentTab).contentWindow.document.getElementById('uv-address').value = value
+              document.getElementById(currentTab).contentWindow.document.getElementById('uv-form').dispatchEvent(new Event('submit'))
+          })
       }
       function decode(str) {
         if (str.charAt(str.length - 1) == "/") str = str.slice(0, -1);
@@ -267,7 +273,7 @@ var el = document.querySelector('.chrome-tabs')
           try {
                 let SRC = document.getElementById(currentTab).contentWindow.location.href
                 if (SRC.includes('/loading')) {
-                    throw ('LOL')
+                    throw ('LOL GET GUD')
                 }
                 else {
                     window.open(SRC)

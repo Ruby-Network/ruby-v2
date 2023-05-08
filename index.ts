@@ -71,8 +71,11 @@ fs.readFile(join(__dirname, 'blocklists/ADS.txt'), (err, data) => {
     const lines = data.toString().split('\n');
     for (let i in lines) blacklisted.push(lines[i]);
 });
+//@ts-ignore
+//we do @ts-ignore because numCPUs is inferred as string | number and breaks
 if (numCPUs > 0 && cluster.isPrimary) {
     console.log(debug(`Primary ${process.pid} is running`));
+    //@ts-ignore
     for (let i = 0; i < numCPUs; i++) {
         cluster.fork().on('online', () => {
             console.log(debug2(`Worker ${i + 1} is online`));
@@ -150,7 +153,8 @@ if (numCPUs > 0 && cluster.isPrimary) {
             url.pathname.includes('/uv') ||
             url.pathname.includes('/aero') ||
             url.pathname.includes('/osana') ||
-            url.pathname.includes('/dip')
+            url.pathname.includes('/dip') ||
+            url.pathname.includes('/rh')
         ) {
             return res.end(educationWebsite);
         } else {

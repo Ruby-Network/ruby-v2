@@ -31,7 +31,7 @@
         "@titaniumnetwork-dev/ultraviolet": "^1.0.11",
         "@tomphttp/bare-server-node": "^1.2.5",
         "astro": "^2.3.0",
-        "astro-robots-txt": "^0.4.1",
+        "astro-robots-txt": "^0.5.0",
         "chalk": "^5.2.0",
         "compression": "^1.7.4",
         "dotenv": "^16.0.3",

@@ -19,7 +19,7 @@
         "node": ">=18"
     },
     "dependencies": {
-        "@astrojs/node": "^5.1.0",
+        "@astrojs/node": "^5.1.1",
         "@astrojs/partytown": "^1.2.0",
         "@astrojs/prefetch": "^0.2.1",
         "@astrojs/react": "^2.1.1",
@@ -31,7 +31,7 @@
         "@titaniumnetwork-dev/ultraviolet": "^1.0.11",
         "@tomphttp/bare-server-node": "^1.2.5",
         "astro": "^2.3.0",
-        "astro-robots-txt": "^0.4.1",
+        "astro-robots-txt": "^0.5.0",
         "chalk": "^5.2.0",
         "compression": "^1.7.4",
         "dotenv": "^16.0.3",
@@ -53,8 +53,8 @@
         "@types/compression": "^1.7.2",
         "@types/express": "^4.17.13",
         "@types/http-auth": "^4.1.1",
-        "@types/node": "^18.15.10",
-        "@types/react": "^18.0.38",
-        "@types/react-dom": "^18.0.6"
+        "@types/node": "^20.1.0",
+        "@types/react": "^18.2.6",
+        "@types/react-dom": "^18.2.4"
     }
 }

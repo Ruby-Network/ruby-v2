@@ -19,7 +19,7 @@
         "node": ">=18"
     },
     "dependencies": {
-        "@astrojs/node": "^5.1.0",
+        "@astrojs/node": "^5.1.1",
         "@astrojs/partytown": "^1.2.0",
         "@astrojs/prefetch": "^0.2.1",
         "@astrojs/react": "^2.1.1",

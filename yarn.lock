@@ -57,10 +57,10 @@
     unist-util-visit "^4.1.0"
     vfile "^5.3.2"
 
-"@astrojs/node@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/node/-/node-5.1.0.tgz#a3a844b8aeb4c9e1b5f6d5706b7231f1945bd626"
-  integrity sha512-O0u++oE8S9vVR0xPW5qqJzPla76UEYF+cZV2EuyVKgQRaXRXVgFsqHRxBICf79tP18fk8STxd6pqel6R1CWEUw==
+"@astrojs/node@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/node/-/node-5.1.1.tgz#d36b90408e957aabcd3ea86c1f7e7d819f7c32c8"
+  integrity sha512-wuuArAOIXSlTCy/82BwT2H1jgrB3ua6grgRTWmXZJ2/BeVwl27KAEuDIKjj6zDeszjLCgWjl/B+c2EkLaJjz5w==
   dependencies:
     "@astrojs/webapi" "^2.1.0"
     send "^0.18.0"

@@ -16,7 +16,7 @@
         "prod": "yarn build && yarn start "
     },
     "engines": {
-        "node": ">=18"
+        "node": ">=18.0.0 <20.0.0"
     },
     "dependencies": {
         "@astrojs/node": "^5.1.1",
